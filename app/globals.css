@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #16213e;
+  background-color: #ffffff;
+}
+
+.container-page {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: #17c3a2;
+  color: #06231d;
+}
+
+.btn-primary:hover {
+  background-color: #14ab8d;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+.btn-outline-dark {
+  background-color: transparent;
+  color: #0b1734;
+  border: 1.5px solid rgba(11, 23, 52, 0.25);
+}
+
+.btn-outline-dark:hover {
+  background-color: rgba(11, 23, 52, 0.06);
+}
+
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
+}
+
+.prose-body p {
+  margin-bottom: 1.1rem;
+  line-height: 1.75;
+  color: #3c4a6b;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #16213e;
+  margin-bottom: 0.35rem;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1.5px solid #e2e6f0;
+  background-color: #f8fafc;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+  color: #16213e;
+  outline: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  border-color: #17c3a2;
+  background-color: #ffffff;
+}
