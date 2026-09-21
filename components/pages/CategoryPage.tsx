@@ -37,16 +37,16 @@ export default function CategoryPage({
                 <Link
                   key={post.slug}
                   href={`/${post.slug}/`}
-                  className="rounded-2xl border border-ink-100 p-6 shadow-sm transition-shadow hover:shadow-card"
+                  className="rounded-md border-2 border-ink-900 bg-white p-6 shadow-sticker-sm transition-transform hover:-translate-y-1"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-hazard-600">
+                  <p className="text-xs font-bold uppercase tracking-wide text-rust-600">
                     {new Date(post.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",
                     })}
                   </p>
-                  <h2 className="mt-2 text-xl font-bold text-ink-900">
+                  <h2 className="mt-2 text-xl font-extrabold text-ink-900">
                     {post.title}
                   </h2>
                   <p className="mt-2 text-sm text-ink-500">{post.excerpt}</p>

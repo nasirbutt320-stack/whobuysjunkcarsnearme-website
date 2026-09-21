@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <section className="section bg-white">
       <Container className="flex flex-col items-center text-center">
-        <span className="text-sm font-bold uppercase tracking-wide text-hazard-600">
+        <span className="text-sm font-bold uppercase tracking-[0.2em] text-rust-600">
           404
         </span>
         <h1 className="mt-2 font-display text-3xl uppercase tracking-wide text-ink-900 sm:text-4xl">

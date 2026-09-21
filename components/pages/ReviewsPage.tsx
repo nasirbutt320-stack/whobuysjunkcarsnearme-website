@@ -42,14 +42,14 @@ export default function ReviewsPage() {
             {promises.map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-ink-100 p-6 shadow-sm"
+                className="rounded-md border-2 border-ink-900 bg-white p-6 shadow-sticker-sm transition-transform hover:-translate-y-1"
               >
                 <div className="flex gap-1 text-hazard-500">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <StarIcon key={i} className="h-4 w-4" />
                   ))}
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-ink-900">
+                <h3 className="mt-4 font-display text-lg uppercase tracking-wide text-ink-900">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-500">
@@ -59,10 +59,10 @@ export default function ReviewsPage() {
             ))}
           </div>
 
-          <div className="mt-12 rounded-2xl bg-paper-100 p-8 text-center">
+          <div className="mt-12 rounded-md border-2 border-ink-900 bg-paper-100 p-8 text-center">
             <p className="text-ink-600">
               Sold a car to us recently?{" "}
-              <a href="/contact-us/" className="font-semibold text-hazard-600">
+              <a href="/contact-us/" className="font-semibold text-rust-600">
                 Tell us how it went
               </a>{" "}
               — your review could be the first one on this page.

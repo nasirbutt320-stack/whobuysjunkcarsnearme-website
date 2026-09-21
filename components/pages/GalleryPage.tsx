@@ -36,13 +36,13 @@ export default function GalleryPage() {
             {recentPickups.map((item) => (
               <div
                 key={item.label}
-                className="overflow-hidden rounded-2xl border border-ink-100 shadow-sm"
+                className="overflow-hidden rounded-md border-2 border-ink-900 shadow-sticker-sm transition-transform hover:-translate-y-1"
               >
-                <div className="flex h-40 items-center justify-center bg-ink-50">
+                <div className="flex h-40 items-center justify-center border-b-2 border-ink-900 bg-hazard-50">
                   <CarIcon className="h-16 w-16 text-ink-300" />
                 </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-ink-900">{item.label}</h3>
+                <div className="bg-white p-5">
+                  <h3 className="font-display text-lg uppercase tracking-wide text-ink-900">{item.label}</h3>
                   <p className="mt-1 text-sm text-ink-500">{item.note}</p>
                 </div>
               </div>
@@ -50,7 +50,7 @@ export default function GalleryPage() {
           </div>
           <p className="mt-8 text-center text-sm text-ink-400">
             Sold us a car recently? We&apos;d love to feature it here —{" "}
-            <a href="/contact-us/" className="font-semibold text-hazard-600">
+            <a href="/contact-us/" className="font-semibold text-rust-600">
               get in touch
             </a>
             .

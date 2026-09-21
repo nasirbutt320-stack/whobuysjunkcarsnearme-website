@@ -53,8 +53,8 @@ export default function ContactUsPage() {
             </div>
           </div>
 
-          <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 className="font-bold text-white">Have Your Details Ready</h3>
+          <div className="mt-10 rounded-md border-2 border-hazard-400/50 bg-white/5 p-6">
+            <h3 className="font-display text-lg uppercase tracking-wide text-hazard-400">Have Your Details Ready</h3>
             <ul className="mt-4 space-y-3">
               {checklist.map((item) => (
                 <li key={item.text} className="flex items-center gap-3 text-sm text-ink-200">

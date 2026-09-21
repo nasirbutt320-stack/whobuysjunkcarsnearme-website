@@ -25,7 +25,7 @@ export default function VideoLandingPage({ variant }: { variant: 1 | 2 }) {
 
       <section className="section bg-paper-100">
         <Container className="max-w-3xl text-center">
-          <span className="text-sm font-bold uppercase tracking-wide text-hazard-600">
+          <span className="text-sm font-bold uppercase tracking-[0.2em] text-rust-600">
             See it in action
           </span>
           <h2 className="mt-2 font-display text-2xl uppercase tracking-wide text-ink-900 sm:text-3xl">
@@ -39,16 +39,17 @@ export default function VideoLandingPage({ variant }: { variant: 1 | 2 }) {
 
           <button
             type="button"
-            className="group relative mt-8 flex aspect-video w-full items-center justify-center overflow-hidden rounded-2xl bg-ink-900 shadow-card"
+            className="group relative mt-8 flex aspect-video w-full items-center justify-center overflow-hidden rounded-md border-2 border-ink-900 bg-ink-900 shadow-sticker"
             aria-label="Play walkthrough video"
           >
             <span className="absolute inset-0 bg-gradient-to-br from-ink-800 to-ink-950" />
-            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-hazard-500 text-ink-950 transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
+            <span className="grain-overlay" aria-hidden="true" />
+            <span className="relative flex h-16 w-16 items-center justify-center rounded-full border-2 border-ink-900 bg-hazard-400 text-ink-900 transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
               <svg viewBox="0 0 24 24" fill="currentColor" className="ml-1 h-7 w-7 sm:h-9 sm:w-9">
                 <path d="M8 5v14l11-7z" />
               </svg>
             </span>
-            <span className="absolute bottom-4 left-4 rounded-full bg-black/40 px-3 py-1 text-xs font-semibold text-white">
+            <span className="absolute bottom-4 left-4 rounded border-2 border-hazard-400 bg-ink-900 px-3 py-1 text-xs font-bold uppercase tracking-wide text-hazard-400">
               {variant === 1 ? "Customer walkthrough · 1:42" : "Behind the pickup · 2:05"}
             </span>
           </button>

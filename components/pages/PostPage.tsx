@@ -37,10 +37,10 @@ export default function PostPage({ post }: { post: PostEntry }) {
             ))}
           </div>
 
-          <div className="mt-12 rounded-2xl border border-ink-100 bg-paper-100 p-6">
+          <div className="mt-12 rounded-md border-2 border-ink-900 bg-paper-100 p-6 shadow-sticker-sm">
             <p className="text-sm text-ink-500">
               Ready to sell your own vehicle?{" "}
-              <Link href="/get-quote/" className="font-semibold text-hazard-600">
+              <Link href="/get-quote/" className="font-semibold text-rust-600">
                 Get a free cash offer
               </Link>{" "}
               in minutes.

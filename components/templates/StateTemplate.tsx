@@ -64,9 +64,9 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
                 <Link
                   key={city.slug}
                   href={`/${city.slug}/`}
-                  className="flex items-center gap-2 rounded-xl border border-ink-100 bg-white px-4 py-3 text-sm font-semibold text-ink-800 hover:border-hazard-400 hover:text-hazard-600"
+                  className="flex items-center gap-2 rounded-md border-2 border-ink-900 bg-white px-4 py-3 text-sm font-bold text-ink-800 shadow-sticker-sm transition-all hover:-translate-y-0.5 hover:bg-hazard-50"
                 >
-                  <MapPinIcon className="h-4 w-4 text-hazard-500" />
+                  <MapPinIcon className="h-4 w-4 text-rust-600" />
                   {city.name}
                 </Link>
               ))}
