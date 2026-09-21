@@ -4,7 +4,7 @@ import { PhoneIcon } from "./icons";
 
 export default function MobileCallBar() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t-2 border-ink-900 bg-paper p-3 lg:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-navy-100 bg-white p-3 shadow-[0_-8px_20px_-12px_rgba(11,23,52,0.25)] lg:hidden">
       <a href={site.phoneHref} className="btn btn-outline-dark flex-1">
         <PhoneIcon className="h-4 w-4" />
         Call now

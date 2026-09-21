@@ -12,15 +12,15 @@ export default function CategoryPage({
 }) {
   return (
     <>
-      <section className="bg-ink-900 py-14 md:py-20">
+      <section className="bg-navy-900 py-14 md:py-20">
         <Container>
-          <span className="text-sm font-bold uppercase tracking-wide text-hazard-400">
+          <span className="text-sm font-bold uppercase tracking-wide text-teal-400">
             Category
           </span>
-          <h1 className="mt-2 font-display text-3xl uppercase tracking-wide capitalize text-white sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-extrabold capitalize text-white sm:text-4xl">
             {category}
           </h1>
-          <p className="mt-3 max-w-xl text-ink-300">
+          <p className="mt-3 max-w-xl text-navy-300">
             Articles and updates on selling junk, old, and unwanted vehicles for
             cash.
           </p>
@@ -30,26 +30,26 @@ export default function CategoryPage({
       <section className="section bg-white">
         <Container>
           {posts.length === 0 ? (
-            <p className="text-ink-500">No posts in this category yet.</p>
+            <p className="text-navy-500">No posts in this category yet.</p>
           ) : (
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {posts.map((post) => (
                 <Link
                   key={post.slug}
                   href={`/${post.slug}/`}
-                  className="rounded-md border-2 border-ink-900 bg-white p-6 shadow-sticker-sm transition-transform hover:-translate-y-1"
+                  className="rounded-2xl border border-navy-100 p-6 shadow-sm transition-shadow hover:shadow-card"
                 >
-                  <p className="text-xs font-bold uppercase tracking-wide text-rust-600">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-teal-600">
                     {new Date(post.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",
                     })}
                   </p>
-                  <h2 className="mt-2 text-xl font-extrabold text-ink-900">
+                  <h2 className="mt-2 text-xl font-bold text-navy-900">
                     {post.title}
                   </h2>
-                  <p className="mt-2 text-sm text-ink-500">{post.excerpt}</p>
+                  <p className="mt-2 text-sm text-navy-500">{post.excerpt}</p>
                 </Link>
               ))}
             </div>

@@ -29,17 +29,17 @@ export default function GetQuoteForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-md border-2 border-ink-900 bg-white p-8 text-center shadow-sticker">
-        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-ink-900 bg-hazard-400 text-ink-900">
+      <div className="rounded-2xl bg-white p-8 text-center shadow-card">
+        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-teal-100 text-teal-600">
           <CheckIcon className="h-9 w-9" />
         </span>
-        <h3 className="mt-5 font-display text-3xl uppercase tracking-wide text-ink-900">
+        <h3 className="mt-5 text-2xl font-bold text-navy-900">
           Your quote request is in!
         </h3>
-        <p className="mx-auto mt-2 max-w-md text-ink-500">
+        <p className="mx-auto mt-2 max-w-md text-navy-500">
           We'll review your vehicle details and call you shortly with a cash
           offer. If you'd rather talk now, call us at{" "}
-          <a href={site.phoneHref} className="font-semibold text-rust-600">
+          <a href={site.phoneHref} className="font-semibold text-teal-600">
             {site.phone}
           </a>
           .
@@ -56,17 +56,17 @@ export default function GetQuoteForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-md border-2 border-ink-900 bg-white p-6 shadow-sticker sm:p-8">
+    <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl bg-white p-6 shadow-card sm:p-8">
       <div className="form-field">
         <label htmlFor="gq-name">
-          Name <span className="text-rust-600">*</span>
+          Name <span className="text-teal-600">*</span>
         </label>
         <input id="gq-name" name={LEAD_FIELDS.name} type="text" placeholder="Name" required />
       </div>
 
       <div className="form-field">
         <label htmlFor="gq-email">
-          Email <span className="text-rust-600">*</span>
+          Email <span className="text-teal-600">*</span>
         </label>
         <input id="gq-email" name={LEAD_FIELDS.email} type="email" placeholder="Email" required />
       </div>
@@ -74,13 +74,13 @@ export default function GetQuoteForm() {
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="form-field">
           <label htmlFor="gq-phone">
-            Phone <span className="text-rust-600">*</span>
+            Phone <span className="text-teal-600">*</span>
           </label>
           <input id="gq-phone" name={LEAD_FIELDS.phone} type="tel" placeholder="Phone" required />
         </div>
         <div className="form-field">
           <label htmlFor="gq-zip">
-            Zip Code <span className="text-rust-600">*</span>
+            Zip Code <span className="text-teal-600">*</span>
           </label>
           <input id="gq-zip" name={LEAD_FIELDS.zip} type="text" placeholder="Zip Code" required />
         </div>
@@ -89,13 +89,13 @@ export default function GetQuoteForm() {
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="form-field">
           <label htmlFor="gq-title">
-            Do you have a title? <span className="text-rust-600">*</span>
+            Do you have a title? <span className="text-teal-600">*</span>
           </label>
           <input id="gq-title" name={LEAD_FIELDS.hasTitle} type="text" placeholder="Yes / No" required />
         </div>
         <div className="form-field">
           <label htmlFor="gq-runs">
-            Does it run and drive? <span className="text-rust-600">*</span>
+            Does it run and drive? <span className="text-teal-600">*</span>
           </label>
           <input id="gq-runs" name={LEAD_FIELDS.runsAndDrives} type="text" placeholder="Yes / No" required />
         </div>
@@ -103,7 +103,7 @@ export default function GetQuoteForm() {
 
       <div className="form-field">
         <label htmlFor="gq-vehicle">
-          What is Make, Model and trim, and Year? <span className="text-rust-600">*</span>
+          What is Make, Model and trim, and Year? <span className="text-teal-600">*</span>
         </label>
         <textarea
           id="gq-vehicle"
@@ -114,10 +114,10 @@ export default function GetQuoteForm() {
         />
       </div>
 
-      {error && <p className="text-sm font-medium text-rust-600">{error}</p>}
+      {error && <p className="text-sm font-medium text-red-600">{error}</p>}
 
       <button type="submit" className="btn btn-primary w-full">
-        Get Offer
+        Submit
       </button>
     </form>
   );

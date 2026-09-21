@@ -34,32 +34,32 @@ export default function ProcessSteps({
   subtitle?: string;
 }) {
   return (
-    <section className="section bg-paper">
+    <section className="section bg-white">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-bold uppercase tracking-[0.2em] text-rust-600">
+          <span className="text-sm font-bold uppercase tracking-wide text-teal-600">
             {eyebrow}
           </span>
-          <h2 className="mt-3 font-display text-3xl uppercase tracking-wide text-ink-900 sm:text-4xl">
+          <h2 className="mt-2 text-2xl font-extrabold text-navy-900 sm:text-3xl">
             {title}
           </h2>
-          <p className="mt-3 text-ink-500">{subtitle}</p>
+          <p className="mt-3 text-navy-500">{subtitle}</p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
             <div
               key={step.title}
-              className="relative rounded-md border-2 border-ink-900 bg-white p-6 pt-8 shadow-sticker transition-transform hover:-translate-y-1"
+              className="relative rounded-2xl border border-navy-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-card"
             >
-              <span className="absolute -top-5 left-5 flex h-10 w-10 items-center justify-center rounded-full border-2 border-ink-900 bg-hazard-400 font-display text-lg text-ink-900">
+              <span className="absolute -top-3 -left-3 flex h-8 w-8 items-center justify-center rounded-full bg-navy-900 text-sm font-bold text-white">
                 {index + 1}
               </span>
-              <span className="flex h-12 w-12 items-center justify-center rounded-md bg-ink-900 text-hazard-400">
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600">
                 <step.icon className="h-6 w-6" />
               </span>
-              <h3 className="mt-4 text-lg font-extrabold text-ink-900">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-500">{step.body}</p>
+              <h3 className="mt-4 text-lg font-bold text-navy-900">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-navy-500">{step.body}</p>
             </div>
           ))}
         </div>

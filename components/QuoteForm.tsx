@@ -35,15 +35,15 @@ export default function QuoteForm({
 
   if (submitted) {
     return (
-      <div className="rounded-md border-2 border-ink-900 bg-white p-6 text-center shadow-sticker sm:p-8">
-        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border-2 border-ink-900 bg-hazard-400 text-ink-900">
+      <div className="rounded-2xl bg-white p-6 text-center shadow-card sm:p-8">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-teal-100 text-teal-600">
           <CheckIcon className="h-8 w-8" />
         </span>
-        <h3 className="mt-4 font-display text-2xl uppercase tracking-wide text-ink-900">Thanks — we got it!</h3>
-        <p className="mt-2 text-sm text-ink-500">
+        <h3 className="mt-4 text-xl font-bold text-navy-900">Thanks — we got it!</h3>
+        <p className="mt-2 text-sm text-navy-500">
           A member of our team will call you shortly with your cash offer. Need it
           faster? Call us now at{" "}
-          <a href={site.phoneHref} className="font-semibold text-rust-600">
+          <a href={site.phoneHref} className="font-semibold text-teal-600">
             {site.phone}
           </a>
           .
@@ -60,9 +60,9 @@ export default function QuoteForm({
   }
 
   return (
-    <div className="rounded-md border-2 border-ink-900 bg-white p-6 shadow-sticker sm:p-8">
-      <h3 className="font-display text-2xl uppercase tracking-wide text-ink-900">{title}</h3>
-      {subtitle && <p className="mt-1.5 text-sm text-ink-500">{subtitle}</p>}
+    <div className="rounded-2xl bg-white p-6 shadow-card sm:p-8">
+      <h3 className="text-xl font-bold text-navy-900">{title}</h3>
+      {subtitle && <p className="mt-1.5 text-sm text-navy-500">{subtitle}</p>}
       <form onSubmit={handleSubmit} className="mt-5 space-y-4">
         <div className="form-field">
           <label htmlFor="qf-name">Name</label>
@@ -98,11 +98,11 @@ export default function QuoteForm({
             required
           />
         </div>
-        {error && <p className="text-sm font-medium text-rust-600">{error}</p>}
+        {error && <p className="text-sm font-medium text-red-600">{error}</p>}
         <button type="submit" className="btn btn-primary w-full">
           Get my cash offer
         </button>
-        <p className="text-center text-xs text-ink-400">
+        <p className="text-center text-xs text-navy-400">
           No spam. No obligation. Just a fair cash offer.
         </p>
       </form>

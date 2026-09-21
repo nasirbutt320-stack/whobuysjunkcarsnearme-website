@@ -19,14 +19,14 @@ export default function LegalPage({
   return (
     <section className="section bg-white">
       <Container className="max-w-3xl">
-        <h1 className="font-display text-3xl uppercase tracking-wide text-ink-900 sm:text-4xl">{title}</h1>
-        <p className="mt-2 text-sm text-ink-400">Last updated: {updated}</p>
+        <h1 className="text-3xl font-extrabold text-navy-900 sm:text-4xl">{title}</h1>
+        <p className="mt-2 text-sm text-navy-400">Last updated: {updated}</p>
         <p className="prose-body mt-6">{intro}</p>
 
         <div className="mt-4 space-y-8">
           {sections.map((section) => (
             <div key={section.heading}>
-              <h2 className="text-xl font-bold text-ink-900">{section.heading}</h2>
+              <h2 className="text-xl font-bold text-navy-900">{section.heading}</h2>
               <div className="prose-body mt-3">
                 {section.body.map((p, i) => (
                   <p key={i}>{p}</p>
