@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import { CheckIcon } from "./icons";
 import { site } from "@/lib/site";
-import { LEAD_FIELDS, LEAD_REQUIRED_FIELDS } from "@/lib/leadForm";
+import { LEAD_FIELDS, LEAD_REQUIRED_FIELDS, submitLeadToGHL } from "@/lib/leadForm";
 
 export default function GetQuoteForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -21,6 +21,16 @@ export default function GetQuoteForm() {
       setError("Please fill in all required fields marked with *.");
       return;
     }
+
+    submitLeadToGHL("Get A Free Quote", {
+      [LEAD_FIELDS.name]: String(data.get(LEAD_FIELDS.name) || ""),
+      [LEAD_FIELDS.email]: String(data.get(LEAD_FIELDS.email) || ""),
+      [LEAD_FIELDS.phone]: String(data.get(LEAD_FIELDS.phone) || ""),
+      [LEAD_FIELDS.zip]: String(data.get(LEAD_FIELDS.zip) || ""),
+      [LEAD_FIELDS.hasTitle]: String(data.get(LEAD_FIELDS.hasTitle) || ""),
+      [LEAD_FIELDS.runsAndDrives]: String(data.get(LEAD_FIELDS.runsAndDrives) || ""),
+      [LEAD_FIELDS.vehicle]: String(data.get(LEAD_FIELDS.vehicle) || ""),
+    });
 
     setError("");
     setSubmitted(true);

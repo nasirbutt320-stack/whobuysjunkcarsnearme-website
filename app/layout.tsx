@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileCallBar from "@/components/MobileCallBar";
 import { site } from "@/lib/site";
+import { GHL_TRACKING_ID } from "@/lib/leadForm";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -23,6 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col font-sans antialiased">
+        <Script
+          src="https://link.cashforcarsflorida.net/js/external-tracking.js"
+          data-tracking-id={GHL_TRACKING_ID}
+          strategy="afterInteractive"
+        />
         <Header />
         <main className="flex-1 pb-16 lg:pb-0">{children}</main>
         <Footer />
