@@ -5,13 +5,13 @@ export default function NotFound() {
   return (
     <section className="section bg-white">
       <Container className="flex flex-col items-center text-center">
-        <span className="text-sm font-bold uppercase tracking-wide text-teal-600">
+        <span className="text-sm font-bold uppercase tracking-wide text-hazard-600">
           404
         </span>
-        <h1 className="mt-2 text-3xl font-extrabold text-navy-900 sm:text-4xl">
+        <h1 className="mt-2 font-display text-3xl uppercase tracking-wide text-ink-900 sm:text-4xl">
           We couldn&apos;t find that page
         </h1>
-        <p className="mt-3 max-w-md text-navy-500">
+        <p className="mt-3 max-w-md text-ink-500">
           The page you&apos;re looking for may have moved. Try heading back home, or
           get a free quote for your vehicle instead.
         </p>

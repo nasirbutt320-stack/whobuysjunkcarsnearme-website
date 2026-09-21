@@ -8,18 +8,18 @@ export default function PostPage({ post }: { post: PostEntry }) {
 
   return (
     <>
-      <section className="bg-navy-900 py-14 md:py-20">
+      <section className="bg-ink-900 py-14 md:py-20">
         <Container className="max-w-3xl">
           <Link
             href={`/category/${post.category}/`}
-            className="text-sm font-semibold uppercase tracking-wide text-teal-400"
+            className="text-sm font-semibold uppercase tracking-wide text-hazard-400"
           >
             {post.category}
           </Link>
-          <h1 className="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
+          <h1 className="mt-3 font-display text-3xl uppercase tracking-wide text-white sm:text-4xl">
             {post.title}
           </h1>
-          <p className="mt-3 text-sm text-navy-300">
+          <p className="mt-3 text-sm text-ink-300">
             {date.toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
@@ -37,10 +37,10 @@ export default function PostPage({ post }: { post: PostEntry }) {
             ))}
           </div>
 
-          <div className="mt-12 rounded-2xl border border-navy-100 bg-navy-50/60 p-6">
-            <p className="text-sm text-navy-500">
+          <div className="mt-12 rounded-2xl border border-ink-100 bg-paper-100 p-6">
+            <p className="text-sm text-ink-500">
               Ready to sell your own vehicle?{" "}
-              <Link href="/get-quote/" className="font-semibold text-teal-600">
+              <Link href="/get-quote/" className="font-semibold text-hazard-600">
                 Get a free cash offer
               </Link>{" "}
               in minutes.

@@ -27,17 +27,17 @@ export default function GetQuoteForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl bg-white p-8 text-center shadow-card">
-        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-teal-100 text-teal-600">
+      <div className="rounded-md border-2 border-ink-900 bg-white p-8 text-center shadow-sticker">
+        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-ink-900 bg-hazard-400 text-ink-900">
           <CheckIcon className="h-9 w-9" />
         </span>
-        <h3 className="mt-5 text-2xl font-bold text-navy-900">
+        <h3 className="mt-5 font-display text-3xl uppercase tracking-wide text-ink-900">
           Your quote request is in!
         </h3>
-        <p className="mx-auto mt-2 max-w-md text-navy-500">
+        <p className="mx-auto mt-2 max-w-md text-ink-500">
           We'll review your vehicle details and call you shortly with a cash
           offer. If you'd rather talk now, call us at{" "}
-          <a href={site.phoneHref} className="font-semibold text-teal-600">
+          <a href={site.phoneHref} className="font-semibold text-rust-600">
             {site.phone}
           </a>
           .
@@ -54,10 +54,10 @@ export default function GetQuoteForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl bg-white p-6 shadow-card sm:p-8">
+    <form onSubmit={handleSubmit} className="space-y-5 rounded-md border-2 border-ink-900 bg-white p-6 shadow-sticker sm:p-8">
       <div>
-        <label className="mb-2 block text-sm font-semibold text-navy-900">
-          Your Name <span className="text-teal-600">*</span>
+        <label className="mb-2 block text-xs font-extrabold uppercase tracking-wide text-ink-900">
+          Your Name <span className="text-rust-600">*</span>
         </label>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div className="form-field">
@@ -71,7 +71,7 @@ export default function GetQuoteForm() {
 
       <div className="form-field">
         <label htmlFor="gq-email">
-          Your Email <span className="text-teal-600">*</span>
+          Your Email <span className="text-rust-600">*</span>
         </label>
         <input id="gq-email" name="email" type="email" placeholder="you@example.com" required />
       </div>
@@ -79,13 +79,13 @@ export default function GetQuoteForm() {
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="form-field">
           <label htmlFor="gq-phone">
-            Phone No <span className="text-teal-600">*</span>
+            Phone No <span className="text-rust-600">*</span>
           </label>
           <input id="gq-phone" name="phone" type="tel" placeholder="(___) ___-____" required />
         </div>
         <div className="form-field">
           <label htmlFor="gq-zip">
-            Zip Code <span className="text-teal-600">*</span>
+            Zip Code <span className="text-rust-600">*</span>
           </label>
           <input id="gq-zip" name="zip" type="text" placeholder="90210" required />
         </div>
@@ -94,7 +94,7 @@ export default function GetQuoteForm() {
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="form-field">
           <label htmlFor="gq-title">
-            Do you have a title? <span className="text-teal-600">*</span>
+            Do you have a title? <span className="text-rust-600">*</span>
           </label>
           <select id="gq-title" name="hasTitle" required defaultValue="">
             <option value="" disabled>
@@ -107,7 +107,7 @@ export default function GetQuoteForm() {
         </div>
         <div className="form-field">
           <label htmlFor="gq-runs">
-            Does it run and drive? <span className="text-teal-600">*</span>
+            Does it run and drive? <span className="text-rust-600">*</span>
           </label>
           <select id="gq-runs" name="runsAndDrives" required defaultValue="">
             <option value="" disabled>
@@ -122,7 +122,7 @@ export default function GetQuoteForm() {
 
       <div className="form-field">
         <label htmlFor="gq-vehicle">
-          What is Make, Model, trim, and Year? <span className="text-teal-600">*</span>
+          What is Make, Model, trim, and Year? <span className="text-rust-600">*</span>
         </label>
         <textarea
           id="gq-vehicle"
@@ -131,10 +131,10 @@ export default function GetQuoteForm() {
           placeholder="e.g. 2011 Honda Civic LX"
           required
         />
-        <p className="mt-1 text-right text-xs text-navy-400">0 of 50 max words.</p>
+        <p className="mt-1 text-right text-xs text-ink-400">0 of 50 max words.</p>
       </div>
 
-      {error && <p className="text-sm font-medium text-red-600">{error}</p>}
+      {error && <p className="text-sm font-medium text-rust-600">{error}</p>}
 
       <button type="submit" className="btn btn-primary w-full">
         Submit

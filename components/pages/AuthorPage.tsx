@@ -13,15 +13,15 @@ export default function AuthorPage({
 }) {
   return (
     <>
-      <section className="bg-navy-900 py-14 md:py-20">
+      <section className="bg-ink-900 py-14 md:py-20">
         <Container>
-          <span className="text-sm font-bold uppercase tracking-wide text-teal-400">
+          <span className="text-sm font-bold uppercase tracking-wide text-hazard-400">
             Author
           </span>
-          <h1 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">
+          <h1 className="mt-2 font-display text-3xl uppercase tracking-wide text-white sm:text-4xl">
             {author.name}
           </h1>
-          <p className="mt-3 max-w-xl text-navy-300">
+          <p className="mt-3 max-w-xl text-ink-300">
             Posts published by {author.name} on selling junk, old, and unwanted
             vehicles for cash.
           </p>
@@ -31,26 +31,26 @@ export default function AuthorPage({
       <section className="section bg-white">
         <Container>
           {posts.length === 0 ? (
-            <p className="text-navy-500">No posts from this author yet.</p>
+            <p className="text-ink-500">No posts from this author yet.</p>
           ) : (
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {posts.map((post) => (
                 <Link
                   key={post.slug}
                   href={`/${post.slug}/`}
-                  className="rounded-2xl border border-navy-100 p-6 shadow-sm transition-shadow hover:shadow-card"
+                  className="rounded-2xl border border-ink-100 p-6 shadow-sm transition-shadow hover:shadow-card"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-teal-600">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-hazard-600">
                     {new Date(post.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",
                     })}
                   </p>
-                  <h2 className="mt-2 text-xl font-bold text-navy-900">
+                  <h2 className="mt-2 text-xl font-bold text-ink-900">
                     {post.title}
                   </h2>
-                  <p className="mt-2 text-sm text-navy-500">{post.excerpt}</p>
+                  <p className="mt-2 text-sm text-ink-500">{post.excerpt}</p>
                 </Link>
               ))}
             </div>

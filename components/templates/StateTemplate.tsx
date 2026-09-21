@@ -49,12 +49,12 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
       />
 
       {cities.length > 0 && (
-        <section className="section bg-navy-50/60">
+        <section className="section bg-paper-100">
           <Container>
-            <h2 className="text-2xl font-extrabold text-navy-900 sm:text-3xl">
+            <h2 className="font-display text-2xl uppercase tracking-wide text-ink-900 sm:text-3xl">
               Cities We Serve in {state.name}
             </h2>
-            <p className="mt-3 max-w-2xl text-navy-500">
+            <p className="mt-3 max-w-2xl text-ink-500">
               We have dedicated local pages for the towns below — pick yours for
               details specific to your area, or just request a quote and we&apos;ll
               take it from there.
@@ -64,9 +64,9 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
                 <Link
                   key={city.slug}
                   href={`/${city.slug}/`}
-                  className="flex items-center gap-2 rounded-xl border border-navy-100 bg-white px-4 py-3 text-sm font-semibold text-navy-800 hover:border-teal-400 hover:text-teal-600"
+                  className="flex items-center gap-2 rounded-xl border border-ink-100 bg-white px-4 py-3 text-sm font-semibold text-ink-800 hover:border-hazard-400 hover:text-hazard-600"
                 >
-                  <MapPinIcon className="h-4 w-4 text-teal-500" />
+                  <MapPinIcon className="h-4 w-4 text-hazard-500" />
                   {city.name}
                 </Link>
               ))}

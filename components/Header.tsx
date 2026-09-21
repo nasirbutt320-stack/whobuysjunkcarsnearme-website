@@ -24,31 +24,28 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-navy-100 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 bg-paper/95 backdrop-blur">
       <Container className="flex h-[76px] items-center justify-between gap-4">
         <Logo />
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-5 xl:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-[0.95rem] font-semibold text-navy-700 transition-colors hover:text-teal-600"
+              className="whitespace-nowrap text-sm font-bold uppercase tracking-wide text-ink-700 transition-colors hover:text-rust-600"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href={site.phoneHref}
-            className="btn btn-outline-dark"
-          >
+        <div className="hidden items-center gap-3 xl:flex">
+          <a href={site.phoneHref} className="btn btn-outline-dark whitespace-nowrap">
             <PhoneIcon className="h-4 w-4" />
             Book call
           </a>
-          <Link href="/get-quote/" className="btn btn-primary">
+          <Link href="/get-quote/" className="btn btn-primary whitespace-nowrap">
             Get quote
           </Link>
         </div>
@@ -58,20 +55,20 @@ export default function Header() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-11 w-11 items-center justify-center rounded-lg border border-navy-100 text-navy-900 lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-md border-2 border-ink-900 text-ink-900 shadow-sticker-sm xl:hidden"
         >
           {open ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
         </button>
       </Container>
 
       {open && (
-        <div className="border-t border-navy-100 bg-white px-5 pb-6 pt-4 lg:hidden">
+        <div className="border-t-2 border-ink-900 bg-paper px-5 pb-6 pt-4 xl:hidden">
           <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-3 py-3 text-base font-semibold text-navy-800 hover:bg-navy-50"
+                className="rounded-md px-3 py-3 text-base font-bold uppercase tracking-wide text-ink-800 hover:bg-ink-900/5"
               >
                 {link.label}
               </Link>
@@ -88,6 +85,7 @@ export default function Header() {
           </div>
         </div>
       )}
+      <div className="hazard-strip" />
     </header>
   );
 }

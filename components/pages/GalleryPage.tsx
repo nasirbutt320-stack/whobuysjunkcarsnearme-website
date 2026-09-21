@@ -36,21 +36,21 @@ export default function GalleryPage() {
             {recentPickups.map((item) => (
               <div
                 key={item.label}
-                className="overflow-hidden rounded-2xl border border-navy-100 shadow-sm"
+                className="overflow-hidden rounded-2xl border border-ink-100 shadow-sm"
               >
-                <div className="flex h-40 items-center justify-center bg-navy-50">
-                  <CarIcon className="h-16 w-16 text-navy-300" />
+                <div className="flex h-40 items-center justify-center bg-ink-50">
+                  <CarIcon className="h-16 w-16 text-ink-300" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-navy-900">{item.label}</h3>
-                  <p className="mt-1 text-sm text-navy-500">{item.note}</p>
+                  <h3 className="font-bold text-ink-900">{item.label}</h3>
+                  <p className="mt-1 text-sm text-ink-500">{item.note}</p>
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-center text-sm text-navy-400">
+          <p className="mt-8 text-center text-sm text-ink-400">
             Sold us a car recently? We&apos;d love to feature it here —{" "}
-            <a href="/contact-us/" className="font-semibold text-teal-600">
+            <a href="/contact-us/" className="font-semibold text-hazard-600">
               get in touch
             </a>
             .
