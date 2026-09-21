@@ -5,6 +5,7 @@ import { states } from "@/lib/data/states";
 import { brands } from "@/lib/data/brands";
 import { staticPages } from "@/lib/data/staticPages";
 import { posts } from "@/lib/data/posts";
+import { authors } from "@/lib/data/authors";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -36,6 +37,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/category/blog/`, lastModified: now, priority: 0.4 },
     { url: `${site.url}/category/uncategorized/`, lastModified: now, priority: 0.3 }
   );
+  for (const author of authors) {
+    entries.push({ url: `${site.url}/author/${author.slug}/`, lastModified: now, priority: 0.3 });
+  }
 
   return entries;
 }
