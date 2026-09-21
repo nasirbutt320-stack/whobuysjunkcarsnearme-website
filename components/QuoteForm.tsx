@@ -3,15 +3,14 @@
 import { FormEvent, useState } from "react";
 import { CheckIcon } from "./icons";
 import { site } from "@/lib/site";
+import { LEAD_FIELDS, LEAD_REQUIRED_FIELDS } from "@/lib/leadForm";
 
 export default function QuoteForm({
   title = "Get A Free Quote",
   subtitle,
-  compact = false,
 }: {
   title?: string;
   subtitle?: string;
-  compact?: boolean;
 }) {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -20,11 +19,12 @@ export default function QuoteForm({
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = String(data.get("name") || "").trim();
-    const phone = String(data.get("phone") || "").trim();
+    const missing = LEAD_REQUIRED_FIELDS.some(
+      (field) => !String(data.get(field) || "").trim()
+    );
 
-    if (!name || !phone) {
-      setError("Please fill in your name and phone number.");
+    if (missing) {
+      setError("Please fill in all fields so we can get you an offer.");
       return;
     }
 
@@ -60,29 +60,42 @@ export default function QuoteForm({
   }
 
   return (
-    <div className={`rounded-md border-2 border-ink-900 bg-white p-6 shadow-sticker sm:p-8 ${compact ? "" : ""}`}>
+    <div className="rounded-md border-2 border-ink-900 bg-white p-6 shadow-sticker sm:p-8">
       <h3 className="font-display text-2xl uppercase tracking-wide text-ink-900">{title}</h3>
       {subtitle && <p className="mt-1.5 text-sm text-ink-500">{subtitle}</p>}
       <form onSubmit={handleSubmit} className="mt-5 space-y-4">
         <div className="form-field">
           <label htmlFor="qf-name">Name</label>
-          <input id="qf-name" name="name" type="text" placeholder="Name" required />
+          <input id="qf-name" name={LEAD_FIELDS.name} type="text" placeholder="Name" required />
         </div>
         <div className="form-field">
           <label htmlFor="qf-email">Email</label>
-          <input id="qf-email" name="email" type="email" placeholder="Email" />
+          <input id="qf-email" name={LEAD_FIELDS.email} type="email" placeholder="Email" required />
         </div>
         <div className="form-field">
           <label htmlFor="qf-phone">Phone</label>
-          <input id="qf-phone" name="phone" type="tel" placeholder="Phone" required />
+          <input id="qf-phone" name={LEAD_FIELDS.phone} type="tel" placeholder="Phone" required />
         </div>
         <div className="form-field">
-          <label htmlFor="qf-vehicle">What is Make, Model, trim, and Year?</label>
+          <label htmlFor="qf-zip">Zip Code</label>
+          <input id="qf-zip" name={LEAD_FIELDS.zip} type="text" placeholder="Zip Code" required />
+        </div>
+        <div className="form-field">
+          <label htmlFor="qf-title">Do you have a title?</label>
+          <input id="qf-title" name={LEAD_FIELDS.hasTitle} type="text" placeholder="Yes / No" required />
+        </div>
+        <div className="form-field">
+          <label htmlFor="qf-runs">Does it run and drive?</label>
+          <input id="qf-runs" name={LEAD_FIELDS.runsAndDrives} type="text" placeholder="Yes / No" required />
+        </div>
+        <div className="form-field">
+          <label htmlFor="qf-vehicle">What is Make, Model and trim, and Year?</label>
           <textarea
             id="qf-vehicle"
-            name="vehicle"
+            name={LEAD_FIELDS.vehicle}
             rows={3}
             placeholder="What is Make, Model and trim, and Year?"
+            required
           />
         </div>
         {error && <p className="text-sm font-medium text-rust-600">{error}</p>}

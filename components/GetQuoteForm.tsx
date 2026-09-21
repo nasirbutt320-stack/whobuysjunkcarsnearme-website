@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { CheckIcon } from "./icons";
 import { site } from "@/lib/site";
+import { LEAD_FIELDS, LEAD_REQUIRED_FIELDS } from "@/lib/leadForm";
 
 export default function GetQuoteForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -12,8 +13,9 @@ export default function GetQuoteForm() {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const required = ["firstName", "lastName", "email", "phone", "zip", "vehicle"];
-    const missing = required.some((field) => !String(data.get(field) || "").trim());
+    const missing = LEAD_REQUIRED_FIELDS.some(
+      (field) => !String(data.get(field) || "").trim()
+    );
 
     if (missing) {
       setError("Please fill in all required fields marked with *.");
@@ -55,39 +57,32 @@ export default function GetQuoteForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5 rounded-md border-2 border-ink-900 bg-white p-6 shadow-sticker sm:p-8">
-      <div>
-        <label className="mb-2 block text-xs font-extrabold uppercase tracking-wide text-ink-900">
-          Your Name <span className="text-rust-600">*</span>
+      <div className="form-field">
+        <label htmlFor="gq-name">
+          Name <span className="text-rust-600">*</span>
         </label>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <div className="form-field">
-            <input name="firstName" type="text" placeholder="First" required />
-          </div>
-          <div className="form-field">
-            <input name="lastName" type="text" placeholder="Last" required />
-          </div>
-        </div>
+        <input id="gq-name" name={LEAD_FIELDS.name} type="text" placeholder="Name" required />
       </div>
 
       <div className="form-field">
         <label htmlFor="gq-email">
-          Your Email <span className="text-rust-600">*</span>
+          Email <span className="text-rust-600">*</span>
         </label>
-        <input id="gq-email" name="email" type="email" placeholder="you@example.com" required />
+        <input id="gq-email" name={LEAD_FIELDS.email} type="email" placeholder="Email" required />
       </div>
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="form-field">
           <label htmlFor="gq-phone">
-            Phone No <span className="text-rust-600">*</span>
+            Phone <span className="text-rust-600">*</span>
           </label>
-          <input id="gq-phone" name="phone" type="tel" placeholder="(___) ___-____" required />
+          <input id="gq-phone" name={LEAD_FIELDS.phone} type="tel" placeholder="Phone" required />
         </div>
         <div className="form-field">
           <label htmlFor="gq-zip">
             Zip Code <span className="text-rust-600">*</span>
           </label>
-          <input id="gq-zip" name="zip" type="text" placeholder="90210" required />
+          <input id="gq-zip" name={LEAD_FIELDS.zip} type="text" placeholder="Zip Code" required />
         </div>
       </div>
 
@@ -96,48 +91,33 @@ export default function GetQuoteForm() {
           <label htmlFor="gq-title">
             Do you have a title? <span className="text-rust-600">*</span>
           </label>
-          <select id="gq-title" name="hasTitle" required defaultValue="">
-            <option value="" disabled>
-              Select an option
-            </option>
-            <option value="yes">Yes, I have the title</option>
-            <option value="no">No, I don't have it</option>
-            <option value="unsure">Not sure</option>
-          </select>
+          <input id="gq-title" name={LEAD_FIELDS.hasTitle} type="text" placeholder="Yes / No" required />
         </div>
         <div className="form-field">
           <label htmlFor="gq-runs">
             Does it run and drive? <span className="text-rust-600">*</span>
           </label>
-          <select id="gq-runs" name="runsAndDrives" required defaultValue="">
-            <option value="" disabled>
-              Select an option
-            </option>
-            <option value="both">Runs and drives</option>
-            <option value="runs-only">Runs, doesn't drive</option>
-            <option value="neither">Doesn't run</option>
-          </select>
+          <input id="gq-runs" name={LEAD_FIELDS.runsAndDrives} type="text" placeholder="Yes / No" required />
         </div>
       </div>
 
       <div className="form-field">
         <label htmlFor="gq-vehicle">
-          What is Make, Model, trim, and Year? <span className="text-rust-600">*</span>
+          What is Make, Model and trim, and Year? <span className="text-rust-600">*</span>
         </label>
         <textarea
           id="gq-vehicle"
-          name="vehicle"
+          name={LEAD_FIELDS.vehicle}
           rows={3}
-          placeholder="e.g. 2011 Honda Civic LX"
+          placeholder="What is Make, Model and trim, and Year?"
           required
         />
-        <p className="mt-1 text-right text-xs text-ink-400">0 of 50 max words.</p>
       </div>
 
       {error && <p className="text-sm font-medium text-rust-600">{error}</p>}
 
       <button type="submit" className="btn btn-primary w-full">
-        Submit
+        Get Offer
       </button>
     </form>
   );

@@ -59,10 +59,16 @@ npm start
   architecture — hero, 4-step process, "why choose us," conditions
   accepted, no-title guidance, FAQ, coverage map, and CTA — so every page
   is unique, on-topic, and easy to extend.
-- The quote forms are fully client-side for now (validation + a success
-  state) — wire `components/QuoteForm.tsx` and
-  `components/GetQuoteForm.tsx` up to your CRM/email API of choice before
-  going live.
+- Every quote form on the site (the compact hero widget on every page via
+  `components/QuoteForm.tsx`, and the full form on `/get-quote/` and
+  `/contact-us/` via `components/GetQuoteForm.tsx`) uses the same field
+  set and `name` attributes, defined once in `lib/leadForm.ts`:
+  `full_name`, `email`, `phone`, `postal_code`, `has_title`,
+  `runs_and_drives`, `vehicle_details`. That's intentional — it means one
+  CRM webhook/integration can handle a lead from any page on the site
+  without per-page field mapping. Forms are fully client-side for now
+  (validation + a success state); point `handleSubmit` in both components
+  at your CRM's endpoint (e.g. a GoHighLevel/webhook URL) to go live.
 - Update the phone number, business details, and legal copy in
   `lib/site.ts` and `components/pages/PrivacyPolicyPage.tsx` /
   `TermsOfServicePage.tsx` before launch.
