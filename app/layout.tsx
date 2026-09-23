@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import MobileCallBar from "@/components/MobileCallBar";
 import { site } from "@/lib/site";
 import { GHL_TRACKING_ID } from "@/lib/leadForm";
+import JsonLd from "@/components/JsonLd";
+import { organizationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -25,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col font-sans antialiased">
+        <JsonLd data={organizationSchema()} />
         <Script
           src="https://link.cashforcarsflorida.net/js/external-tracking.js"
           data-tracking-id={GHL_TRACKING_ID}

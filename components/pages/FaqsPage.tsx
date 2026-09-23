@@ -1,6 +1,8 @@
 import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
+import { faqPageSchema } from "@/lib/schema";
 
 const faqs = [
   {
@@ -73,6 +75,8 @@ const faqs = [
 export default function FaqsPage() {
   return (
     <>
+      <JsonLd data={faqPageSchema(faqs)} />
+
       <PageHero
         badge="Straightforward Answers"
         title="Junk Car Selling"

@@ -1,12 +1,37 @@
 import PageHero from "@/components/PageHero";
 import ContentSection from "@/components/ContentSection";
-import FaqAccordion from "@/components/FaqAccordion";
+import FaqAccordion, { FaqItem } from "@/components/FaqAccordion";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
+import { faqPageSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export default function AboutUsPage() {
+  const aboutFaqs: FaqItem[] = [
+    {
+      question: "Do you buy cars that don't run?",
+      answer:
+        "Yes. Running condition doesn't matter to us — we regularly buy cars with blown engines, transmission problems, or ones that simply won't start anymore.",
+    },
+    {
+      question: "What if I don't have the title?",
+      answer: `In most cases we can still buy your car without a title. Call ${site.phone} and we'll explain what alternative paperwork works in your state.`,
+    },
+    {
+      question: "How fast can you pick up my car?",
+      answer:
+        "Many pickups happen within 24 to 48 hours of your call, depending on your location and schedule.",
+    },
+    {
+      question: "Is there any cost to me for towing or pickup?",
+      answer: "No. Towing and pickup are free — the price we quote is the price you get paid.",
+    },
+  ];
+
   return (
     <>
+      <JsonLd data={faqPageSchema(aboutFaqs)} />
+
       <PageHero
         badge="Who We Are"
         title="About"
@@ -43,29 +68,7 @@ export default function AboutUsPage() {
         ]}
       />
 
-      <FaqAccordion
-        items={[
-          {
-            question: "Do you buy cars that don't run?",
-            answer:
-              "Yes. Running condition doesn't matter to us — we regularly buy cars with blown engines, transmission problems, or ones that simply won't start anymore.",
-          },
-          {
-            question: "What if I don't have the title?",
-            answer: `In most cases we can still buy your car without a title. Call ${site.phone} and we'll explain what alternative paperwork works in your state.`,
-          },
-          {
-            question: "How fast can you pick up my car?",
-            answer:
-              "Many pickups happen within 24 to 48 hours of your call, depending on your location and schedule.",
-          },
-          {
-            question: "Is there any cost to me for towing or pickup?",
-            answer:
-              "No. Towing and pickup are free — the price we quote is the price you get paid.",
-          },
-        ]}
-      />
+      <FaqAccordion items={aboutFaqs} />
 
       <CTASection />
     </>

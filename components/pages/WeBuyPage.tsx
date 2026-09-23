@@ -2,12 +2,34 @@ import PageHero from "@/components/PageHero";
 import ProcessSteps from "@/components/ProcessSteps";
 import ContentSection from "@/components/ContentSection";
 import BrandsGrid from "@/components/BrandsGrid";
-import FaqAccordion from "@/components/FaqAccordion";
+import FaqAccordion, { FaqItem } from "@/components/FaqAccordion";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
+import { faqPageSchema } from "@/lib/schema";
+
+const weBuyFaqs: FaqItem[] = [
+  {
+    question: "Do you buy all makes and models?",
+    answer:
+      "Yes. We consider vehicles from nearly every manufacturer, from economy cars to luxury and exotic brands.",
+  },
+  {
+    question: "Do you buy newer used vehicles too?",
+    answer:
+      "Yes — a vehicle doesn't need to be extremely old. We review newer cars with accident damage, mechanical problems, or title issues as well.",
+  },
+  {
+    question: "What if my car doesn't run?",
+    answer:
+      "That's fine. A car may still be considered if it has a dead battery, failed engine, bad transmission, or electrical problem.",
+  },
+];
 
 export default function WeBuyPage() {
   return (
     <>
+      <JsonLd data={faqPageSchema(weBuyFaqs)} />
+
       <PageHero
         badge="Every Make, Every Model"
         title="Sell Your Car With"
@@ -53,25 +75,7 @@ export default function WeBuyPage() {
 
       <BrandsGrid />
 
-      <FaqAccordion
-        items={[
-          {
-            question: "Do you buy all makes and models?",
-            answer:
-              "Yes. We consider vehicles from nearly every manufacturer, from economy cars to luxury and exotic brands.",
-          },
-          {
-            question: "Do you buy newer used vehicles too?",
-            answer:
-              "Yes — a vehicle doesn't need to be extremely old. We review newer cars with accident damage, mechanical problems, or title issues as well.",
-          },
-          {
-            question: "What if my car doesn't run?",
-            answer:
-              "That's fine. A car may still be considered if it has a dead battery, failed engine, bad transmission, or electrical problem.",
-          },
-        ]}
-      />
+      <FaqAccordion items={weBuyFaqs} />
 
       <CTASection />
     </>

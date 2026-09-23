@@ -6,6 +6,8 @@ import ContentSection from "@/components/ContentSection";
 import FaqAccordion from "@/components/FaqAccordion";
 import AreasServed from "@/components/AreasServed";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
+import { faqPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Who Buys Junk Cars Near Me? Instant Cash Across the USA",
@@ -45,6 +47,8 @@ const homeFaqs = [
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={faqPageSchema(homeFaqs)} />
+
       <PageHero
         badge="Rated Junk Car Buyer in the USA"
         title="Who Buys Junk Cars"

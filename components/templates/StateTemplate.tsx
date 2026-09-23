@@ -2,31 +2,66 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProcessSteps from "@/components/ProcessSteps";
 import ContentSection from "@/components/ContentSection";
-import FaqAccordion from "@/components/FaqAccordion";
+import FaqAccordion, { FaqItem } from "@/components/FaqAccordion";
 import AreasServed from "@/components/AreasServed";
 import CTASection from "@/components/CTASection";
 import Container from "@/components/Container";
+import JsonLd from "@/components/JsonLd";
+import { faqPageSchema } from "@/lib/schema";
 import { StateEntry } from "@/lib/data/states";
 import { citiesForState } from "@/lib/data/cities";
 import { MapPinIcon } from "@/components/icons";
+import {
+  pick,
+  stateRegion,
+  stateHeroIntro,
+  stateWhyChooseUsIntro,
+  stateAnyCondition,
+  stateNoTitle,
+  stateWhySellDirect,
+  stateFaqDoesntRun,
+  stateFaqTowing,
+  stateFaqOffer,
+} from "@/lib/content/variants";
 
 export default function StateTemplate({ state }: { state: StateEntry }) {
   const cities = citiesForState(state.slug);
+  const region = stateRegion[state.slug] ?? "the United States";
+
+  const faqItems: FaqItem[] = [
+    {
+      question: `How do I sell my junk car in ${state.name}?`,
+      answer:
+        "Just contact us with your vehicle's details. We'll give you a free cash offer, schedule a pickup time, and pay you when we collect the vehicle.",
+    },
+    {
+      question: "Do you buy cars that don't run?",
+      answer: pick(stateFaqDoesntRun, state.slug, "faq-runs")(),
+    },
+    {
+      question: "Do I have to pay for towing?",
+      answer: pick(stateFaqTowing, state.slug, "faq-towing")(),
+    },
+    {
+      question: `Can I sell a junk car without a title in ${state.name}?`,
+      answer:
+        "In some cases, yes. Reach out and we'll walk you through what documentation you'll need based on your situation.",
+    },
+    {
+      question: "How is my cash offer determined?",
+      answer: pick(stateFaqOffer, state.slug, "faq-offer")(),
+    },
+  ];
 
   return (
     <>
+      <JsonLd data={faqPageSchema(faqItems)} />
+
       <PageHero
         badge="Same-Day Cash For Junk Cars"
         title="Sell Your Junk Car in"
         accent={state.name}
-        intro={
-          <p>
-            If your car has been sitting in the driveway for years, won&apos;t start
-            anymore, or just isn&apos;t worth fixing, we can help. We buy cars, trucks,
-            SUVs, vans, and other unwanted vehicles across {state.name}, running or
-            not, and we handle the pickup for free.
-          </p>
-        }
+        intro={<p>{pick(stateHeroIntro, state.slug, "hero")(state.name)}</p>}
       />
 
       <ProcessSteps />
@@ -34,9 +69,7 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
       <ContentSection
         eyebrow="Why people choose us"
         title="Why People Choose Us"
-        paragraphs={[
-          "Every vehicle has some value, even if it doesn't run anymore. Our team looks at the brand, model, age, condition, and which parts are still usable, then gives you a cash offer based on that.",
-        ]}
+        paragraphs={[pick(stateWhyChooseUsIntro, state.slug, "why-us")()]}
         list={[
           "Free, no-obligation quotes",
           "Fast cash offers",
@@ -46,7 +79,12 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
           "Same-day or next-day pickup in most areas",
         ]}
         listColumns={2}
-      />
+      >
+        <p className="prose-body mt-4">
+          {state.name} sits in {region} — wherever you are in the state, our
+          pickup network reaches you the same way it reaches everyone else.
+        </p>
+      </ContentSection>
 
       {cities.length > 0 && (
         <section className="section bg-navy-50/60">
@@ -79,57 +117,25 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
         tone={cities.length > 0 ? "light" : "muted"}
         eyebrow="Any condition"
         title="We Buy Vehicles in Any Condition"
-        paragraphs={[
-          "No matter the shape your vehicle is in, we're interested. That includes junk cars, trucks, SUVs, and vans; crossovers and commercial vehicles; flood, fire, or accident-damaged vehicles; cars with engine or transmission problems; and vehicles that have been sitting unused for years.",
-          "Even cars with major damage often have value in their parts and materials, so it's worth reaching out before assuming your vehicle isn't worth anything.",
-        ]}
+        paragraphs={pick(stateAnyCondition, state.slug, "any-condition")(state.name)}
       />
 
       <ContentSection
         eyebrow="Missing paperwork?"
         title="No Title? Reach Out Anyway"
-        paragraphs={[
-          `A missing title doesn't automatically mean your car has no resale value. Depending on ${state.name}'s requirements and your proof of ownership, there may still be a way to sell it. Tell us your situation, and we'll explain exactly what's needed before we schedule a pickup.`,
-        ]}
+        paragraphs={[pick(stateNoTitle, state.slug, "no-title")(state.name)]}
       />
 
       <ContentSection
         tone="muted"
         eyebrow="Direct buyer advantage"
         title="Why Sell Directly to Us Instead of a Junkyard"
-        paragraphs={[
-          "Taking a car to a junkyard yourself usually means arranging transport, doing paperwork, and often getting a lower offer. Selling directly to us means no towing costs, no waiting around for a private buyer, no advertising or listing fees, and fast payment handled on pickup day.",
-        ]}
+        paragraphs={[pick(stateWhySellDirect, state.slug, "direct-vs-junkyard")()]}
       />
 
       <FaqAccordion
         title={`Frequently Asked Questions — ${state.name}`}
-        items={[
-          {
-            question: `How do I sell my junk car in ${state.name}?`,
-            answer:
-              "Just contact us with your vehicle's details. We'll give you a free cash offer, schedule a pickup time, and pay you when we collect the vehicle.",
-          },
-          {
-            question: "Do you buy cars that don't run?",
-            answer:
-              "Yes. We purchase both running and non-running vehicles in almost any condition.",
-          },
-          {
-            question: "Do I have to pay for towing?",
-            answer: "No. Towing is always free when you sell your vehicle to us.",
-          },
-          {
-            question: `Can I sell a junk car without a title in ${state.name}?`,
-            answer:
-              "In some cases, yes. Reach out and we'll walk you through what documentation you'll need based on your situation.",
-          },
-          {
-            question: "How is my cash offer determined?",
-            answer:
-              "We look at your vehicle's year, make, model, condition, current market value, and any usable or recyclable parts to give you a fair price.",
-          },
-        ]}
+        items={faqItems}
       />
 
       <AreasServed />

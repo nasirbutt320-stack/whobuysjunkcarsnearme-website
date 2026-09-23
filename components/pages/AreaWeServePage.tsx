@@ -1,12 +1,33 @@
 import PageHero from "@/components/PageHero";
 import ContentSection from "@/components/ContentSection";
 import StatesGrid from "@/components/StatesGrid";
-import FaqAccordion from "@/components/FaqAccordion";
+import FaqAccordion, { FaqItem } from "@/components/FaqAccordion";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
+import { faqPageSchema } from "@/lib/schema";
+
+const areaWeServeFaqs: FaqItem[] = [
+  {
+    question: "Do you buy cars in every state?",
+    answer:
+      "Yes, we work across the country. Wherever you live, there's a good chance our team can reach you within a day or two.",
+  },
+  {
+    question: "Can you pick up a car in a small town or rural area?",
+    answer:
+      "Yes — distance isn't a problem for us. We arrange pickup for rural addresses the same way we do for big cities.",
+  },
+  {
+    question: "Does the offer change depending on my state?",
+    answer: "No. The price is based on your car's condition and parts, not where you live.",
+  },
+];
 
 export default function AreaWeServePage() {
   return (
     <>
+      <JsonLd data={faqPageSchema(areaWeServeFaqs)} />
+
       <PageHero
         badge="Nationwide Pickup"
         title="We Buy Cars In"
@@ -32,25 +53,7 @@ export default function AreaWeServePage() {
 
       <StatesGrid />
 
-      <FaqAccordion
-        items={[
-          {
-            question: "Do you buy cars in every state?",
-            answer:
-              "Yes, we work across the country. Wherever you live, there's a good chance our team can reach you within a day or two.",
-          },
-          {
-            question: "Can you pick up a car in a small town or rural area?",
-            answer:
-              "Yes — distance isn't a problem for us. We arrange pickup for rural addresses the same way we do for big cities.",
-          },
-          {
-            question: "Does the offer change depending on my state?",
-            answer:
-              "No. The price is based on your car's condition and parts, not where you live.",
-          },
-        ]}
-      />
+      <FaqAccordion items={areaWeServeFaqs} />
 
       <CTASection />
     </>
