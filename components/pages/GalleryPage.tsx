@@ -21,7 +21,7 @@ export default function GalleryPage() {
         accent="We've Bought"
         intro={
           <p>
-            A quick look at the range of vehicles we buy — junk, used, old, and
+            A quick look at the range of vehicles we buy: junk, used, old, and
             everything in between. Every pickup on this page was paid for in cash
             on the day it was collected.
           </p>
@@ -49,8 +49,8 @@ export default function GalleryPage() {
             ))}
           </div>
           <p className="mt-8 text-center text-sm text-navy-400">
-            Sold us a car recently? We&apos;d love to feature it here —{" "}
-            <a href="/contact-us/" className="font-semibold text-teal-600">
+            Sold us a car recently? We&apos;d love to feature it here,{" "}
+            <a href="/contact-us/" className="font-semibold text-gold-600">
               get in touch
             </a>
             .

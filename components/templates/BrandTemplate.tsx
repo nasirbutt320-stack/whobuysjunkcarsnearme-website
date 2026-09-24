@@ -29,7 +29,7 @@ export default function BrandTemplate({ brand }: { brand: BrandEntry }) {
     {
       question: `Do you buy ${brand.name} vehicles that don't run?`,
       answer:
-        "Yes. Running condition doesn't determine whether we're interested — we regularly buy non-running vehicles in almost any condition.",
+        "Yes. Running condition doesn't determine whether we're interested. We regularly buy non-running vehicles in almost any condition.",
     },
     {
       question: "Do I need the title to sell?",
@@ -63,7 +63,7 @@ export default function BrandTemplate({ brand }: { brand: BrandEntry }) {
         title="Fair Pricing, Every Time"
         paragraphs={pick(brandFairPricing, brand.slug, "fair-pricing")(brand.name)}
         list={[
-          "Cash, check, or bank transfer — your choice",
+          "Cash, check, or bank transfer, your choice",
           "Free towing in all 50 states",
           "We handle title transfer and paperwork",
           `We buy ${brand.name} cars, trucks, and SUVs alike`,
@@ -87,7 +87,7 @@ export default function BrandTemplate({ brand }: { brand: BrandEntry }) {
       />
 
       <FaqAccordion
-        title={`Frequently Asked Questions — Selling a ${brand.name}`}
+        title={`Frequently Asked Questions: Selling a ${brand.name}`}
         items={faqItems}
       />
 

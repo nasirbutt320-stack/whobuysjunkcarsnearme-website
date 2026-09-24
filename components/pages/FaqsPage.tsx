@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "Do you buy all makes and models?",
     answer:
-      "We consider vehicles from many manufacturers, including Ford, Chevrolet, GMC, Dodge, RAM, Jeep, Chrysler, Toyota, Honda, Nissan, Mazda, Subaru, Hyundai, Kia, Volkswagen, BMW, Mercedes-Benz, Audi, Lexus, Acura, Volvo, Tesla, and more. The make and model are only part of the review — condition, location, and paperwork matter too.",
+      "We consider vehicles from many manufacturers, including Ford, Chevrolet, GMC, Dodge, RAM, Jeep, Chrysler, Toyota, Honda, Nissan, Mazda, Subaru, Hyundai, Kia, Volkswagen, BMW, Mercedes-Benz, Audi, Lexus, Acura, Volvo, Tesla, and more. The make and model are only part of the review: condition, location, and paperwork matter too.",
   },
   {
     question: "Do you buy newer used vehicles?",
@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "Can I sell a car with a bad engine or transmission?",
     answer:
-      "Usually, yes. You typically don't need to complete an expensive repair first — just describe the problem as accurately as you can.",
+      "Usually, yes. You typically don't need to complete an expensive repair first, just describe the problem as accurately as you can.",
   },
   {
     question: "Do you buy wrecked or accident-damaged vehicles?",
@@ -58,7 +58,7 @@ const faqs = [
   {
     question: "Can I sell a junk car without a title?",
     answer:
-      "In many cases, yes. Depending on your state and proof of ownership, we can often work with alternative documentation — just tell us your situation.",
+      "In many cases, yes. Depending on your state and proof of ownership, we can often work with alternative documentation, just tell us your situation.",
   },
   {
     question: "How fast can my car be picked up?",
@@ -68,7 +68,7 @@ const faqs = [
   {
     question: "Is towing really free?",
     answer:
-      "Yes. Towing and pickup are always included in your offer — there's never a separate charge.",
+      "Yes. Towing and pickup are always included in your offer. There's never a separate charge.",
   },
 ];
 

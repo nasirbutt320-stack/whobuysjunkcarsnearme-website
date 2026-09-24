@@ -15,12 +15,7 @@ export default function AuthorPage({
     <>
       <section className="bg-navy-900 py-14 md:py-20">
         <Container>
-          <span className="text-sm font-bold uppercase tracking-wide text-teal-400">
-            Author
-          </span>
-          <h1 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">
-            {author.name}
-          </h1>
+          <h1 className="text-3xl font-bold text-white sm:text-4xl">{author.name}</h1>
           <p className="mt-3 max-w-xl text-navy-300">
             Posts published by {author.name} on selling junk, old, and unwanted
             vehicles for cash.
@@ -40,7 +35,7 @@ export default function AuthorPage({
                   href={`/${post.slug}/`}
                   className="rounded-2xl border border-navy-100 p-6 shadow-sm transition-shadow hover:shadow-card"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-teal-600">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gold-600">
                     {new Date(post.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",

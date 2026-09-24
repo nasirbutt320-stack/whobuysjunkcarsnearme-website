@@ -14,10 +14,7 @@ export default function CategoryPage({
     <>
       <section className="bg-navy-900 py-14 md:py-20">
         <Container>
-          <span className="text-sm font-bold uppercase tracking-wide text-teal-400">
-            Category
-          </span>
-          <h1 className="mt-2 text-3xl font-extrabold capitalize text-white sm:text-4xl">
+          <h1 className="text-3xl font-bold capitalize text-white sm:text-4xl">
             {category}
           </h1>
           <p className="mt-3 max-w-xl text-navy-300">
@@ -39,7 +36,7 @@ export default function CategoryPage({
                   href={`/${post.slug}/`}
                   className="rounded-2xl border border-navy-100 p-6 shadow-sm transition-shadow hover:shadow-card"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-teal-600">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gold-600">
                     {new Date(post.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",

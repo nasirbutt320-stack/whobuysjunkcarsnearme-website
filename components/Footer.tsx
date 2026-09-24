@@ -13,13 +13,13 @@ export default function Footer() {
         <div>
           <Logo dark />
           <p className="mt-4 text-sm leading-relaxed text-navy-200">
-            Turning unwanted cars into cash, one call at a time — proudly buying
+            Turning unwanted cars into cash, one call at a time, proudly buying
             vehicles of every kind, all across the USA.
           </p>
         </div>
 
         <div>
-          <h3 className="text-sm font-bold uppercase tracking-wide text-teal-400">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-gold-400">
             Company Info
           </h3>
           <ul className="mt-4 space-y-2.5">
@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-bold uppercase tracking-wide text-teal-400">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-gold-400">
             Services
           </h3>
           <ul className="mt-4 space-y-2.5">
@@ -47,18 +47,18 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-bold uppercase tracking-wide text-teal-400">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-gold-400">
             Connect
           </h3>
           <a
             href={site.phoneHref}
             className="mt-4 flex items-center gap-2 text-sm font-semibold text-white"
           >
-            <PhoneIcon className="h-4 w-4 text-teal-400" />
+            <PhoneIcon className="h-4 w-4 text-gold-400" />
             Call: +1-{site.phone}
           </a>
           <Link href="/get-quote/" className="btn btn-primary mt-5 w-full sm:w-auto">
-            Get a free quote
+            Get A Free Quote
           </Link>
         </div>
       </Container>

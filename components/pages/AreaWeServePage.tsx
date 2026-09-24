@@ -15,7 +15,7 @@ const areaWeServeFaqs: FaqItem[] = [
   {
     question: "Can you pick up a car in a small town or rural area?",
     answer:
-      "Yes — distance isn't a problem for us. We arrange pickup for rural addresses the same way we do for big cities.",
+      "Yes. Distance isn't a problem for us. We arrange pickup for rural addresses the same way we do for big cities.",
   },
   {
     question: "Does the offer change depending on my state?",
@@ -46,7 +46,7 @@ export default function AreaWeServePage() {
         eyebrow="Wide coverage"
         title="Local Pickup Without the Local Runaround"
         paragraphs={[
-          "A lot of small yards only serve their own city and stop there. We built our network the opposite way — wherever you are, one of our local partners can usually reach you within a day or two. You call once, and we handle the rest from quote to pickup.",
+          "A lot of small yards only serve their own city and stop there. We built our network the opposite way: wherever you are, one of our local partners can usually reach you within a day or two. You call once, and we handle the rest from quote to pickup.",
           "Your state doesn't change your price, either. We look at the same things everywhere: the car's condition, its parts, and what it can still be used for. That means a seller in a small town gets treated the same as someone in a major city.",
         ]}
       />

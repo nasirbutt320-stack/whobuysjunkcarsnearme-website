@@ -37,18 +37,23 @@ export default function FaqAccordion({
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left sm:px-6"
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-navy-50/60 sm:px-6"
                 >
                   <span className="font-semibold text-navy-900">{item.question}</span>
                   <ChevronDownIcon
-                    className={`h-5 w-5 shrink-0 text-teal-600 transition-transform ${
+                    className={`h-5 w-5 shrink-0 text-gold-600 transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
-                {isOpen && (
-                  <div className="px-5 pb-5 text-navy-500 sm:px-6">{item.answer}</div>
-                )}
+                <div
+                  className="grid transition-[grid-template-rows] duration-300 ease-out"
+                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-5 pb-5 text-navy-500 sm:px-6">{item.answer}</div>
+                  </div>
+                </div>
               </div>
             );
           })}

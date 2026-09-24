@@ -33,7 +33,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-[0.95rem] font-semibold text-navy-700 transition-colors hover:text-teal-600"
+              className="text-[0.95rem] font-semibold text-navy-700 transition-colors hover:text-gold-600"
             >
               {link.label}
             </Link>
@@ -49,7 +49,7 @@ export default function Header() {
             Book call
           </a>
           <Link href="/get-quote/" className="btn btn-primary">
-            Get quote
+            Get Quote
           </Link>
         </div>
 
@@ -83,7 +83,7 @@ export default function Header() {
               Call {site.phone}
             </a>
             <Link href="/get-quote/" className="btn btn-primary w-full">
-              Get a free quote
+              Get A Free Quote
             </Link>
           </div>
         </div>

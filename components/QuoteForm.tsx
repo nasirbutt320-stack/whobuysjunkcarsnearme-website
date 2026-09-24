@@ -42,14 +42,14 @@ export default function QuoteForm({
   if (submitted) {
     return (
       <div className="rounded-2xl bg-white p-6 text-center shadow-card sm:p-8">
-        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-teal-100 text-teal-600">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gold-100 text-gold-600">
           <CheckIcon className="h-8 w-8" />
         </span>
-        <h3 className="mt-4 text-xl font-bold text-navy-900">Thanks — we got it!</h3>
+        <h3 className="mt-4 text-xl font-bold text-navy-900">Thanks, we got it!</h3>
         <p className="mt-2 text-sm text-navy-500">
           A member of our team will call you shortly with your cash offer. Need it
           faster? Call us now at{" "}
-          <a href={site.phoneHref} className="font-semibold text-teal-600">
+          <a href={site.phoneHref} className="font-semibold text-gold-600">
             {site.phone}
           </a>
           .

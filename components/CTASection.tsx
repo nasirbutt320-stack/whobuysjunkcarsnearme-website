@@ -11,7 +11,7 @@ export default function CTASection({
   subtitle?: string;
 }) {
   return (
-    <section className="bg-teal-500">
+    <section className="bg-gold-500">
       <Container className="flex flex-col items-center gap-6 py-14 text-center">
         <h2 className="max-w-2xl text-2xl font-extrabold text-navy-950 sm:text-3xl">
           {title}

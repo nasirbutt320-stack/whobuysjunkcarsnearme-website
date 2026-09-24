@@ -98,7 +98,7 @@ export default function CityTemplate({ city }: { city: CityEntry }) {
       />
 
       <FaqAccordion
-        title={`Frequently Asked Questions — ${city.name}`}
+        title={`Frequently Asked Questions: ${city.name}`}
         items={faqItems}
       />
 

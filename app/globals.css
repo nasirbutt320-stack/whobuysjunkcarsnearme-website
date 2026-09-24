@@ -9,6 +9,44 @@ html {
 body {
   color: #16213e;
   background-color: #ffffff;
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background-color: #f59e0b;
+  color: #0b1734;
+}
+
+* {
+  scrollbar-color: #d97706 #eef1f8;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef1f8;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d97706;
+  border-radius: 999px;
+  border: 3px solid #eef1f8;
+}
+
+:focus-visible {
+  outline: 2.5px solid #f59e0b;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .container-page {
@@ -26,24 +64,32 @@ body {
   justify-content: center;
   gap: 0.5rem;
   border-radius: 9999px;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  padding: 0.8rem 1.6rem;
   font-size: 0.95rem;
-  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.2s ease;
   white-space: nowrap;
 }
 
 .btn:active {
-  transform: translateY(1px);
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .btn-primary {
-  background-color: #17c3a2;
-  color: #06231d;
+  background-color: #f59e0b;
+  color: #1f1204;
+  box-shadow: 0 12px 24px -8px rgba(245, 158, 11, 0.5);
 }
 
 .btn-primary:hover {
-  background-color: #14ab8d;
+  background-color: #d97706;
+  box-shadow: 0 16px 30px -8px rgba(217, 119, 6, 0.55);
 }
 
 .btn-outline {
@@ -65,6 +111,7 @@ body {
 
 .btn-outline-dark:hover {
   background-color: rgba(11, 23, 52, 0.06);
+  border-color: rgba(11, 23, 52, 0.4);
 }
 
 .section {
@@ -110,6 +157,28 @@ body {
 .form-field input:focus,
 .form-field textarea:focus,
 .form-field select:focus {
-  border-color: #17c3a2;
+  border-color: #f59e0b;
   background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise-in {
+  animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise-in {
+    animation: none;
+  }
 }

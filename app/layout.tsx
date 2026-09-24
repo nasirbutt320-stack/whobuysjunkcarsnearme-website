@@ -1,13 +1,28 @@
 import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
+import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
 import MobileCallBar from "@/components/MobileCallBar";
 import { site } from "@/lib/site";
 import { GHL_TRACKING_ID } from "@/lib/leadForm";
 import JsonLd from "@/components/JsonLd";
 import { organizationSchema } from "@/lib/schema";
+
+const bodyFont = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const displayFont = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -25,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${bodyFont.variable} ${displayFont.variable}`}>
       <body className="flex min-h-screen flex-col font-sans antialiased">
         <JsonLd data={organizationSchema()} />
         <Script
@@ -33,6 +48,7 @@ export default function RootLayout({
           data-tracking-id={GHL_TRACKING_ID}
           strategy="afterInteractive"
         />
+        <TopBar />
         <Header />
         <main className="flex-1 pb-16 lg:pb-0">{children}</main>
         <Footer />

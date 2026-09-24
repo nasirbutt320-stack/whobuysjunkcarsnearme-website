@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-25T00:00:00Z",
+  "title": "Design System: Who Buys Junk Cars Near Me",
+  "extensions": {
+    "colorMeta": {
+      "gold-500": { "role": "primary", "displayName": "Cash Gold", "canonical": "#f59e0b" },
+      "navy-900": { "role": "neutral", "displayName": "Deep Navy", "canonical": "#0b1734" },
+      "navy-50": { "role": "neutral", "displayName": "Navy Mist", "canonical": "#eef1f8" },
+      "navy-100": { "role": "neutral", "displayName": "Navy Line", "canonical": "#d7deee" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Space Grotesk", "purpose": "Headings and wordmark only." },
+      "body": { "displayName": "Inter", "purpose": "Body copy, labels, form fields." }
+    },
+    "shadows": [
+      { "name": "shadow-card", "value": "0 20px 45px -15px rgba(11, 23, 52, 0.25)", "purpose": "Resting elevation for cards and the lead form." },
+      { "name": "shadow-card-hover", "value": "0 24px 55px -12px rgba(11, 23, 52, 0.32)", "purpose": "Hover elevation for interactive grid tiles." },
+      { "name": "btn-primary", "value": "0 12px 24px -8px rgba(245, 158, 11, 0.5)", "purpose": "Primary button's own gold glow." }
+    ],
+    "motion": [
+      { "name": "rise-in", "value": "0.7s cubic-bezier(0.16, 1, 0.3, 1), translateY(14px)->0 + opacity 0->1", "purpose": "Single authored hero entrance moment; respects prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Pill CTA button, gold with a colored glow shadow.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Get A Free Quote</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 9999px; font-weight: 700; padding: 0.8rem 1.6rem; font-size: 0.95rem; background-color: #f59e0b; color: #1f1204; box-shadow: 0 12px 24px -8px rgba(245, 158, 11, 0.5); transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.2s ease; } .ds-btn-primary:hover { background-color: #d97706; box-shadow: 0 16px 30px -8px rgba(217, 119, 6, 0.55); } .ds-btn-primary:active { transform: translateY(1px) scale(0.99); } .ds-btn-primary:focus-visible { outline: 2.5px solid #f59e0b; outline-offset: 2px; }"
+    },
+    {
+      "name": "Lead Form Card",
+      "kind": "card",
+      "refersTo": "card-form",
+      "description": "The compact hero lead-capture card.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Get A Free Quote</h3><label class=\"ds-label\">Name</label><input class=\"ds-input\" placeholder=\"Name\" /></div>",
+      "css": ".ds-card { border-radius: 1rem; background: #ffffff; padding: 2rem; box-shadow: 0 20px 45px -15px rgba(11, 23, 52, 0.25); } .ds-card-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.25rem; color: #0b1734; } .ds-label { display: block; font-size: 0.85rem; font-weight: 600; color: #16213e; margin: 1rem 0 0.35rem; } .ds-input { width: 100%; border-radius: 0.75rem; border: 1.5px solid #e2e6f0; background-color: #f8fafc; padding: 0.7rem 0.9rem; font-size: 0.95rem; color: #16213e; } .ds-input:focus { outline: none; border-color: #f59e0b; background-color: #ffffff; box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15); }"
+    },
+    {
+      "name": "Grid Tile Link",
+      "kind": "nav",
+      "refersTo": "grid-tile",
+      "description": "State/city/brand grid link tile with hover lift.",
+      "html": "<a class=\"ds-tile\" href=\"#\">Texas</a>",
+      "css": ".ds-tile { display: flex; align-items: center; gap: 0.5rem; border-radius: 0.75rem; border: 1px solid #d7deee; background: #ffffff; padding: 0.75rem 1rem; font-weight: 600; font-size: 0.875rem; color: #172a4a; box-shadow: 0 1px 2px rgba(0,0,0,0.04); transition: all 0.15s ease; } .ds-tile:hover { border-color: #fbbf24; color: #d97706; transform: translateY(-2px); box-shadow: 0 24px 55px -12px rgba(11, 23, 52, 0.32); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Trusted National Buyer",
+    "overview": "A lead-generation site for a nationwide junk-car buying service, competing in a category where most sites look thin or templated. Deep navy carries institutional trust; one warm gold accent stands in for cash and marks the single action that matters per screen. Real webfonts replace the prior system-font fallback, and every decorative shortcut (eyebrow labels, unicode-glyph icons, invented section numbering) was removed in favor of typographic hierarchy doing the work.",
+    "keyCharacteristics": [
+      "Navy-anchored trust, gold-accented action",
+      "Real webfonts (Space Grotesk display + Inter body)",
+      "No kicker/eyebrow labels above headings",
+      "No fabricated imagery or unicode-glyph icons",
+      "One authored entrance motion, not scattered per-section fades"
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Gold is reserved for calls to action and small live-state marks. It never fills a large surface except the CTA band itself.", "section": "colors" },
+      { "name": "The No-Kicker Rule", "body": "No small uppercase label sits above a heading anywhere in the system.", "section": "typography" },
+      { "name": "The Real Shadow Rule", "body": "A shadow always has offset and blur; no hard flat-drop shadow or zero-offset colored halo.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep gold reserved for actions and live state.",
+      "Do give every heading a gold underline mark or nothing at all.",
+      "Do use the authored SVG icon set for anything that needs a glyph.",
+      "Do keep only real facts as trust claims — never invent a stat or testimonial."
+    ],
+    "donts": [
+      "Don't reintroduce an eyebrow/kicker label above any H1 or H2.",
+      "Don't use a Unicode checkmark, star, or emoji as a stand-in icon.",
+      "Don't add a hard offset shadow or a one-sided colored border accent.",
+      "Don't change any route, slug, or the lib/leadForm.ts field names/ids."
+    ]
+  }
+}

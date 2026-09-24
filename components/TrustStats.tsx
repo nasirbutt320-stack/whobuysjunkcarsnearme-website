@@ -14,7 +14,7 @@ export default function TrustStats() {
       <Container className="grid grid-cols-2 gap-6 py-10 sm:grid-cols-4">
         {stats.map((stat) => (
           <div key={stat.label} className="flex flex-col items-center text-center">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-teal-50 text-teal-600">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gold-50 text-gold-600">
               <stat.icon className="h-5 w-5" />
             </span>
             <span className="mt-3 text-lg font-extrabold text-navy-900">{stat.value}</span>

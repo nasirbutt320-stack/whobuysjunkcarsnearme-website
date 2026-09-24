@@ -11,7 +11,7 @@ export default function AboutUsPage() {
     {
       question: "Do you buy cars that don't run?",
       answer:
-        "Yes. Running condition doesn't matter to us — we regularly buy cars with blown engines, transmission problems, or ones that simply won't start anymore.",
+        "Yes. Running condition doesn't matter to us. We regularly buy cars with blown engines, transmission problems, or ones that simply won't start anymore.",
     },
     {
       question: "What if I don't have the title?",
@@ -24,7 +24,7 @@ export default function AboutUsPage() {
     },
     {
       question: "Is there any cost to me for towing or pickup?",
-      answer: "No. Towing and pickup are free — the price we quote is the price you get paid.",
+      answer: "No. Towing and pickup are free. The price we quote is the price you get paid.",
     },
   ];
 
@@ -64,7 +64,7 @@ export default function AboutUsPage() {
         eyebrow="Get in touch"
         title={`Call ${site.phone} Today`}
         paragraphs={[
-          "We'll walk you through the process, answer your questions, and get you a fair cash offer — no obligation, no pressure.",
+          "We'll walk you through the process, answer your questions, and get you a fair cash offer, no obligation, no pressure.",
         ]}
       />
 

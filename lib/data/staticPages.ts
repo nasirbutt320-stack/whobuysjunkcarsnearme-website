@@ -44,7 +44,7 @@ export const staticPages: StaticPageMeta[] = [
   {
     slug: "area-we-serve",
     title: "Junk Car Buyer Near Me | Serving All 50 States",
-    description: "Nationwide junk car pickup — no matter which state you call from.",
+    description: "Nationwide junk car pickup, no matter which state you call from.",
   },
   {
     slug: "reviews",
@@ -63,7 +63,7 @@ export const staticPages: StaticPageMeta[] = [
   },
   {
     slug: "gallery",
-    title: "See the Vehicles That We Buy – Junk, Used, Old & New",
+    title: "See the Vehicles That We Buy - Junk, Used, Old & New",
     description: "A look at the range of vehicles we've recently purchased.",
   },
 ];

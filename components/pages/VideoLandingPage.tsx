@@ -10,7 +10,7 @@ export default function VideoLandingPage({ variant }: { variant: 1 | 2 }) {
       <PageHero
         badge="Rated Junk Car Buyer in the USA"
         title="Who Buys Junk Cars"
-        accent="Near Me? We Do — Right Now."
+        accent="Near Me? We Do, Right Now."
         intro={
           <p>
             That dead sedan in the driveway has been parked long enough that
@@ -25,16 +25,13 @@ export default function VideoLandingPage({ variant }: { variant: 1 | 2 }) {
 
       <section className="section bg-navy-50/60">
         <Container className="max-w-3xl text-center">
-          <span className="text-sm font-bold uppercase tracking-wide text-teal-600">
-            See it in action
-          </span>
-          <h2 className="mt-2 text-2xl font-extrabold text-navy-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold text-navy-900 sm:text-3xl">
             Watch how easy it is to sell your junk car
           </h2>
           <p className="mt-3 text-navy-500">
             Thousands of Americans sell their junk cars to us every month. This
-            short walkthrough shows exactly what happens — from quote to cash in
-            hand — in under 24 hours.
+            short walkthrough shows exactly what happens, from quote to cash in
+            hand, in under 24 hours.
           </p>
 
           <button
@@ -43,7 +40,7 @@ export default function VideoLandingPage({ variant }: { variant: 1 | 2 }) {
             aria-label="Play walkthrough video"
           >
             <span className="absolute inset-0 bg-gradient-to-br from-navy-800 to-navy-950" />
-            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-teal-500 text-navy-950 transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
+            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gold-500 text-navy-950 transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
               <svg viewBox="0 0 24 24" fill="currentColor" className="ml-1 h-7 w-7 sm:h-9 sm:w-9">
                 <path d="M8 5v14l11-7z" />
               </svg>
@@ -59,7 +56,7 @@ export default function VideoLandingPage({ variant }: { variant: 1 | 2 }) {
         eyebrow="Who we are"
         title="The USA's Most Trusted Junk Car Buyer Since 2011"
         paragraphs={[
-          "We've been buying junk cars from American families for over a decade. Whether your car was in an accident, stopped running, or is just too old to repair, we want it — and we'll pay you fairly for it.",
+          "We've been buying junk cars from American families for over a decade. Whether your car was in an accident, stopped running, or is just too old to repair, we want it, and we'll pay you fairly for it.",
           "Unlike local junkyards that low-ball you, our nationwide network competes for your vehicle, which is usually why our offer ends up higher.",
         ]}
         list={[

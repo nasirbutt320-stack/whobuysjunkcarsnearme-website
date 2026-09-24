@@ -4,10 +4,10 @@ import { site } from "@/lib/site";
 import { PhoneIcon, DocumentIcon, MapPinIcon, DollarIcon } from "@/components/icons";
 
 const steps = [
-  { number: "01", text: "Tell us your car's year, make and model." },
-  { number: "02", text: "Describe its condition and your location." },
-  { number: "03", text: "Get your cash offer over the phone." },
-  { number: "04", text: "Schedule pickup and get paid on the spot." },
+  { number: 1, text: "Tell us your car's year, make and model." },
+  { number: 2, text: "Describe its condition and your location." },
+  { number: 3, text: "Get your cash offer over the phone." },
+  { number: 4, text: "Schedule pickup and get paid on the spot." },
 ];
 
 const checklist = [
@@ -44,7 +44,7 @@ export default function ContactUsPage() {
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {steps.map((step) => (
                 <div key={step.number} className="flex items-start gap-3">
-                  <span className="text-2xl font-extrabold text-teal-500">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-500 text-sm font-bold text-navy-950">
                     {step.number}
                   </span>
                   <p className="pt-1 text-sm text-navy-200">{step.text}</p>
@@ -58,7 +58,7 @@ export default function ContactUsPage() {
             <ul className="mt-4 space-y-3">
               {checklist.map((item) => (
                 <li key={item.text} className="flex items-center gap-3 text-sm text-navy-200">
-                  <item.icon className="h-4 w-4 text-teal-400" />
+                  <item.icon className="h-4 w-4 text-gold-400" />
                   {item.text}
                 </li>
               ))}

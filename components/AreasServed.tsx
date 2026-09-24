@@ -8,14 +8,9 @@ export default function AreasServed() {
     <section className="section bg-navy-900">
       <Container>
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <span className="text-sm font-bold uppercase tracking-wide text-teal-400">
-              Areas served
-            </span>
-            <h2 className="mt-2 text-2xl font-extrabold text-white sm:text-3xl">
-              We buy cars in all 50 states
-            </h2>
-          </div>
+          <h2 className="text-2xl font-bold text-white sm:text-3xl">
+            We buy cars in all 50 states
+          </h2>
           <Link href="/area-we-serve/" className="btn btn-outline">
             See full coverage
           </Link>
@@ -26,9 +21,9 @@ export default function AreasServed() {
             <Link
               key={state.slug}
               href={`/${state.slug}/`}
-              className="flex items-center gap-2 text-sm text-navy-200 transition-colors hover:text-teal-400"
+              className="flex items-center gap-2 text-sm text-navy-200 transition-colors hover:text-gold-400"
             >
-              <MapPinIcon className="h-4 w-4 shrink-0 text-teal-500" />
+              <MapPinIcon className="h-4 w-4 shrink-0 text-gold-500" />
               {state.name}
             </Link>
           ))}

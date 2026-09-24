@@ -16,7 +16,7 @@ const weBuyFaqs: FaqItem[] = [
   {
     question: "Do you buy newer used vehicles too?",
     answer:
-      "Yes — a vehicle doesn't need to be extremely old. We review newer cars with accident damage, mechanical problems, or title issues as well.",
+      "Yes. A vehicle doesn't need to be extremely old. We review newer cars with accident damage, mechanical problems, or title issues as well.",
   },
   {
     question: "What if my car doesn't run?",
@@ -69,7 +69,7 @@ export default function WeBuyPage() {
         eyebrow="What we need"
         title="What Information Do We Need?"
         paragraphs={[
-          "Having these details ready helps make the process smoother: vehicle year, make and model, trim level if known, approximate mileage, running or non-running status, any damage or mechanical problems, your vehicle's location, and title information. Don't guess if you're unsure — just give us the most accurate information available.",
+          "Having these details ready helps make the process smoother: vehicle year, make and model, trim level if known, approximate mileage, running or non-running status, any damage or mechanical problems, your vehicle's location, and title information. Don't guess if you're unsure, just give us the most accurate information available.",
         ]}
       />
 

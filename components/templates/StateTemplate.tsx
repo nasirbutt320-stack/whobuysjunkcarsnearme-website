@@ -81,7 +81,7 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
         listColumns={2}
       >
         <p className="prose-body mt-4">
-          {state.name} sits in {region} — wherever you are in the state, our
+          {state.name} sits in {region}. Wherever you are in the state, our
           pickup network reaches you the same way it reaches everyone else.
         </p>
       </ContentSection>
@@ -89,11 +89,11 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
       {cities.length > 0 && (
         <section className="section bg-navy-50/60">
           <Container>
-            <h2 className="text-2xl font-extrabold text-navy-900 sm:text-3xl">
+            <h2 className="text-2xl font-bold text-navy-900 sm:text-3xl">
               Cities We Serve in {state.name}
             </h2>
             <p className="mt-3 max-w-2xl text-navy-500">
-              We have dedicated local pages for the towns below — pick yours for
+              We have dedicated local pages for the towns below. Pick yours for
               details specific to your area, or just request a quote and we&apos;ll
               take it from there.
             </p>
@@ -102,9 +102,9 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
                 <Link
                   key={city.slug}
                   href={`/${city.slug}/`}
-                  className="flex items-center gap-2 rounded-xl border border-navy-100 bg-white px-4 py-3 text-sm font-semibold text-navy-800 hover:border-teal-400 hover:text-teal-600"
+                  className="flex items-center gap-2 rounded-xl border border-navy-100 bg-white px-4 py-3 text-sm font-semibold text-navy-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold-400 hover:text-gold-600 hover:shadow-card"
                 >
-                  <MapPinIcon className="h-4 w-4 text-teal-500" />
+                  <MapPinIcon className="h-4 w-4 text-gold-500" />
                   {city.name}
                 </Link>
               ))}
@@ -134,7 +134,7 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
       />
 
       <FaqAccordion
-        title={`Frequently Asked Questions — ${state.name}`}
+        title={`Frequently Asked Questions: ${state.name}`}
         items={faqItems}
       />
 

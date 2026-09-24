@@ -10,7 +10,7 @@ export default function MobileCallBar() {
         Call now
       </a>
       <Link href="/get-quote/" className="btn btn-primary flex-1">
-        Get quote
+        Get Quote
       </Link>
     </div>
   );

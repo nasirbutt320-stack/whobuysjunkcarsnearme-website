@@ -3,7 +3,6 @@ import Container from "./Container";
 import CheckList from "./CheckList";
 
 export default function ContentSection({
-  eyebrow,
   title,
   paragraphs = [],
   list,
@@ -24,14 +23,10 @@ export default function ContentSection({
       <Container>
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div>
-            {eyebrow && (
-              <span className="text-sm font-bold uppercase tracking-wide text-teal-600">
-                {eyebrow}
-              </span>
-            )}
-            <h2 className="mt-2 text-2xl font-extrabold text-navy-900 sm:text-3xl">
+            <h2 className="text-2xl font-bold leading-tight text-navy-900 sm:text-3xl">
               {title}
             </h2>
+            <span className="mt-4 block h-1 w-14 rounded-full bg-gold-500" aria-hidden="true" />
           </div>
           <div>
             <div className="prose-body">

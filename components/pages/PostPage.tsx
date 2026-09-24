@@ -12,7 +12,7 @@ export default function PostPage({ post }: { post: PostEntry }) {
         <Container className="max-w-3xl">
           <Link
             href={`/category/${post.category}/`}
-            className="text-sm font-semibold uppercase tracking-wide text-teal-400"
+            className="text-sm font-semibold uppercase tracking-wide text-gold-400"
           >
             {post.category}
           </Link>
@@ -40,7 +40,7 @@ export default function PostPage({ post }: { post: PostEntry }) {
           <div className="mt-12 rounded-2xl border border-navy-100 bg-navy-50/60 p-6">
             <p className="text-sm text-navy-500">
               Ready to sell your own vehicle?{" "}
-              <Link href="/get-quote/" className="font-semibold text-teal-600">
+              <Link href="/get-quote/" className="font-semibold text-gold-600">
                 Get a free cash offer
               </Link>{" "}
               in minutes.
