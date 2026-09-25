@@ -24,6 +24,7 @@ export default function Header() {
   }, [open]);
 
   return (
+    <>
     <header className="sticky top-0 z-50 border-b border-navy-100 bg-white/95 backdrop-blur">
       <Container className="flex h-[76px] items-center justify-between gap-4">
         <Logo />
@@ -63,31 +64,32 @@ export default function Header() {
           {open ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
         </button>
       </Container>
-
-      {open && (
-        <div className="border-t border-navy-100 bg-white px-5 pb-6 pt-4 lg:hidden">
-          <nav className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-lg px-3 py-3 text-base font-semibold text-navy-800 hover:bg-navy-50"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="mt-4 flex flex-col gap-3">
-            <a href={site.phoneHref} className="btn btn-outline-dark w-full">
-              <PhoneIcon className="h-4 w-4" />
-              Call {site.phone}
-            </a>
-            <Link href="/get-quote/" className="btn btn-primary w-full">
-              Get A Free Quote
-            </Link>
-          </div>
-        </div>
-      )}
     </header>
+
+    {open && (
+      <div className="fixed inset-x-0 top-[77px] bottom-0 z-50 overflow-y-auto border-t border-navy-100 bg-white px-5 pb-8 pt-4 lg:hidden">
+        <nav className="flex flex-col gap-1">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-lg px-3 py-3 text-base font-semibold text-navy-800 hover:bg-navy-50"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="mt-4 flex flex-col gap-3">
+          <a href={site.phoneHref} className="btn btn-outline-dark w-full">
+            <PhoneIcon className="h-4 w-4" />
+            Call {site.phone}
+          </a>
+          <Link href="/get-quote/" className="btn btn-primary w-full">
+            Get A Free Quote
+          </Link>
+        </div>
+      </div>
+    )}
+    </>
   );
 }
