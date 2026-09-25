@@ -1,22 +1,55 @@
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import Container from "@/components/Container";
 import CTASection from "@/components/CTASection";
-import { CarIcon } from "@/components/icons";
 
 const recentPickups = [
-  { label: "Sedan", note: "Non-running, purchased for parts" },
-  { label: "Pickup Truck", note: "High mileage, sold with clear title" },
-  { label: "SUV", note: "Accident damage, picked up same day" },
-  { label: "Minivan", note: "Sitting unused for 3+ years" },
-  { label: "Coupe", note: "Engine trouble, sold without a title" },
-  { label: "Work Van", note: "Fleet vehicle, retired from service" },
+  {
+    src: "/gallery/ford-super-duty.webp",
+    label: "Ford Super Duty",
+    alt: "Ford Super Duty pickup truck we bought for cash",
+  },
+  {
+    src: "/gallery/honda-pilot.webp",
+    label: "Honda Pilot",
+    alt: "Honda Pilot SUV we bought for cash",
+  },
+  {
+    src: "/gallery/jeep-grand-cherokee.webp",
+    label: "Jeep Grand Cherokee",
+    alt: "Jeep Grand Cherokee SUV we bought for cash",
+  },
+  {
+    src: "/gallery/mazda5.webp",
+    label: "Mazda5",
+    alt: "Mazda5 wagon we bought for cash",
+  },
+  {
+    src: "/gallery/ford-mustang.webp",
+    label: "Ford Mustang",
+    alt: "Ford Mustang we bought for cash",
+  },
+  {
+    src: "/gallery/ford-f150.webp",
+    label: "Ford F-150",
+    alt: "Ford F-150 pickup truck we bought for cash",
+  },
+  {
+    src: "/gallery/chevrolet-cruze.webp",
+    label: "Chevrolet Cruze",
+    alt: "Chevrolet Cruze sedan we bought for cash",
+  },
+  {
+    src: "/gallery/audi-a4.webp",
+    label: "Audi A4",
+    alt: "Audi A4 sedan we bought for cash",
+  },
 ];
 
 export default function GalleryPage() {
   return (
     <>
       <PageHero
-        badge="Recent Purchases"
         title="Vehicles"
         accent="We've Bought"
         intro={
@@ -36,14 +69,19 @@ export default function GalleryPage() {
             {recentPickups.map((item) => (
               <div
                 key={item.label}
-                className="overflow-hidden rounded-2xl border border-navy-100 shadow-sm"
+                className="overflow-hidden rounded-2xl border border-navy-100 shadow-sm transition-shadow hover:shadow-card"
               >
-                <div className="flex h-40 items-center justify-center bg-navy-50">
-                  <CarIcon className="h-16 w-16 text-navy-300" />
+                <div className="relative h-48 w-full bg-navy-50">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
                 <div className="p-5">
                   <h3 className="font-bold text-navy-900">{item.label}</h3>
-                  <p className="mt-1 text-sm text-navy-500">{item.note}</p>
                 </div>
               </div>
             ))}
