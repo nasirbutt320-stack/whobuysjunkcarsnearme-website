@@ -32,26 +32,6 @@ export function organizationSchema() {
   };
 }
 
-export function localBusinessSchema(params: {
-  name: string;
-  description: string;
-  areaServed: string;
-  url: string;
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "AutomotiveBusiness",
-    name: site.name,
-    url: params.url,
-    telephone: site.phone,
-    description: params.description,
-    areaServed: {
-      "@type": params.areaServed.length > 2 ? "AdministrativeArea" : "State",
-      name: params.areaServed,
-    },
-  };
-}
-
 export function breadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",

@@ -29,26 +29,25 @@ export default function VideoLandingPage({ variant }: { variant: 1 | 2 }) {
             Watch how easy it is to sell your junk car
           </h2>
           <p className="mt-3 text-navy-500">
-            Thousands of Americans sell their junk cars to us every month. This
-            short walkthrough shows exactly what happens, from quote to cash in
-            hand, in under 24 hours.
+            We're putting together a short walkthrough of exactly what happens,
+            from quote to cash in hand. In the meantime, the steps below cover
+            the same process.
           </p>
 
-          <button
-            type="button"
-            className="group relative mt-8 flex aspect-video w-full items-center justify-center overflow-hidden rounded-2xl bg-navy-900 shadow-card"
-            aria-label="Play walkthrough video"
+          <div
+            className="relative mt-8 flex aspect-video w-full items-center justify-center overflow-hidden rounded-2xl bg-navy-900 shadow-card"
+            aria-label="Walkthrough video coming soon"
           >
             <span className="absolute inset-0 bg-gradient-to-br from-navy-800 to-navy-950" />
-            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gold-500 text-navy-950 transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
+            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-white sm:h-20 sm:w-20">
               <svg viewBox="0 0 24 24" fill="currentColor" className="ml-1 h-7 w-7 sm:h-9 sm:w-9">
                 <path d="M8 5v14l11-7z" />
               </svg>
             </span>
             <span className="absolute bottom-4 left-4 rounded-full bg-black/40 px-3 py-1 text-xs font-semibold text-white">
-              {variant === 1 ? "Customer walkthrough · 1:42" : "Behind the pickup · 2:05"}
+              Video coming soon
             </span>
-          </button>
+          </div>
         </Container>
       </section>
 

@@ -7,7 +7,8 @@ import AreasServed from "@/components/AreasServed";
 import CTASection from "@/components/CTASection";
 import Container from "@/components/Container";
 import JsonLd from "@/components/JsonLd";
-import { faqPageSchema } from "@/lib/schema";
+import { faqPageSchema, breadcrumbSchema } from "@/lib/schema";
+import { site } from "@/lib/site";
 import { StateEntry } from "@/lib/data/states";
 import { citiesForState } from "@/lib/data/cities";
 import { MapPinIcon } from "@/components/icons";
@@ -53,9 +54,15 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
     },
   ];
 
+  const breadcrumbItems = [
+    { name: "Home", url: `${site.url}/` },
+    { name: state.name, url: `${site.url}/${state.slug}/` },
+  ];
+
   return (
     <>
       <JsonLd data={faqPageSchema(faqItems)} />
+      <JsonLd data={breadcrumbSchema(breadcrumbItems)} />
 
       <PageHero
         badge="Same-Day Cash For Junk Cars"

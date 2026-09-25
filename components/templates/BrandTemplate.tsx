@@ -5,7 +5,8 @@ import FaqAccordion, { FaqItem } from "@/components/FaqAccordion";
 import AreasServed from "@/components/AreasServed";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
-import { faqPageSchema } from "@/lib/schema";
+import { faqPageSchema, breadcrumbSchema } from "@/lib/schema";
+import { site } from "@/lib/site";
 import { BrandEntry } from "@/lib/data/brands";
 import {
   pick,
@@ -45,9 +46,15 @@ export default function BrandTemplate({ brand }: { brand: BrandEntry }) {
     },
   ];
 
+  const breadcrumbItems = [
+    { name: "Home", url: `${site.url}/` },
+    { name: brand.name, url: `${site.url}/${brand.slug}/` },
+  ];
+
   return (
     <>
       <JsonLd data={faqPageSchema(faqItems)} />
+      <JsonLd data={breadcrumbSchema(breadcrumbItems)} />
 
       <PageHero
         badge="Any Year, Any Condition"
@@ -66,7 +73,7 @@ export default function BrandTemplate({ brand }: { brand: BrandEntry }) {
           "Cash, check, or bank transfer, your choice",
           "Free towing in all 50 states",
           "We handle title transfer and paperwork",
-          `We buy ${brand.name} cars, trucks, and SUVs alike`,
+          `We buy ${brand.vehicleFocus ?? "cars, trucks, and SUVs alike"}`,
         ]}
         listColumns={2}
       >

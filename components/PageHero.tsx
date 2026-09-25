@@ -4,7 +4,7 @@ import QuoteForm from "./QuoteForm";
 import { CheckIcon } from "./icons";
 import Link from "next/link";
 
-const trustBullets = ["Any condition, running or not", "No title needed", "Free towing, nationwide"];
+const trustBullets = ["Any condition, running or not", "No title? No problem", "Free towing, nationwide"];
 
 export default function PageHero({
   title,
@@ -49,7 +49,13 @@ export default function PageHero({
             ))}
           </ul>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Link href={primaryCta.href} className="btn btn-primary">
+            {/* The form is already one scroll away on this page, so the
+                primary CTA scrolls to it instead of navigating to a
+                separate page with the same form on it. */}
+            <Link
+              href={showForm ? "#hero-quote-form" : primaryCta.href}
+              className="btn btn-primary"
+            >
               {primaryCta.label}
             </Link>
             {secondaryCta && (
@@ -61,7 +67,8 @@ export default function PageHero({
         </div>
         {showForm && (
           <div
-            className="animate-rise-in lg:justify-self-end lg:pl-4"
+            id="hero-quote-form"
+            className="animate-rise-in scroll-mt-24 lg:justify-self-end lg:pl-4"
             style={{ animationDelay: "0.12s" }}
           >
             <QuoteForm />

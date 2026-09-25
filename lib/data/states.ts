@@ -54,6 +54,13 @@ export const states: StateEntry[] = [
   { slug: "virginia", name: "Virginia", abbr: "VA" },
   { slug: "district-of-columbia", name: "District of Columbia", abbr: "DC" },
   { slug: "utah", name: "Utah", abbr: "UT" },
+  // Added after the SEO audit found these 3 states had no page at all,
+  // despite every page on the site claiming "all 50 states" coverage.
+  // New URLs, not present on the original site -- everything above this
+  // line still matches the live site's page-sitemap.xml exactly.
+  { slug: "florida", name: "Florida", abbr: "FL" },
+  { slug: "hawaii", name: "Hawaii", abbr: "HI" },
+  { slug: "kentucky", name: "Kentucky", abbr: "KY" },
 ];
 
 export function getState(slug: string): StateEntry | undefined {

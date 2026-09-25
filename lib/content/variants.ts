@@ -84,6 +84,9 @@ export const stateRegion: Record<string, string> = {
   virginia: "the Mid-Atlantic, bordering Maryland, North Carolina, Tennessee, Kentucky, and West Virginia",
   "district-of-columbia": "the Mid-Atlantic, surrounded entirely by Maryland and Virginia",
   utah: "the Mountain West, bordering Idaho, Wyoming, Colorado, Arizona, and Nevada",
+  florida: "the Southeast, bordering only Georgia and Alabama by land, with the rest of the state surrounded by ocean",
+  hawaii: "the Pacific, the only U.S. state with no land borders at all, hundreds of miles from the mainland",
+  kentucky: "Appalachia and the Upper South, bordering seven other states: Illinois, Indiana, Ohio, West Virginia, Virginia, Tennessee, and Missouri",
 };
 
 export const stateHeroIntro = [

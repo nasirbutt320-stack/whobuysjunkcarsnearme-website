@@ -40,6 +40,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${bodyFont.variable} ${displayFont.variable}`}>
+      <head>
+        {/* Warms up the connection to the GHL tracking host ahead of time,
+            cheaper than the script's own preload since it doesn't compete
+            for bandwidth with the actual first-load resources. */}
+        <link rel="preconnect" href="https://link.cashforcarsflorida.net" />
+      </head>
       <body className="flex min-h-screen flex-col font-sans antialiased">
         <JsonLd data={organizationSchema()} />
         <GhlTrackingScript />

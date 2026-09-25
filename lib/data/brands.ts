@@ -3,6 +3,9 @@ export type BrandEntry = {
   name: string;
   ev?: boolean;
   luxury?: boolean;
+  // Overrides the generic "cars, trucks, and SUVs" line on the brand page
+  // for brands where that phrasing doesn't fit (e.g. a truck-only brand).
+  vehicleFocus?: string;
 };
 
 // Slugs match the live site's page-sitemap.xml exactly.
@@ -39,7 +42,11 @@ export const brands: BrandEntry[] = [
   { slug: "chevrolet", name: "Chevrolet" },
   { slug: "nissan", name: "Nissan" },
   { slug: "hyundai", name: "Hyundai" },
-  { slug: "ram-trucks", name: "RAM Trucks" },
+  {
+    slug: "ram-trucks",
+    name: "RAM Trucks",
+    vehicleFocus: "1500, 2500, and 3500 pickups",
+  },
   { slug: "bugatti", name: "Bugatti", luxury: true },
   { slug: "hummer", name: "Hummer" },
   { slug: "maserati", name: "Maserati", luxury: true },
@@ -51,7 +58,11 @@ export const brands: BrandEntry[] = [
   { slug: "buick", name: "Buick" },
   { slug: "cadillac", name: "Cadillac", luxury: true },
   { slug: "tesla", name: "Tesla", ev: true },
-  { slug: "ram", name: "RAM" },
+  {
+    slug: "ram",
+    name: "RAM",
+    vehicleFocus: "trucks, ProMaster vans, and other RAM vehicles",
+  },
   { slug: "chrysler", name: "Chrysler" },
 ];
 

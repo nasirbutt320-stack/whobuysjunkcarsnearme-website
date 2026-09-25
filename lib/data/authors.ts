@@ -6,7 +6,7 @@ export type AuthorEntry = {
 // Slugs match the live site's author-sitemap.xml exactly.
 export const authors: AuthorEntry[] = [
   { slug: "admin", name: "Admin" },
-  { slug: "cashforcar39gmail-com", name: "cashforcar39@gmail.com" },
+  { slug: "cashforcar39gmail-com", name: "Editorial Team" },
 ];
 
 export function getAuthor(slug: string): AuthorEntry | undefined {

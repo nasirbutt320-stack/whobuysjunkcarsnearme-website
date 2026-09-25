@@ -5,7 +5,8 @@ import FaqAccordion, { FaqItem } from "@/components/FaqAccordion";
 import AreasServed from "@/components/AreasServed";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
-import { faqPageSchema } from "@/lib/schema";
+import { faqPageSchema, breadcrumbSchema } from "@/lib/schema";
+import { site } from "@/lib/site";
 import { CityEntry } from "@/lib/data/cities";
 import { getState } from "@/lib/data/states";
 import {
@@ -49,9 +50,16 @@ export default function CityTemplate({ city }: { city: CityEntry }) {
     },
   ];
 
+  const breadcrumbItems = [
+    { name: "Home", url: `${site.url}/` },
+    ...(state ? [{ name: state.name, url: `${site.url}/${state.slug}/` }] : []),
+    { name: city.name, url: `${site.url}/${city.slug}/` },
+  ];
+
   return (
     <>
       <JsonLd data={faqPageSchema(faqItems)} />
+      <JsonLd data={breadcrumbSchema(breadcrumbItems)} />
 
       <PageHero
         badge="Local Car Buyer"
