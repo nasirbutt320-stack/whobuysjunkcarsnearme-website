@@ -43,7 +43,6 @@ export default function WeBuyPage() {
             repairs.
           </p>
         }
-        secondaryCta={null}
       />
 
       <ProcessSteps />
