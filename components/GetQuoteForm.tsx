@@ -75,7 +75,12 @@ export default function GetQuoteForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl bg-white p-6 shadow-card sm:p-8">
+    <form
+      id="get-a-quote-form"
+      name="get-a-quote-form"
+      onSubmit={handleSubmit}
+      className="space-y-5 rounded-2xl bg-white p-6 shadow-card sm:p-8"
+    >
       <div className="form-field">
         <label htmlFor="gq-name">
           Name <span className="text-gold-600">*</span>

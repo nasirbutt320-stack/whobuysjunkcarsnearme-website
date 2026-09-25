@@ -82,7 +82,12 @@ export default function QuoteForm({
     <div className="rounded-2xl bg-white p-6 shadow-card sm:p-8">
       <h3 className="text-xl font-bold text-navy-900">{title}</h3>
       {subtitle && <p className="mt-1.5 text-sm text-navy-500">{subtitle}</p>}
-      <form onSubmit={handleSubmit} className="mt-5 space-y-4">
+      <form
+        id="quote-form-widget"
+        name="quote-form-widget"
+        onSubmit={handleSubmit}
+        className="mt-5 space-y-4"
+      >
         <div className="form-field">
           <label htmlFor="qf-name">Name</label>
           <input id="qf-name" name={LEAD_FIELDS.name} type="text" placeholder="Name" required />
