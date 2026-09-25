@@ -12,7 +12,7 @@ export default function Logo({ dark = false }: { dark?: boolean }) {
           Who Buys
         </span>
         <span className="block font-display text-lg font-bold uppercase tracking-tight">
-          Junk Car
+          Junk Cars
         </span>
       </span>
     </Link>
