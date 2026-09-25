@@ -3,6 +3,7 @@ import { site } from "@/lib/site";
 import { cities } from "@/lib/data/cities";
 import { states } from "@/lib/data/states";
 import { brands } from "@/lib/data/brands";
+import { counties } from "@/lib/data/counties";
 import { staticPages } from "@/lib/data/staticPages";
 import { posts } from "@/lib/data/posts";
 import { authors } from "@/lib/data/authors";
@@ -30,6 +31,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
   for (const brand of brands) {
     entries.push({ url: `${site.url}/${brand.slug}/`, lastModified: CONTENT_LAST_UPDATED, priority: 0.7 });
+  }
+  for (const county of counties) {
+    entries.push({ url: `${site.url}/${county.slug}/`, lastModified: CONTENT_LAST_UPDATED, priority: 0.7 });
   }
   for (const post of posts) {
     entries.push({

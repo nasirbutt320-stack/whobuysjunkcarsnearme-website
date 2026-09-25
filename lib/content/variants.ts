@@ -320,6 +320,121 @@ export const cityServingArea = [
   ],
 ];
 
+// One real, verifiable fact per city, in the same spirit as brandFact and
+// stateRegion below -- only populated for the pilot batch of major-metro
+// cities added alongside the county pilot; older city entries fall back to
+// no extra fact rather than a guessed one.
+export const cityFact: Record<string, string> = {
+  "new-york-city": "New York City is the most populous city in the country, so parts demand for common models here stays high year-round.",
+  "los-angeles": "Los Angeles has one of the largest used-parts and salvage markets in the country, which keeps offers competitive even on older vehicles.",
+  chicago: "Chicago's harsh winters mean road salt and rust are common, which we factor into offers rather than using as a reason to lowball.",
+  houston: "Houston is the largest city in Texas, with a big enough vehicle market that even less common makes and models have real parts demand.",
+  phoenix: "Phoenix's dry climate means less rust damage on older vehicles, which can mean more usable parts than the mileage alone would suggest.",
+  philadelphia: "Philadelphia's dense, older neighborhoods mean a lot of vehicles here are compact or mid-size, a segment with steady parts demand.",
+  "san-antonio": "San Antonio is one of the fastest-growing large cities in the country, keeping local demand for used vehicle parts strong.",
+  "san-diego": "San Diego's mild climate is easy on vehicle bodies, so cars here often have less rust damage than their mileage would suggest.",
+  dallas: "Dallas sits at the center of one of the country's largest metro areas, which keeps our pickup network there fast and well established.",
+  austin: "Austin's rapid growth over the last decade has brought a lot of newer vehicles into the area, alongside steady demand for older ones.",
+  jacksonville: "Jacksonville is the largest city by area in the continental U.S., and our pickup network covers all of it at no extra charge.",
+  "san-jose": "San Jose sits in the heart of Silicon Valley, where even older vehicles often have working electronics still worth something.",
+  "fort-worth": "Fort Worth's growth alongside Dallas has made North Texas one of the busiest used-vehicle markets in the country.",
+  columbus: "Columbus is Ohio's largest city, with a vehicle market big enough that parts demand stays strong even for less common models.",
+  charlotte: "Charlotte's fast growth has made it one of the busiest vehicle markets in the Carolinas.",
+  indianapolis: "Indianapolis sits at the crossroads of several major interstates, which helps keep our pickup times fast.",
+  seattle: "Seattle's wet climate can accelerate rust, so we look closely at the whole vehicle rather than judging by mileage alone.",
+  denver: "Denver's elevation and climate swings are hard on vehicles, which is exactly the kind of wear we regularly buy through.",
+  boston: "Boston's old, dense streets mean a lot of compact and mid-size vehicles, a segment where parts demand stays steady.",
+  nashville: "Nashville's rapid growth has brought a lot of vehicle turnover, keeping local demand for used parts strong.",
+  detroit: "Detroit's history as the center of American auto manufacturing means parts sourcing here is often faster than elsewhere.",
+  portland: "Portland's wet climate can mean more rust than mileage alone would suggest, which we factor into every offer.",
+  "las-vegas": "Las Vegas's dry desert climate is easy on vehicle bodies, which can mean less rust damage than the odometer suggests.",
+  atlanta: "Atlanta is one of the largest metro areas in the Southeast, keeping our pickup network there fast and well established.",
+  miami: "Miami's humidity and salt air can be hard on a vehicle's undercarriage, something we account for rather than penalize you for.",
+};
+
+// ---------------------------------------------------------------------------
+// County pages
+// ---------------------------------------------------------------------------
+
+export const countyHeroIntro = [
+  (county: string) =>
+    `If you've got a car, truck, or SUV sitting unused somewhere in ${county}, we can help. We buy vehicles in any condition, running or not, and pickup anywhere in the county is always free.`,
+  (county: string) =>
+    `An unwanted vehicle in ${county} doesn't need to be fixed up first. We buy cars, trucks, and SUVs as-is, and towing is on us no matter where in the county you are.`,
+  (county: string) =>
+    `Whether it's been sitting for a month or a decade, a vehicle in ${county} is worth a call. We buy in any condition and cover pickup anywhere in the county.`,
+  (county: string) =>
+    `Got a car taking up space somewhere in ${county}? We buy vehicles regardless of condition, and there's no charge for pickup anywhere in the county.`,
+];
+
+export const countyWhyChoose = [
+  (seat: string) => [
+    "We don't price a vehicle by how it looks. What matters is the make, model, age, and what's actually still usable, mechanically or for parts.",
+    `Our pickup network already covers the ${seat} area regularly, so getting to you usually doesn't take long no matter where in the county you are.`,
+  ],
+  (seat: string) => [
+    "A car doesn't need to run, look good, or have a clean title to be worth something to us. We weigh the make, model, mileage, and condition.",
+    `Because we're already active around ${seat}, scheduling a pickup anywhere nearby is usually quick.`,
+  ],
+  (seat: string) => [
+    "We don't work off a flat rate. Your offer reflects the vehicle in front of us, not a guess based on its ZIP code.",
+    `Our regular pickups around ${seat} mean we already know the area well, which usually means a faster appointment for you.`,
+  ],
+  (seat: string) => [
+    "Condition alone doesn't decide the offer. We look at the whole vehicle, including what its parts and materials are worth.",
+    `We cover the whole county, not just the area immediately around ${seat}, at no extra charge either way.`,
+  ],
+];
+
+export const countyAnyCondition = [
+  () => [
+    "We regularly buy vehicles other buyers pass on: non-running cars, wrecked and flood-damaged vehicles, cars with blown engines or failed transmissions, and anything that's simply been parked too long to bother fixing.",
+    "None of that needs to be fixed, cleaned, or even moved before you call.",
+  ],
+  () => [
+    "Junk, wrecked, high-mileage, missing parts, or simply old, we look at all of it. A vehicle doesn't have to run, start, or even be complete for us to make an offer.",
+    "It's easy to assume a badly damaged car is worthless. More often than not, there's still real value sitting in the parts and materials.",
+  ],
+  () => [
+    "A vehicle doesn't have to look good or run well to be worth something. We regularly buy cars with real problems: engine failure, collision damage, missing parts, and more.",
+    "If you've assumed your car is a lost cause, it's still worth a quick call before you decide that for certain.",
+  ],
+  () => [
+    "We buy vehicles most other buyers pass on: non-running cars, vehicles with major mechanical failures, and cars that have been sitting untouched for years.",
+    "Describe the vehicle as it actually sits. We'll tell you what it's worth before you decide anything.",
+  ],
+];
+
+export const countyNoTitle = [
+  (state: string) =>
+    `A missing title doesn't automatically rule out a sale. Depending on ${state}'s requirements and your proof of ownership, there may still be a way forward. Tell us your situation and we'll explain what's needed.`,
+  (state: string) =>
+    `Lost or missing titles come up often, and they're rarely a dealbreaker. ${state} allows for alternative proof of ownership in a lot of cases.`,
+  (state: string) =>
+    `Don't rule out selling just because the title is missing. Most sellers in ${state} without a title can still complete the sale with the right documentation.`,
+  (state: string) =>
+    `A missing title in ${state} is a common situation, not a rare one. Tell us what paperwork you do have and we'll take it from there.`,
+];
+
+export const countyServingArea = [
+  (county: string) => [
+    `Whether you're an individual, a family, or a business with a vehicle you no longer need, we cover all of ${county}, not just the area around its biggest city.`,
+    "A fair offer, a scheduled pickup, and payment on the spot, wherever in the county you are.",
+  ],
+  (county: string) => [
+    `We handle pickups the same way everywhere in ${county}: a real offer first, then a pickup time that works for your schedule.`,
+    "No pressure, no obligation to accept, just an honest number based on what you actually have.",
+  ],
+  (county: string) => [
+    `People across ${county} come to us for the same reason: a vehicle they're ready to be rid of, without the hassle of a private sale.`,
+    "We keep the process identical everywhere in the county: a real offer, a scheduled pickup, and payment when we arrive.",
+  ],
+  (county: string) => [
+    `From one end of ${county} to the other, we handle every pickup the same way.`,
+    "A fair number and a hassle-free pickup, no matter which part of the county you're in.",
+  ],
+];
+
 // ---------------------------------------------------------------------------
 // Brand pages
 // ---------------------------------------------------------------------------

@@ -11,6 +11,7 @@ import { faqPageSchema, breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 import { StateEntry } from "@/lib/data/states";
 import { citiesForState } from "@/lib/data/cities";
+import { countiesForState } from "@/lib/data/counties";
 import { MapPinIcon } from "@/components/icons";
 import {
   pick,
@@ -27,6 +28,7 @@ import {
 
 export default function StateTemplate({ state }: { state: StateEntry }) {
   const cities = citiesForState(state.slug);
+  const counties = countiesForState(state.slug);
   const region = stateRegion[state.slug] ?? "the United States";
 
   const faqItems: FaqItem[] = [
@@ -120,8 +122,35 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
         </section>
       )}
 
+      {counties.length > 0 && (
+        <section className={`section ${cities.length > 0 ? "bg-white" : "bg-navy-50/60"}`}>
+          <Container>
+            <h2 className="text-2xl font-bold text-navy-900 sm:text-3xl">
+              Counties We Serve in {state.name}
+            </h2>
+            <p className="mt-3 max-w-2xl text-navy-500">
+              We have dedicated pages for the counties below. Pick yours for
+              details specific to your area, or just request a quote and we&apos;ll
+              take it from there.
+            </p>
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+              {counties.map((county) => (
+                <Link
+                  key={county.slug}
+                  href={`/${county.slug}/`}
+                  className="flex items-center gap-2 rounded-xl border border-navy-100 bg-white px-4 py-3 text-sm font-semibold text-navy-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold-400 hover:text-gold-600 hover:shadow-card"
+                >
+                  <MapPinIcon className="h-4 w-4 text-gold-500" />
+                  {county.name}
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
       <ContentSection
-        tone={cities.length > 0 ? "light" : "muted"}
+        tone={cities.length > 0 || counties.length > 0 ? "light" : "muted"}
         eyebrow="Any condition"
         title="We Buy Vehicles in Any Condition"
         paragraphs={pick(stateAnyCondition, state.slug, "any-condition")(state.name)}

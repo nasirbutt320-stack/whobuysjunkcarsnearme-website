@@ -16,6 +16,7 @@ import {
   cityAnyCondition,
   cityNoTitle,
   cityServingArea,
+  cityFact,
   stateFaqDoesntRun,
   stateFaqTowing,
 } from "@/lib/content/variants";
@@ -23,6 +24,7 @@ import {
 export default function CityTemplate({ city }: { city: CityEntry }) {
   const state = getState(city.stateSlug);
   const stateName = state?.name ?? "your state";
+  const fact = cityFact[city.slug];
 
   const faqItems: FaqItem[] = [
     {
@@ -83,7 +85,9 @@ export default function CityTemplate({ city }: { city: CityEntry }) {
           "Same-day or next-day pickup in most areas",
         ]}
         listColumns={2}
-      />
+      >
+        {fact && <p className="prose-body mt-4">{fact}</p>}
+      </ContentSection>
 
       <ContentSection
         tone="muted"

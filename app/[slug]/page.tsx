@@ -4,12 +4,14 @@ import { notFound } from "next/navigation";
 import { cities, getCity } from "@/lib/data/cities";
 import { states, getState } from "@/lib/data/states";
 import { brands, getBrand } from "@/lib/data/brands";
+import { counties, getCounty } from "@/lib/data/counties";
 import { staticPages, getStaticPageMeta } from "@/lib/data/staticPages";
 import { posts, getPost } from "@/lib/data/posts";
 
 import CityTemplate from "@/components/templates/CityTemplate";
 import StateTemplate from "@/components/templates/StateTemplate";
 import BrandTemplate from "@/components/templates/BrandTemplate";
+import CountyTemplate from "@/components/templates/CountyTemplate";
 import PostPage from "@/components/pages/PostPage";
 
 import WeBuyPage from "@/components/pages/WeBuyPage";
@@ -29,6 +31,7 @@ export function generateStaticParams() {
     ...cities.map((c) => c.slug),
     ...states.map((s) => s.slug),
     ...brands.map((b) => b.slug),
+    ...counties.map((c) => c.slug),
     ...staticPages.map((p) => p.slug),
     ...posts.map((p) => p.slug),
   ];
@@ -72,6 +75,16 @@ export async function generateMetadata({
     };
   }
 
+  const county = getCounty(slug);
+  if (county) {
+    const countyState = getState(county.stateSlug);
+    return {
+      title: { absolute: `Junk Car Buyer in ${county.name}${countyState ? `, ${countyState.abbr}` : ""} - Fast Cash Offers` },
+      description: `Sell your junk, wrecked, or unwanted car for cash anywhere in ${county.name}${countyState ? `, ${countyState.name}` : ""}. Free towing and same-day pickup available.`,
+      alternates: { canonical: `/${slug}/` },
+    };
+  }
+
   const post = getPost(slug);
   if (post) {
     return {
@@ -104,6 +117,9 @@ export default async function SlugPage({ params }: { params: SlugParams }) {
 
   const brand = getBrand(slug);
   if (brand) return <BrandTemplate brand={brand} />;
+
+  const county = getCounty(slug);
+  if (county) return <CountyTemplate county={county} />;
 
   const post = getPost(slug);
   if (post) return <PostPage post={post} />;
