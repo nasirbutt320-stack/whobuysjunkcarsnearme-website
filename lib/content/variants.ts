@@ -13,6 +13,17 @@ function seededIndex(seed: string, length: number): number {
   for (let i = 0; i < seed.length; i++) {
     hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
   }
+  // A raw polynomial hash reduced mod a small number (our variant-list
+  // lengths) has a known bias: two different seeds can land on the same
+  // bucket across nearly every section, which is exactly what happened
+  // between "texas" and "nebraska" before this fix (matched on 7 of 8
+  // sections). Running the hash through a standard finalizing mix
+  // (MurmurHash3's fmix32) before the modulo spreads it out properly.
+  hash ^= hash >>> 16;
+  hash = Math.imul(hash, 0x85ebca6b) >>> 0;
+  hash ^= hash >>> 13;
+  hash = Math.imul(hash, 0xc2b2ae35) >>> 0;
+  hash = (hash ^ (hash >>> 16)) >>> 0;
   return hash % length;
 }
 
@@ -82,6 +93,12 @@ export const stateHeroIntro = [
     `Got a vehicle taking up space somewhere in ${state}? We buy cars, trucks, and SUVs in almost any condition, running or not, and there's no cost to you for pickup or paperwork.`,
   (state: string) =>
     `Whether it's been parked for one season or ten, an unwanted vehicle in ${state} is worth a phone call. We buy cars, trucks, vans, and SUVs regardless of condition, and towing is always free.`,
+  (state: string) =>
+    `An unwanted car sitting in ${state} doesn't need to be perfect, or even running, for us to make an offer. We buy cars, trucks, SUVs, and vans in any condition, and pickup is always free.`,
+  (state: string) =>
+    `Selling a car in ${state} doesn't have to mean fixing it up first. We take vehicles as-is, running or not, and cover the tow ourselves.`,
+  (state: string) =>
+    `If you've got a car, truck, or SUV in ${state} that's more trouble than it's worth, we'll take it off your hands. Condition doesn't rule anything out, and towing costs you nothing.`,
 ];
 
 export const stateWhyChooseUsIntro = [
@@ -91,6 +108,12 @@ export const stateWhyChooseUsIntro = [
     "A car doesn't need to run, look good, or have a clean title to be worth something. We weigh the make, model, mileage, and condition, and give you a straightforward number based on what we find.",
   () =>
     "We don't work off a single flat rate. Your offer is based on the vehicle in front of us: its year, condition, mileage, and which parts still have value to someone else.",
+  () =>
+    "We buy vehicles other companies turn down. Instead of judging a car by how it looks or whether it starts, we look at what it's actually worth in parts and materials.",
+  () =>
+    "Pricing a vehicle isn't guesswork on our end. We factor in the make, model, age, and condition, then back it up with a real cash number, not a lowball starting point.",
+  () =>
+    "Most sellers just want a fair number without the runaround. We look at what your vehicle actually has going for it, whether that's working parts, scrap value, or both, and quote accordingly.",
 ];
 
 export const stateAnyCondition = [
@@ -106,6 +129,18 @@ export const stateAnyCondition = [
     "Junk, wrecked, flooded, high-mileage, missing parts, or simply old, we look at all of it. A vehicle doesn't have to run, start, or even be complete for us to make an offer.",
     `A lot of owners in ${state} assume a badly damaged car is worthless. More often than not, there's still real value in the parts and materials, so it's worth a call either way.`,
   ],
+  (state: string) => [
+    "We don't turn vehicles away for looking rough. Non-running cars, trucks with blown engines, vehicles that have been in an accident, and cars that have simply been sitting for years are all things we regularly buy.",
+    `If your vehicle in ${state} fits any of that description, it's still worth reaching out. We'd rather give you a real number than have you assume it's worthless.`,
+  ],
+  (state: string) => [
+    "Whether a car runs, rolls, or does neither, we're still interested. We buy vehicles with transmission failure, flood damage, missing parts, and everything in between.",
+    `Owners in ${state} sometimes wait too long to call because they think a car has to be in decent shape first. It doesn't. Reach out and we'll tell you what it's worth.`,
+  ],
+  (state: string) => [
+    "A car doesn't need four working wheels, a clean interior, or a running engine to have value to us. We buy vehicles that are damaged, incomplete, or simply worn out.",
+    `Whatever condition your vehicle is in, chances are we've bought something similar from another seller in ${state}. It's always worth a call before you assume the worst.`,
+  ],
 ];
 
 export const stateNoTitle = [
@@ -115,6 +150,12 @@ export const stateNoTitle = [
     `Lost or missing titles come up often, and they're rarely a dealbreaker. ${state} has its own rules for proving ownership without the original document, and we can usually work within them. Let us know what paperwork you do have.`,
   (state: string) =>
     `Don't rule out selling just because the title is missing. Most sellers in ${state} without a title can still complete the sale with the right documentation. Tell us what you have and we'll walk you through the rest.`,
+  (state: string) =>
+    `Not having your title isn't necessarily a dead end in ${state}. Depending on your situation, alternative proof of ownership may be enough to move forward. Tell us what you have and we'll take it from there.`,
+  (state: string) =>
+    `Titles get lost, especially on older vehicles. ${state} allows for alternative documentation in a lot of cases, so don't assume a missing title rules you out. Give us a call and describe your situation.`,
+  (state: string) =>
+    `A missing title is a common situation, not a rare one. We work with sellers across ${state} to figure out what paperwork will actually get the sale done, so reach out before assuming it's not possible.`,
 ];
 
 export const stateWhySellDirect = [
@@ -124,18 +165,28 @@ export const stateWhySellDirect = [
     "A junkyard visit means you handle the transport, the paperwork, and usually accept whatever they offer on the spot. Sell directly to us instead and we handle the tow, the paperwork, and the payment, with no fees taken out of your offer.",
   () =>
     "Driving or towing a car to a junkyard yourself costs time and often money, on top of getting a lower number than expected. We come to you, cover the tow, handle the paperwork, and pay on pickup. No extra steps on your end.",
+  () =>
+    "Selling to a junkyard usually means you're at the mercy of whatever they offer once they see the car in person. Going direct means the number we quote on the phone is the number you get paid.",
+  () =>
+    "A junkyard's business model is parting out your vehicle, so their offer reflects that. We buy the whole vehicle, cover the tow, and pay you the same day, without any of the back-and-forth.",
+  () =>
+    "Private buyers can flake, and junkyards often lowball once the car's already loaded on their truck. Selling directly to us skips both problems: one phone call, one number, and payment on pickup.",
 ];
 
 export const stateFaqDoesntRun = [
   () => "Yes. We purchase both running and non-running vehicles in almost any condition.",
   () => "Yes, most of the vehicles we buy don't run. Tell us what's wrong and we'll factor it into your offer.",
   () => "Yes, running condition isn't a requirement. Dead battery, blown engine, or anything in between, we'll still make an offer.",
+  () => "Yes, that's the norm for us, not the exception. A car that won't start or drive is still worth a phone call.",
+  () => "Yes, absolutely. Whatever's wrong with it, describe the issue and we'll give you a number based on it.",
 ];
 
 export const stateFaqTowing = [
   () => "No. Towing is always free when you sell your vehicle to us.",
   () => "No, towing is included in every offer, no matter where in the state you're located.",
   () => "No. The price we quote already accounts for pickup, so there's nothing extra to pay.",
+  () => "No, never. Free towing is built into every offer we make, not an upsell.",
+  () => "No extra cost at all. Pickup is part of the deal, not something we bill separately.",
 ];
 
 export const stateFaqOffer = [
@@ -145,6 +196,10 @@ export const stateFaqOffer = [
     "Your offer comes from a mix of factors: year, make, model, mileage, condition, and how much of the vehicle can still be reused or recycled.",
   () =>
     "We weigh the vehicle's age, condition, mileage, and parts value together to land on a number, rather than pricing off a single factor.",
+  () =>
+    "We factor in the vehicle's year, make, model, overall condition, and what its parts are worth on the current market.",
+  () =>
+    "Your number comes from a combination of the vehicle's age, condition, mileage, and resale or parts value, not a single flat formula.",
 ];
 
 // ---------------------------------------------------------------------------
@@ -158,6 +213,12 @@ export const cityHeroIntro = [
     `Got an unwanted vehicle somewhere in ${city}? We buy cars, trucks, and SUVs in almost any condition, running or not, and cover the tow anywhere in the ${city} area and across ${state}.`,
   (city: string, state: string) =>
     `Whether it's been parked for a season or a decade, a vehicle sitting in ${city} is worth a call. We buy cars, trucks, vans, and SUVs regardless of condition, with free pickup throughout ${state}.`,
+  (city: string, state: string) =>
+    `A car sitting unused in ${city} doesn't have to stay that way. We buy vehicles in any condition, running or not, anywhere in ${city} and the surrounding ${state} area, and towing is always free.`,
+  (city: string, state: string) =>
+    `If you're ready to be done with a vehicle in ${city}, we'll take it as-is. No repairs, no cleanup, and no cost to you for pickup anywhere in ${state}.`,
+  (city: string, state: string) =>
+    `Cars, trucks, and SUVs in ${city} don't need to be running or even complete for us to make an offer. We cover pickup across ${state} at no charge to you.`,
 ];
 
 export const cityWhyChoose = [
@@ -172,6 +233,18 @@ export const cityWhyChoose = [
   (city: string) => [
     "We don't work off a flat rate. Your offer reflects the vehicle in front of us: its year, condition, mileage, and which parts still have value to someone else.",
     `Most sellers in ${city} find out the hard way that a used car lot won't touch a vehicle that needs real work. We buy those vehicles anyway, because our business is parts and materials, not resale.`,
+  ],
+  (city: string) => [
+    "We don't price a vehicle by how it looks. What matters is the make, model, age, and what's actually still usable, mechanically or for parts.",
+    `A lot of buyers in ${city} pass on vehicles that need real work. We do the opposite: those are exactly the vehicles our business is built around.`,
+  ],
+  (city: string) => [
+    "Dealerships and used car lots want vehicles they can resell with minimal effort. We're not in that business, so a car's condition matters far less to us.",
+    `If you've been turned away by a lot in ${city} because your vehicle needs work, that's usually exactly the kind of vehicle we want.`,
+  ],
+  (city: string) => [
+    "Our offers come from what a vehicle is actually worth in parts and materials, not how presentable it looks on a lot.",
+    `Sellers in ${city} are sometimes surprised a car they assumed was worthless still gets a real offer. That's because we're pricing the parts, not the paint job.`,
   ],
 ];
 
@@ -188,6 +261,18 @@ export const cityAnyCondition = [
     "Junk, wrecked, flooded, high-mileage, missing parts, or simply old, we look at all of it. A vehicle doesn't have to run, start, or even be complete for us to make an offer.",
     "It's easy to assume a badly damaged car is worthless. More often than not, there's still real value sitting in the parts and materials, so it's worth a call either way.",
   ],
+  () => [
+    "We buy vehicles most other buyers pass on: non-running cars, vehicles with major mechanical failures, and cars that have been sitting untouched for years.",
+    "None of that needs to be fixed before you call. Describe the vehicle as it sits and we'll tell you what it's worth.",
+  ],
+  () => [
+    "Running, not running, damaged, or just old, we look at all of it the same way: what the vehicle and its parts are actually worth right now.",
+    "You don't need to clean it up, move it, or make any repairs before reaching out.",
+  ],
+  () => [
+    "A vehicle doesn't have to look good or run well to be worth something. We regularly buy cars with real problems: engine failure, collision damage, missing parts, and more.",
+    "If you've assumed your car is a lost cause, it's still worth a quick call before you decide that for certain.",
+  ],
 ];
 
 export const cityNoTitle = [
@@ -197,6 +282,12 @@ export const cityNoTitle = [
     `Lost or missing titles come up often, and they're rarely a dealbreaker. ${state} has its own rules for proving ownership without the original document, and we can usually work within them.`,
   (state: string) =>
     `Don't rule out selling just because the title is missing. Most sellers in ${state} without a title can still complete the sale with the right documentation. Tell us what you have and we'll walk you through the rest.`,
+  (state: string) =>
+    `A missing title in ${state} doesn't have to be a dealbreaker. Tell us what documentation you do have and we'll let you know if it's enough to move forward.`,
+  (state: string) =>
+    `Plenty of sellers show up without a title on hand. ${state} has alternative paths for proving ownership, so it's worth a conversation before assuming you can't sell.`,
+  (state: string) =>
+    `We hear "I don't have the title" often, and it's rarely the end of the road in ${state}. Reach out and we'll walk through what you do have.`,
 ];
 
 export const cityServingArea = [
@@ -211,6 +302,18 @@ export const cityServingArea = [
   (city: string) => [
     `Individuals, families, and local businesses around ${city} all end up with a vehicle they no longer want for the same reasons: it's not worth fixing, it's not worth insuring, or it's simply in the way. We handle the pickup on a schedule that works for you.`,
     "Getting a fair offer and a hassle-free pickup is the whole point.",
+  ],
+  (city: string) => [
+    `Whether it's one car in a driveway or a fleet vehicle a business no longer needs, we treat every seller in ${city} the same way: a fair offer and a pickup that fits your schedule.`,
+    "That consistency is the whole point, no special treatment needed to get a fair deal.",
+  ],
+  (city: string) => [
+    `People and businesses around ${city} come to us for the same reason: a vehicle they don't want anymore and no interest in dealing with a private sale.`,
+    "We keep the process the same for everyone: a real offer, a scheduled pickup, and payment when we arrive.",
+  ],
+  (city: string) => [
+    `From single vehicles to small commercial fleets, we serve everyone around ${city} the same way.`,
+    "A fair number and a hassle-free pickup, every time.",
   ],
 ];
 
@@ -274,6 +377,12 @@ export const brandIntro = [
     `Got a ${brand} that's stopped earning its keep? Whether the ${mechanicalTerm} has failed or it's simply outlived its usefulness, we'll give you a fair cash offer without the inspections and back-and-forth a dealer trade-in usually involves.`,
   (brand: string, mechanicalTerm: string) =>
     `A ${brand} with ${mechanicalTerm} trouble, or one that just isn't worth fixing anymore, is still worth a phone call. We skip the inspections and dealership markups and give you a straight cash number instead.`,
+  (brand: string, mechanicalTerm: string) =>
+    `Your ${brand} doesn't need to be in good shape for us to make an offer. Whether it's ${mechanicalTerm} trouble or it's simply run its course, we'll give you a straightforward cash number.`,
+  (brand: string, mechanicalTerm: string) =>
+    `We buy ${brand} vehicles in the condition they're actually in, ${mechanicalTerm} problems included. No inspection appointment, no dealership back-and-forth, just a cash offer.`,
+  (brand: string, mechanicalTerm: string) =>
+    `If your ${brand} has ${mechanicalTerm} issues or is simply not worth fixing anymore, we'll take it as-is and pay you in cash, no inspection required.`,
 ];
 
 export const brandFairPricing = [
@@ -289,6 +398,18 @@ export const brandFairPricing = [
     `A dealer trade-in offer is designed to protect their margin, not to reflect what your ${brand} is worth. We price based on current market value instead, with nothing subtracted for a middleman.`,
     `We don't screen by condition. A ${brand} that won't start, has body damage, or has racked up serious mileage is still worth a real offer from us.`,
   ],
+  (brand: string) => [
+    `Our offer on your ${brand} reflects real market value, not a dealership's trade-in math, which is designed to protect their margin, not pay you fairly.`,
+    `Body damage, high mileage, a dead engine, none of it disqualifies your ${brand}. It just factors into the number.`,
+  ],
+  (brand: string) => [
+    `We price your ${brand} based on what it's actually worth right now, not what a dealer wants to give you toward another purchase.`,
+    `A ${brand} with real problems is still a ${brand} we're interested in. Condition changes the offer, not whether we make one.`,
+  ],
+  (brand: string) => [
+    `You get a cash number based on your ${brand}'s real value, with nothing subtracted for a dealership's profit margin.`,
+    `Whatever shape your ${brand} is in, mechanical issues included, it's still worth a call.`,
+  ],
 ];
 
 export const brandCommonIssues = [
@@ -298,6 +419,12 @@ export const brandCommonIssues = [
     `A ${brand} doesn't need to start or drive for us to make an offer. We see ${conditionTerm}, collision damage, and high-mileage vehicles regularly, and all of them are worth a conversation.`,
   (brand: string, conditionTerm: string) =>
     `We're not put off by ${conditionTerm}, collision damage, or six-figure mileage on a ${brand}. If it's been sitting and you're ready to be rid of it, that's really all that matters.`,
+  (brand: string, conditionTerm: string) =>
+    `Your ${brand} doesn't have to run for us to buy it. We regularly see ${conditionTerm} and high-mileage vehicles, and all of them get a real offer.`,
+  (brand: string, conditionTerm: string) =>
+    `Vehicles with ${conditionTerm} are common calls for us. It doesn't take a ${brand} off the table, it just factors into the number.`,
+  (brand: string, conditionTerm: string) =>
+    `We don't need your ${brand} in working order to make an offer. Whether it's ${conditionTerm} or just high mileage, it's still worth a conversation.`,
 ];
 
 export const brandDirectVsJunkyard = [
@@ -307,16 +434,26 @@ export const brandDirectVsJunkyard = [
     `A junk yard's offer on your ${brand} is built around parting it out, which is why it usually comes in lower. We price the whole vehicle instead, cover the tow, and pay on the spot once everything checks out.`,
   (brand: string) =>
     `Junk yards profit from your ${brand}'s individual parts, which is reflected in a lower upfront offer. We look at the vehicle as a whole, handle pickup for free, and pay immediately rather than making you wait.`,
+  (brand: string) =>
+    `A junkyard buys your ${brand} to part it out, so their number reflects that, not the vehicle's full value. We look at the whole car, arrange free pickup, and pay right away.`,
+  (brand: string) =>
+    `Selling your ${brand} to a junkyard means their profit comes from your parts, which keeps their offer low. Going direct gets you the vehicle's real value instead.`,
+  (brand: string) =>
+    `A junkyard's offer on your ${brand} is built around resale of individual parts. We price the whole vehicle and pay you the same day, with the tow included.`,
 ];
 
 export const brandFaqTitle = [
   () => "In most cases we can still work with you if the title is missing. Call us and we'll explain what alternative documentation is accepted in your state.",
   () => "A missing title usually isn't a dealbreaker. Reach out and we'll walk you through what's accepted in your state instead.",
   () => "Most sellers without a title can still complete the sale with the right alternative paperwork. Let us know your situation and we'll explain what's needed.",
+  () => "A missing title is common and usually workable. Tell us what documentation you have and we'll confirm what's accepted where you are.",
+  () => "You likely don't need the title in hand to get started. Reach out and we'll explain the alternative paperwork that works.",
 ];
 
 export const brandFaqTowing = [
   () => "Yes, always. The price we quote already accounts for pickup, so there's nothing extra to pay.",
   () => "Yes. Towing is included in every offer, no matter where you're located.",
   () => "Yes, free pickup is part of every offer we make, not an add-on.",
+  () => "Yes, free towing is standard on every offer, not something added on later.",
+  () => "Yes, it's built into the price we quote. No separate towing charge, ever.",
 ];

@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { CheckIcon } from "./icons";
 import { site } from "@/lib/site";
 import { LEAD_FIELDS, LEAD_REQUIRED_FIELDS } from "@/lib/leadForm";
+import { useGhlTrackingStatus } from "@/lib/useGhlTrackingStatus";
 
 export default function QuoteForm({
   title = "Get A Free Quote",
@@ -14,6 +15,7 @@ export default function QuoteForm({
 }) {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const trackingStatus = useGhlTrackingStatus();
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -28,12 +30,17 @@ export default function QuoteForm({
       return;
     }
 
-    // Note: no manual tracking POST here. The GHL external-tracking script
-    // (loaded site-wide in app/layout.tsx) listens for this form's native
-    // submit event directly and captures every field by its `name`
-    // attribute -- see GHL's own "Form Fills / Optins" auto-sync
-    // requirements. We only need to not block that native submit event
-    // (we don't call stopPropagation), which we don't.
+    // The GHL external-tracking script (loaded site-wide in app/layout.tsx)
+    // listens for this form's native submit event and captures every field
+    // by its `name` attribute. If that script hasn't finished loading yet
+    // (slow connection), it never attached its listener and this submit
+    // would silently go uncaptured -- so we hold off on "success" until we
+    // know the script is either active or has definitively failed to load.
+    if (trackingStatus === "pending") {
+      setError("Still finishing loading, please wait a moment and press submit again.");
+      return;
+    }
+
     setError("");
     setSubmitted(true);
     form.reset();
@@ -54,6 +61,12 @@ export default function QuoteForm({
           </a>
           .
         </p>
+        {trackingStatus === "error" && (
+          <p className="mt-2 text-xs text-navy-400">
+            If you don&apos;t hear from us shortly, please call the number above
+            directly so we don&apos;t miss you.
+          </p>
+        )}
         <button
           type="button"
           onClick={() => setSubmitted(false)}

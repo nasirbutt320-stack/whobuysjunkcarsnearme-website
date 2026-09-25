@@ -2,7 +2,6 @@ import PageHero from "@/components/PageHero";
 import Container from "@/components/Container";
 import AreasServed from "@/components/AreasServed";
 import CTASection from "@/components/CTASection";
-import { StarIcon } from "@/components/icons";
 
 const promises = [
   {
@@ -10,12 +9,12 @@ const promises = [
     body: "The biggest complaint in this industry is a phone quote that drops once someone shows up in person. That's exactly why customers keep coming back to buyers who hold their number, and it's why we hold ours.",
   },
   {
-    title: "Nothing Here Is Written By Us",
-    body: "You won't find polished marketing lines pretending to be customer voices. What you'll see instead are short, honest notes from people who actually sold a car through us, in their own words.",
+    title: "Nothing Here Will Be Written By Us",
+    body: "You won't find polished marketing lines pretending to be customer voices. Once real sales come in, what you'll see here are short, honest notes from people who actually sold a car through us, in their own words.",
   },
   {
     title: "Paid on the Spot or Not At All",
-    body: "Getting paid fast is usually the deciding factor between two similar offers. Real customer timelines will go here, from first call to cash in hand.",
+    body: "Getting paid fast is usually the deciding factor between two similar offers. We're building that reputation one sale at a time, starting with yours.",
   },
 ];
 
@@ -23,9 +22,8 @@ export default function ReviewsPage() {
   return (
     <>
       <PageHero
-        badge="Customer Reviews"
-        title="Real Feedback From"
-        accent="Real Sales"
+        title="Before We Have Reviews,"
+        accent="Here's Our Promise"
         intro={
           <p>
             We built this page to show what actually happens when someone sells a
@@ -44,12 +42,7 @@ export default function ReviewsPage() {
                 key={item.title}
                 className="rounded-2xl border border-navy-100 p-6 shadow-sm"
               >
-                <div className="flex gap-1 text-gold-500">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <StarIcon key={i} className="h-4 w-4" />
-                  ))}
-                </div>
-                <h3 className="mt-4 text-lg font-bold text-navy-900">
+                <h3 className="text-lg font-bold text-navy-900">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-navy-500">

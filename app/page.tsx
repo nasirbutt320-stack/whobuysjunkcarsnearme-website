@@ -73,13 +73,13 @@ export default function HomePage() {
         eyebrow="Why choose us"
         title="The USA's most trusted junk car buyer"
         paragraphs={[
-          "We've been buying junk cars from American families for over a decade. Whether your car was in an accident, stopped running, or is simply too old to repair, we want it, and we'll pay you fairly for it.",
+          "We buy junk cars from American families nationwide. Whether your car was in an accident, stopped running, or is simply too old to repair, we want it, and we'll pay you fairly for it.",
           "Unlike local junkyards that scrap-price everything, our nationwide network competes for your vehicle, which is usually why our offer ends up higher than the first quote you get.",
         ]}
         list={[
-          "Licensed and insured in all 50 states",
-          "Over 250,000 vehicles purchased since 2011",
-          "A+ rating from the Better Business Bureau",
+          "Nationwide coverage across all 50 states",
+          "Any condition accepted, running or not",
+          "Free towing and pickup, every time",
           "Responsible, EPA-conscious recycling partners",
         ]}
         listColumns={2}

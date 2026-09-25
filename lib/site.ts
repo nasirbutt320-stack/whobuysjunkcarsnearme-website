@@ -5,7 +5,6 @@ export const site = {
   phone: "833-922-2277",
   phoneHref: "tel:8339222277",
   tagline: "Instant cash for junk cars, across the USA.",
-  founded: 2011,
 };
 
 export const navLinks = [

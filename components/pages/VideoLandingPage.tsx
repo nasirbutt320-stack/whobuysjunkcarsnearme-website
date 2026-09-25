@@ -54,9 +54,9 @@ export default function VideoLandingPage({ variant }: { variant: 1 | 2 }) {
 
       <ContentSection
         eyebrow="Who we are"
-        title="The USA's Most Trusted Junk Car Buyer Since 2011"
+        title="The USA's Most Trusted Junk Car Buyer"
         paragraphs={[
-          "We've been buying junk cars from American families for over a decade. Whether your car was in an accident, stopped running, or is just too old to repair, we want it, and we'll pay you fairly for it.",
+          "We buy junk cars from American families nationwide. Whether your car was in an accident, stopped running, or is just too old to repair, we want it, and we'll pay you fairly for it.",
           "Unlike local junkyards that low-ball you, our nationwide network competes for your vehicle, which is usually why our offer ends up higher.",
         ]}
         list={[

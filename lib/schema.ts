@@ -19,7 +19,7 @@ export function faqPageSchema(items: FaqItem[]) {
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "AutoWreckingService",
+    "@type": "AutomotiveBusiness",
     name: site.name,
     url: site.url,
     telephone: site.phone,
@@ -40,7 +40,7 @@ export function localBusinessSchema(params: {
 }) {
   return {
     "@context": "https://schema.org",
-    "@type": "AutoWreckingService",
+    "@type": "AutomotiveBusiness",
     name: site.name,
     url: params.url,
     telephone: site.phone,

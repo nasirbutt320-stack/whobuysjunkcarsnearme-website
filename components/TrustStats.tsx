@@ -2,9 +2,9 @@ import Container from "./Container";
 import { ShieldIcon, DollarIcon, StarIcon, CarIcon } from "./icons";
 
 const stats = [
-  { icon: ShieldIcon, value: "50 states", label: "Licensed and insured nationwide" },
-  { icon: CarIcon, value: "250,000+", label: "Vehicles purchased since 2011" },
-  { icon: StarIcon, value: "A+ rating", label: "Better Business Bureau" },
+  { icon: ShieldIcon, value: "50 states", label: "Nationwide coverage" },
+  { icon: CarIcon, value: "Any condition", label: "Running or not, we buy it" },
+  { icon: StarIcon, value: "No pressure", label: "Free, no-obligation quotes" },
   { icon: DollarIcon, value: "Same-day", label: "Cash payment on pickup" },
 ];
 
