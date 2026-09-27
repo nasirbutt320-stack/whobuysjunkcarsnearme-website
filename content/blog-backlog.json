@@ -1,0 +1,61 @@
+{
+  "_readme": "Backlog for the twice-weekly blog task. The weekly planning task adds/reorders topics here; the twice-weekly writer task picks the top 'pending' topic, writes the post, then marks it 'published' with the resulting slug. Keep at least 4 pending topics buffered at all times.",
+  "topics": [
+    {
+      "id": "junk-car-value-by-state",
+      "title": "How Much Is My Junk Car Worth? A State-by-State Pricing Guide",
+      "targetKeyword": "how much is my junk car worth",
+      "angle": "Explain the real factors that move a junk car quote (weight/scrap metal prices, running condition, local demand, parts value) and why quotes vary by state/region. Avoid inventing specific dollar figures or fake average prices; keep it factual and process-focused.",
+      "status": "pending"
+    },
+    {
+      "id": "sell-car-without-title",
+      "title": "Do I Need a Title to Sell My Junk Car? State-by-State Rules",
+      "targetKeyword": "sell car without title",
+      "angle": "Cover the general reality that title requirements vary by state, what alternative documents are typically accepted (state ID, proof of ownership, bonded title process), and when to check with your state DMV. Don't claim specific legal rules for every state as fact -- keep it general with a clear caveat to verify locally.",
+      "status": "pending"
+    },
+    {
+      "id": "junk-car-vs-trade-in",
+      "title": "Junk Car vs. Trade-In: Which Gets You More Cash?",
+      "targetKeyword": "junk car vs trade in value",
+      "angle": "Compare selling to a junk car buyer versus trading in at a dealership for a non-running or high-mileage vehicle: speed, hassle, paperwork, and how trade-in value gets baked into a new car's price.",
+      "status": "pending"
+    },
+    {
+      "id": "what-happens-after-junking",
+      "title": "What Actually Happens to Your Car After You Junk It?",
+      "targetKeyword": "what happens to junk cars",
+      "angle": "Walk through the real lifecycle: towing, fluid/hazardous material draining, parts harvesting, crushing, recycling. Genuinely educational, not a sales pitch.",
+      "status": "pending"
+    },
+    {
+      "id": "salvage-vs-junk-title",
+      "title": "Salvage Title vs. Junk Title: What's the Difference?",
+      "targetKeyword": "salvage title vs junk title",
+      "angle": "Clarify the distinction (salvage = insurance total-loss designation, still sometimes repairable/re-registerable; junk = deemed scrap-only in most states) and why it affects what a car can sell for and to whom.",
+      "status": "pending"
+    },
+    {
+      "id": "sell-car-that-doesnt-run",
+      "title": "How to Sell a Car That Doesn't Run: Step-by-Step",
+      "targetKeyword": "sell car that doesn't run",
+      "angle": "Practical walkthrough for a non-running vehicle: what info to gather, how quotes are given without a test drive, what to expect from pickup day.",
+      "status": "pending"
+    },
+    {
+      "id": "sell-flood-damaged-car",
+      "title": "Flood-Damaged Car? Here's How to Sell It for Cash",
+      "targetKeyword": "sell flood damaged car",
+      "angle": "Explain why flood-damaged cars are hard to sell privately (hidden corrosion/electrical risk scares buyers), how insurance total-loss claims interact with a sale, and what a fair cash offer looks like for this category.",
+      "status": "pending"
+    },
+    {
+      "id": "junk-car-buyer-scams",
+      "title": "5 Junk Car Buyer Scams to Watch Out For",
+      "targetKeyword": "junk car buyer scams",
+      "angle": "Genuinely useful consumer-protection content: bait-and-switch quotes, unlicensed tow operators, unpaid-until-pickup schemes, lowballing after arrival, and fake 'free towing' fees. Helps trust/E-E-A-T even though it doesn't directly sell.",
+      "status": "pending"
+    }
+  ]
+}
