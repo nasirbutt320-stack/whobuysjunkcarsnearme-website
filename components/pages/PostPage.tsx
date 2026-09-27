@@ -1,13 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/Container";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
 import { PostEntry } from "@/lib/data/posts";
+import { blogPostingSchema } from "@/lib/schema";
 
 export default function PostPage({ post }: { post: PostEntry }) {
   const date = new Date(post.date);
 
   return (
     <>
+      <JsonLd data={blogPostingSchema(post)} />
+
       <section className="bg-navy-900 py-14 md:py-20">
         <Container className="max-w-3xl">
           <Link
@@ -31,6 +36,19 @@ export default function PostPage({ post }: { post: PostEntry }) {
 
       <section className="section bg-white">
         <Container className="max-w-3xl">
+          {post.heroImage && (
+            <div className="relative mb-10 h-64 w-full overflow-hidden rounded-2xl bg-navy-50 sm:h-80">
+              <Image
+                src={post.heroImage}
+                alt={post.heroImageAlt ?? post.title}
+                fill
+                priority
+                sizes="(min-width: 768px) 768px, 100vw"
+                className="object-cover"
+              />
+            </div>
+          )}
+
           <div className="prose-body text-[1.05rem]">
             {post.content.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>

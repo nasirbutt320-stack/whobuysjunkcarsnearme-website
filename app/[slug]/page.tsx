@@ -91,6 +91,11 @@ export async function generateMetadata({
       title: { absolute: `${post.title} - Who Buys Junk Cars Near Me` },
       description: post.excerpt,
       alternates: { canonical: `/${slug}/` },
+      ...(post.heroImage && {
+        openGraph: {
+          images: [{ url: post.heroImage }],
+        },
+      }),
     };
   }
 

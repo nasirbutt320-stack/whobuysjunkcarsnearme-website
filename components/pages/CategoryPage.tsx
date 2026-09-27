@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/Container";
 import CTASection from "@/components/CTASection";
 import { PostEntry } from "@/lib/data/posts";
@@ -34,19 +35,32 @@ export default function CategoryPage({
                 <Link
                   key={post.slug}
                   href={`/${post.slug}/`}
-                  className="rounded-2xl border border-navy-100 p-6 shadow-sm transition-shadow hover:shadow-card"
+                  className="overflow-hidden rounded-2xl border border-navy-100 shadow-sm transition-shadow hover:shadow-card"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gold-600">
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </p>
-                  <h2 className="mt-2 text-xl font-bold text-navy-900">
-                    {post.title}
-                  </h2>
-                  <p className="mt-2 text-sm text-navy-500">{post.excerpt}</p>
+                  {post.heroImage && (
+                    <div className="relative h-44 w-full bg-navy-50">
+                      <Image
+                        src={post.heroImage}
+                        alt={post.heroImageAlt ?? post.title}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gold-600">
+                      {new Date(post.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </p>
+                    <h2 className="mt-2 text-xl font-bold text-navy-900">
+                      {post.title}
+                    </h2>
+                    <p className="mt-2 text-sm text-navy-500">{post.excerpt}</p>
+                  </div>
                 </Link>
               ))}
             </div>

@@ -6,6 +6,8 @@ export type PostEntry = {
   category: "blog" | "uncategorized";
   author: "admin" | "cashforcar39gmail-com";
   content: string[];
+  heroImage?: string;
+  heroImageAlt?: string;
 };
 
 // Slugs match the live site's post-sitemap.xml exactly.

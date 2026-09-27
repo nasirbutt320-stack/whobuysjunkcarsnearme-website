@@ -1,5 +1,7 @@
 import { site } from "@/lib/site";
 import type { FaqItem } from "@/components/FaqAccordion";
+import type { PostEntry } from "@/lib/data/posts";
+import { getAuthor } from "@/lib/data/authors";
 
 export function faqPageSchema(items: FaqItem[]) {
   return {
@@ -29,6 +31,33 @@ export function organizationSchema() {
     },
     description:
       "We buy junk, wrecked, and unwanted cars in any condition. Free towing, a fair cash offer, and same-day pickup available nationwide.",
+  };
+}
+
+export function blogPostingSchema(post: PostEntry) {
+  const author = getAuthor(post.author);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Organization",
+      name: author?.name ?? site.name,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${site.url}/${post.slug}/`,
+    },
+    ...(post.heroImage && { image: `${site.url}${post.heroImage}` }),
   };
 }
 
