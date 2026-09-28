@@ -5,7 +5,6 @@ import { CheckIcon } from "./icons";
 import { site } from "@/lib/site";
 import { LEAD_FIELDS, LEAD_REQUIRED_FIELDS } from "@/lib/leadForm";
 import { useGhlTrackingStatus } from "@/lib/useGhlTrackingStatus";
-import TurnstileWidget from "./TurnstileWidget";
 
 export default function QuoteForm({
   title = "Get A Free Quote",
@@ -16,11 +15,9 @@ export default function QuoteForm({
 }) {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
-  const [verifying, setVerifying] = useState(false);
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const trackingStatus = useGhlTrackingStatus();
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -41,28 +38,6 @@ export default function QuoteForm({
     // know the script is either active or has definitively failed to load.
     if (trackingStatus === "pending") {
       setError("Still finishing loading, please wait a moment and press submit again.");
-      return;
-    }
-
-    if (!turnstileToken) {
-      setError("Please complete the verification check below.");
-      return;
-    }
-
-    setVerifying(true);
-    const verifyOk = await fetch("/api/verify-turnstile", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token: turnstileToken }),
-    })
-      .then((res) => res.json())
-      .then((json) => json.success === true)
-      .catch(() => false);
-    setVerifying(false);
-
-    if (!verifyOk) {
-      setError("Verification failed, please try the check again.");
-      setTurnstileToken(null);
       return;
     }
 
@@ -147,14 +122,9 @@ export default function QuoteForm({
             required
           />
         </div>
-        <TurnstileWidget onVerify={setTurnstileToken} />
         {error && <p className="text-sm font-medium text-red-600">{error}</p>}
-        <button
-          type="submit"
-          disabled={!turnstileToken || verifying}
-          className="btn btn-primary w-full disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          {verifying ? "Verifying..." : "Get my cash offer"}
+        <button type="submit" className="btn btn-primary w-full">
+          Get my cash offer
         </button>
         <p className="text-center text-xs text-navy-400">
           No spam. No obligation. Just a fair cash offer.
