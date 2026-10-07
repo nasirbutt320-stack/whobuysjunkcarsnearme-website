@@ -23,14 +23,32 @@ const displayFont = Space_Grotesk({
   display: "swap",
 });
 
+const defaultDescription =
+  "Sell your junk, wrecked, or unwanted car for cash. Free towing, same-day pickup, and fair offers in all 50 states.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: `${site.name}? Instant Cash Across the USA`,
     template: `%s | ${site.name}`,
   },
-  description:
-    "Sell your junk, wrecked, or unwanted car for cash. Free towing, same-day pickup, and fair offers in all 50 states.",
+  description: defaultDescription,
+  openGraph: {
+    siteName: site.name,
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/gallery/honda-pilot.webp",
+        width: 800,
+        height: 450,
+        alt: site.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
