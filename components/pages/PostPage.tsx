@@ -6,6 +6,25 @@ import JsonLd from "@/components/JsonLd";
 import { PostEntry } from "@/lib/data/posts";
 import { blogPostingSchema } from "@/lib/schema";
 
+const INLINE_TOKEN = /(\*\*[^*]+\*\*|\[[^\]]+\]\(\/[^)\s]*\))/g;
+
+function renderInline(text: string) {
+  return text.split(INLINE_TOKEN).map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    const link = part.match(/^\[([^\]]+)\]\((\/[^)\s]*)\)$/);
+    if (link) {
+      return (
+        <Link key={i} href={link[2]} className="font-semibold text-gold-600">
+          {link[1]}
+        </Link>
+      );
+    }
+    return part;
+  });
+}
+
 export default function PostPage({ post }: { post: PostEntry }) {
   const date = new Date(post.date);
 
@@ -50,9 +69,15 @@ export default function PostPage({ post }: { post: PostEntry }) {
           )}
 
           <div className="prose-body text-[1.05rem]">
-            {post.content.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
+            {post.content.map((block, i) =>
+              block.startsWith("## ") ? (
+                <h2 key={i} className="mt-10 text-2xl font-bold text-navy-900">
+                  {block.slice(3)}
+                </h2>
+              ) : (
+                <p key={i}>{renderInline(block)}</p>
+              )
+            )}
           </div>
 
           <div className="mt-12 rounded-2xl border border-navy-100 bg-navy-50/60 p-6">

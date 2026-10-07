@@ -1,5 +1,5 @@
 {
-  "_readme": "Backlog for the twice-weekly blog task. The weekly planning task adds/reorders topics here; the twice-weekly writer task picks the top 'pending' topic, writes the post, then marks it 'published' with the resulting slug. Keep at least 4 pending topics buffered at all times.",
+  "_readme": "Backlog for the daily blog task. The daily content-planning task adds/reorders topics here (optionally with a 'newsHook' and 'secondaryKeywords' field); the daily writer task picks the top 'pending' topic, writes the post, then marks it 'published' with the resulting slug. Keep at least 5-7 pending topics buffered at all times.",
   "topics": [
     {
       "id": "junk-car-value-by-state",
