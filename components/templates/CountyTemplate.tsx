@@ -23,9 +23,16 @@ import {
   stateFaqTowing,
 } from "@/lib/content/variants";
 
+function joinList(items: string[]) {
+  if (items.length <= 2) return items.join(" and ");
+  return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
+}
+
 export default function CountyTemplate({ county }: { county: CountyEntry }) {
   const state = getState(county.stateSlug);
   const stateName = state?.name ?? "your state";
+  const places = county.places ?? [];
+  const variantKey = county.variantSalt ?? county.slug;
 
   const faqItems: FaqItem[] = [
     {
@@ -35,11 +42,11 @@ export default function CountyTemplate({ county }: { county: CountyEntry }) {
     },
     {
       question: "Do you buy cars that don't run?",
-      answer: pick(stateFaqDoesntRun, county.slug, "faq-runs")(),
+      answer: pick(stateFaqDoesntRun, variantKey, "faq-runs")(),
     },
     {
       question: "Do I have to pay for towing?",
-      answer: pick(stateFaqTowing, county.slug, "faq-towing")(),
+      answer: pick(stateFaqTowing, variantKey, "faq-towing")(),
     },
     {
       question: `Can I sell a junk car without a title in ${stateName}?`,
@@ -50,6 +57,14 @@ export default function CountyTemplate({ county }: { county: CountyEntry }) {
       question: `Do you cover all of ${county.name}, or just ${county.seat}?`,
       answer: `All of it. ${county.seat} is where we're most active, but pickup is free anywhere in the county.`,
     },
+    ...(places.length
+      ? [
+          {
+            question: `Which cities in ${county.name} do you pick up from?`,
+            answer: `Anywhere in the county, including ${joinList(places)}. If your town isn't on that list, it's still covered.`,
+          },
+        ]
+      : []),
   ];
 
   const breadcrumbItems = [
@@ -66,7 +81,7 @@ export default function CountyTemplate({ county }: { county: CountyEntry }) {
       <PageHero
         title="Sell Your Junk Car in"
         accent={`${county.name}, ${state?.abbr ?? ""}`}
-        intro={<p>{pick(countyHeroIntro, county.slug, "hero")(county.name)}</p>}
+        intro={<p>{pick(countyHeroIntro, variantKey, "hero")(county.name)}</p>}
       />
 
       <ProcessSteps />
@@ -74,7 +89,7 @@ export default function CountyTemplate({ county }: { county: CountyEntry }) {
       <ContentSection
         eyebrow="Why local sellers choose us"
         title={`Why ${county.name} Drivers Pick a Direct Buyer`}
-        paragraphs={pick(countyWhyChoose, county.slug, "why-choose")(county.seat)}
+        paragraphs={pick(countyWhyChoose, variantKey, "why-choose")(county.seat)}
         list={[
           "Free, no-obligation quotes",
           "Fast cash offers",
@@ -96,21 +111,32 @@ export default function CountyTemplate({ county }: { county: CountyEntry }) {
         tone="muted"
         eyebrow="Any condition"
         title="What Counts as a Junk Car?"
-        paragraphs={pick(countyAnyCondition, county.slug, "any-condition")()}
+        paragraphs={pick(countyAnyCondition, variantKey, "any-condition")()}
       />
 
       <ContentSection
         eyebrow="Missing paperwork?"
         title="No Title? Reach Out Anyway"
-        paragraphs={[pick(countyNoTitle, county.slug, "no-title")(stateName)]}
+        paragraphs={[pick(countyNoTitle, variantKey, "no-title")(stateName)]}
       />
 
       <ContentSection
         tone="muted"
         eyebrow="Serving the area"
         title={`Serving Vehicle Owners Across ${county.name}`}
-        paragraphs={pick(countyServingArea, county.slug, "serving-area")(county.name)}
+        paragraphs={pick(countyServingArea, variantKey, "serving-area")(county.name)}
       />
+
+      {places.length > 0 && (
+        <ContentSection
+          eyebrow="Where we pick up"
+          title={`Cities and Towns We Serve in ${county.name}`}
+          paragraphs={[
+            `Our drivers regularly pick up vehicles in ${joinList(places)}, along with the neighborhoods and unincorporated areas between them.`,
+            ...(county.localNote ? [county.localNote] : []),
+          ]}
+        />
+      )}
 
       {state && (
         <section className="section bg-white">
