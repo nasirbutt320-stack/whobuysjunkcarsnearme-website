@@ -88,7 +88,7 @@ export async function generateMetadata({
   const post = getPost(slug);
   if (post) {
     return {
-      title: { absolute: `${post.title} - Who Buys Junk Cars Near Me` },
+      title: { absolute: post.seoTitle ?? `${post.title} - Who Buys Junk Cars Near Me` },
       description: post.excerpt,
       alternates: { canonical: `/${slug}/` },
       ...(post.heroImage && {
