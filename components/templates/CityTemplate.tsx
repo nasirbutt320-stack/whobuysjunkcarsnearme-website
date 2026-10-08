@@ -23,6 +23,7 @@ import {
 
 export default function CityTemplate({ city }: { city: CityEntry }) {
   const state = getState(city.stateSlug);
+  const variantKey = city.variantSalt ?? city.slug;
   const stateName = state?.name ?? "your state";
   const fact = cityFact[city.slug];
 
@@ -34,11 +35,11 @@ export default function CityTemplate({ city }: { city: CityEntry }) {
     },
     {
       question: "Do you buy cars that don't run?",
-      answer: pick(stateFaqDoesntRun, city.slug, "faq-runs")(),
+      answer: pick(stateFaqDoesntRun, variantKey, "faq-runs")(),
     },
     {
       question: "Do I have to pay for towing?",
-      answer: pick(stateFaqTowing, city.slug, "faq-towing")(),
+      answer: pick(stateFaqTowing, variantKey, "faq-towing")(),
     },
     {
       question: `Can I sell a junk car without a title in ${stateName}?`,
@@ -67,7 +68,7 @@ export default function CityTemplate({ city }: { city: CityEntry }) {
         badge="Local Car Buyer"
         title={`Sell Your Junk Car in`}
         accent={`${city.name}, ${state?.abbr ?? ""}`}
-        intro={<p>{pick(cityHeroIntro, city.slug, "hero")(city.name, stateName)}</p>}
+        intro={<p>{pick(cityHeroIntro, variantKey, "hero")(city.name, stateName)}</p>}
       />
 
       <ProcessSteps />
@@ -75,7 +76,7 @@ export default function CityTemplate({ city }: { city: CityEntry }) {
       <ContentSection
         eyebrow="Why local sellers choose us"
         title={`Why ${city.name} Drivers Pick a Direct Buyer`}
-        paragraphs={pick(cityWhyChoose, city.slug, "why-choose")(city.name)}
+        paragraphs={pick(cityWhyChoose, variantKey, "why-choose")(city.name)}
         list={[
           "Free, no-obligation quotes",
           "Fast cash offers",
@@ -93,20 +94,20 @@ export default function CityTemplate({ city }: { city: CityEntry }) {
         tone="muted"
         eyebrow="Any condition"
         title="What Counts as a Junk Car?"
-        paragraphs={pick(cityAnyCondition, city.slug, "any-condition")()}
+        paragraphs={pick(cityAnyCondition, variantKey, "any-condition")()}
       />
 
       <ContentSection
         eyebrow="Missing paperwork?"
         title="No Title? Reach Out Anyway"
-        paragraphs={[pick(cityNoTitle, city.slug, "no-title")(stateName)]}
+        paragraphs={[pick(cityNoTitle, variantKey, "no-title")(stateName)]}
       />
 
       <ContentSection
         tone="muted"
         eyebrow="Serving the area"
         title={`Serving Vehicle Owners Across ${city.name}`}
-        paragraphs={pick(cityServingArea, city.slug, "serving-area")(city.name)}
+        paragraphs={pick(cityServingArea, variantKey, "serving-area")(city.name)}
       />
 
       <FaqAccordion

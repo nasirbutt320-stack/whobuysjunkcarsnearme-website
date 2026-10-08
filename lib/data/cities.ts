@@ -2,6 +2,9 @@ export type CityEntry = {
   slug: string;
   name: string;
   stateSlug: string;
+  // Optional alternate seed for the wording-variant picker, used only to
+  // break an unlucky collision between two pages. Existing pages omit it.
+  variantSalt?: string;
 };
 
 // Slugs match the live site's page-sitemap.xml exactly.
@@ -49,6 +52,10 @@ export const cities: CityEntry[] = [
   { slug: "las-vegas", name: "Las Vegas", stateSlug: "nevada" },
   { slug: "atlanta", name: "Atlanta", stateSlug: "georgia" },
   { slug: "miami", name: "Miami", stateSlug: "florida" },
+  // Florida city batch (approved 2026-10-08): the two named cities that did
+  // not already have a page.
+  { slug: "tampa", name: "Tampa", stateSlug: "florida" },
+  { slug: "orlando", name: "Orlando", stateSlug: "florida", variantSalt: "orlando-b" },
 ];
 
 export function getCity(slug: string): CityEntry | undefined {

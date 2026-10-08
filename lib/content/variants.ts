@@ -350,6 +350,8 @@ export const cityFact: Record<string, string> = {
   "las-vegas": "Las Vegas's dry desert climate is easy on vehicle bodies, which can mean less rust damage than the odometer suggests.",
   atlanta: "Atlanta is one of the largest metro areas in the Southeast, keeping our pickup network there fast and well established.",
   miami: "Miami's humidity and salt air can be hard on a vehicle's undercarriage, something we account for rather than penalize you for.",
+  tampa: "Tampa is the seat of Hillsborough County and home to Port Tampa Bay, the largest port in Florida by tonnage, so trucks and work vehicles are a regular part of the local mix, and we buy those too.",
+  orlando: "Orlando is the seat of Orange County and home to Orlando International Airport, the busiest airport in Florida, and our pickups cover the whole metro area, not just the city limits.",
 };
 
 // ---------------------------------------------------------------------------
