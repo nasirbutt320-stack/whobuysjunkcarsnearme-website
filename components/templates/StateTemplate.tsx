@@ -12,6 +12,7 @@ import { site } from "@/lib/site";
 import { StateEntry } from "@/lib/data/states";
 import { citiesForState } from "@/lib/data/cities";
 import { countiesForState } from "@/lib/data/counties";
+import { postsForState } from "@/lib/data/posts";
 import { MapPinIcon } from "@/components/icons";
 import {
   pick,
@@ -29,6 +30,7 @@ import {
 export default function StateTemplate({ state }: { state: StateEntry }) {
   const cities = citiesForState(state.slug);
   const counties = countiesForState(state.slug);
+  const guides = postsForState(state.slug);
   const region = stateRegion[state.slug] ?? "the United States";
 
   const faqItems: FaqItem[] = [
@@ -168,6 +170,31 @@ export default function StateTemplate({ state }: { state: StateEntry }) {
         title="Why Sell Directly to Us Instead of a Junkyard"
         paragraphs={[pick(stateWhySellDirect, state.slug, "direct-vs-junkyard")()]}
       />
+
+      {guides.length > 0 && (
+        <section className="section bg-white">
+          <Container>
+            <h2 className="text-2xl font-bold text-navy-900 sm:text-3xl">
+              {state.name} Junk Car Guides
+            </h2>
+            <p className="mt-3 max-w-2xl text-navy-500">
+              Straight answers to the questions {state.name} sellers ask most.
+            </p>
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {guides.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/${post.slug}/`}
+                  className="rounded-2xl border border-navy-100 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold-400 hover:shadow-card"
+                >
+                  <h3 className="font-bold text-navy-900">{post.title}</h3>
+                  <p className="mt-1.5 text-sm text-navy-500">{post.excerpt}</p>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       <FaqAccordion
         title={`Frequently Asked Questions: ${state.name}`}

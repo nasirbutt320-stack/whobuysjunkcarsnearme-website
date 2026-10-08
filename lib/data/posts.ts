@@ -240,6 +240,12 @@ export function postsForCategory(category: PostEntry["category"]): PostEntry[] {
   return posts.filter((p) => p.category === category);
 }
 
+// Posts written for one state follow the "<topic>-<state-slug>" slug pattern
+// (e.g. scrap-cars-for-cash-utah), which is what ties them to that state's page.
+export function postsForState(stateSlug: string): PostEntry[] {
+  return posts.filter((p) => p.category === "blog" && p.slug.endsWith(`-${stateSlug}`));
+}
+
 export function postsForAuthor(author: PostEntry["author"]): PostEntry[] {
   return posts.filter((p) => p.author === author);
 }
