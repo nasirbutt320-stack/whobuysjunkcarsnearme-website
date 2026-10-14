@@ -230,6 +230,29 @@ export const posts: PostEntry[] = [
       "A scrap car sitting idle only loses value over time. Get an offer today and see what yours is actually worth. Start with a [free quote](/get-quote/).",
     ],
   },
+  {
+    slug: "junk-car-vs-trade-in-which-gets-you-more-cash",
+    title: "Junk Car vs. Trade-In: Which Gets You More Cash?",
+    excerpt:
+      "A trade-in and a direct cash sale pay out differently, and which one actually nets you more depends on your car's condition and whether you're buying a replacement.",
+    date: "2026-10-14",
+    category: "blog",
+    author: "cashforcar39gmail-com",
+    content: [
+      "If you've got an old car taking up space, there are really only two paths that lead to getting paid for it: trade it in toward something else, or sell it outright to a junk car buyer. Which one puts more money in your pocket has more to do with what you're trying to do next than with the car itself.",
+      "The quickest way to sort this out is to ask one question first: are you buying another vehicle? A trade-in only exists as part of a purchase. If you're not shopping for a replacement car, trading in isn't on the table at all, and a direct cash sale is your only real option anyway.",
+      "If you are buying something else, a trade-in can feel convenient because it folds two transactions into one. You hand over the old car, it knocks some amount off the new one, and you drive away having dealt with both at once. The catch is that the number doing that knocking off is set by the dealer, inside a deal built around their margin on the new car. It's common for a trade-in figure to look reasonable on its own while the overall deal moves in the dealer's favor somewhere else, maybe in the price of the new car or the financing terms. Because everything gets bundled together, it's hard to know how much of that trade-in number was real value and how much just got shuffled around elsewhere in the paperwork.",
+      "A junk car sale works differently because there's nothing to bundle. The offer is just for the car in front of you, based on its weight in scrap metal, which parts are still usable, and what buyers in your area are currently paying. There's no new vehicle purchase riding on the number, so there's less reason for it to move around once it's quoted. What you're told on the phone is generally what you get at pickup, as long as the car matches what you described.",
+      "A dealer evaluating a trade-in is thinking about resale, whether that's putting your old car back on their lot or sending it to auction, so they want something that runs, drives, and looks reasonably presentable. A car with a dead engine, major body damage, or enough miles that it's not worth reconditioning often gets a token trade-in offer, or the dealer just declines to take it and tells you to sell it separately. A junk car buyer has no such requirement. Whether it runs, rolls, or has been sitting in the driveway for two years, the value comes from parts and metal, not from reselling it as a working vehicle.",
+      "The paperwork splits the same way. Trading in is wrapped inside a vehicle purchase, so you're dealing with financing documents, trade-in disclosures, and whatever your state requires for transferring a title as part of that larger transaction. A junk car sale skips almost all of that. It's typically a title transfer and a bill of sale, nothing tied to a loan application or a new set of keys. If your title is missing, a junk buyer is usually easier to work with than a dealer, since dealers generally won't take a trade-in without clean paperwork already in hand.",
+      "Speed usually favors a direct sale too. A trade-in's timeline is really the new car's timeline: financing approval, paperwork, maybe a wait for the specific model you want. A junk car sale can often be quoted and picked up within a day or two, since there's no second transaction holding it up.",
+      "None of this makes a trade-in a bad choice. If you're already buying a new car, the vehicle you're trading in still runs and looks decent, and you'd rather handle everything in one stop than squeeze out every last dollar, a trade-in is a perfectly reasonable way to go, and there's less for you to manage.",
+      "It tends to fall short when the car itself is the obstacle rather than the convenience. A non-running vehicle, something with serious damage, or a car you're not replacing with anything is usually better off going to a junk car buyer directly, since you're getting paid for the car on its own terms instead of through a deal built around something else.",
+      "If you want to actually compare the two, there's no need to guess. Get a trade-in quote from the dealer as part of your new car conversation, and separately get a quote from a junk car buyer for the same vehicle. Comparing two real numbers is the only way to know which route actually pays more for your specific car.",
+      "If you still owe money on the vehicle, check your payoff amount with your lender before deciding either way. Whichever offer you take needs to cover what's left on the loan, or you'll need to bring the difference to the table regardless of whether the car goes to a dealer's lot or to a junk car buyer.",
+      "If selling outright turns out to be the better move, getting there is simple: describe your car's year, make, model, and condition and ask to sell your car for cash instead of taking whatever the dealer offers on paper. Getting a quote costs nothing and takes a few minutes, and it gives you something solid to compare against whatever a dealer offers for the trade-in.",
+    ],
+  },
 ];
 
 export function getPost(slug: string): PostEntry | undefined {
