@@ -230,6 +230,28 @@ export const posts: PostEntry[] = [
       "A scrap car sitting idle only loses value over time. Get an offer today and see what yours is actually worth. Start with a [free quote](/get-quote/).",
     ],
   },
+  {
+    slug: "do-i-need-a-title-to-sell-my-junk-car-state-by-state-rules",
+    title: "Do I Need a Title to Sell My Junk Car? State-by-State Rules",
+    excerpt:
+      "A missing title doesn't automatically end your sale, but what counts as acceptable proof of ownership depends on where you live.",
+    date: "2026-10-14",
+    category: "blog",
+    author: "cashforcar39gmail-com",
+    content: [
+      "If you've dug through every drawer in the house looking for a title and come up empty, you're not alone, and you're not out of options either. Whether you can sell a junk car without a title depends on your state, so there's no single answer that applies everywhere. What follows is the general shape of how this works across most of the country, along with a clear reminder to check your own state's rules before you assume anything.",
+      "A title exists mainly to prove who owns the car, so a buyer isn't accidentally purchasing something they shouldn't. That's why most states want to see one before a sale goes through. A smaller number of states only require a title for newer vehicles and treat older ones differently, which is part of why one person's experience selling a junk car without a title can look nothing like someone else's in a different state.",
+      "When the title is missing, the first thing most states look for is some other proof that the car is actually yours. A current vehicle registration in your name tends to be the strongest substitute, since it ties your name directly to that specific vehicle. A bill of sale from when you originally bought the car, especially one listing both your name and the previous owner's, can also help establish the chain of ownership.",
+      "A valid photo ID rounds out what most buyers and most state DMVs want to see, if only to confirm that the person signing paperwork is who they claim to be. If there's still a loan on the vehicle, a lien release matters too, since the lender technically holds the title until that loan is paid off. None of these documents guarantee a sale will go through everywhere, but having them ready puts you in a much better position than showing up with nothing.",
+      "If the title isn't lost so much as it just never existed, maybe the car came from a relative or a private sale years ago and nobody ever filed the paperwork, a duplicate title through your state's motor vehicle department is the standard fix in most places. The process generally involves a form, a small fee, and proof that you're the rightful owner, and it can take anywhere from a few days to a few weeks depending on the state.",
+      "Some states also offer what's called a bonded title for situations where ownership can't be fully documented any other way. It functions like a regular title once issued, but getting one typically means purchasing a surety bond first and holding onto it for a set period in case anyone else comes forward with a competing ownership claim. It's a more involved route, so it tends to make sense only when a duplicate title isn't an option.",
+      "Here's where it helps to separate a private sale from selling to a junk car buyer. A private buyer, understandably, often won't touch a car without clean paperwork, since they're the one left holding the risk if ownership turns out to be murky. A buyer who specializes in junk and non-running vehicles deals with missing titles often enough that it's rarely a dealbreaker, and many can walk you through what's needed on the spot rather than sending you away to sort it out first.",
+      "That's the practical upside of searching for junk car removal near me instead of trying to sell privately. If you want a straightforward way to sell your car for cash and the title is the only thing holding you back, a buyer who's used to handling incomplete paperwork is often your fastest path to an actual offer instead of a dead end.",
+      "Before you reach out, it helps to have your registration, any bill of sale you can find, and a valid ID on hand, plus a plain explanation of why the title's missing. Buyers can generally tell you right away whether that's enough to move forward or whether you'll need a duplicate title first, so you'll know where you stand instead of guessing.",
+      "The one step worth not skipping is a quick check with your own state's DMV or equivalent agency. Rules on vehicle age exemptions, bonded titles, and what paperwork counts as proof of ownership genuinely differ from state to state, and a five-minute call or website visit can save you from assuming a rule that doesn't actually apply where you live.",
+      "A missing title slows things down, but it rarely has to stop the sale entirely. If you're ready to find out where you stand, describe your car and the paperwork you do have, and get a real answer instead of guessing.",
+    ],
+  },
 ];
 
 export function getPost(slug: string): PostEntry | undefined {
