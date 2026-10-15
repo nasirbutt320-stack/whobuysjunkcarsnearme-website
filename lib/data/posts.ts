@@ -230,6 +230,27 @@ export const posts: PostEntry[] = [
       "A scrap car sitting idle only loses value over time. Get an offer today and see what yours is actually worth. Start with a [free quote](/get-quote/).",
     ],
   },
+  {
+    slug: "what-actually-happens-to-your-car-after-you-junk-it",
+    title: "What Actually Happens to Your Car After You Junk It?",
+    excerpt:
+      "From the tow truck to the scrap yard, here's the real path a car takes once it's sold for junk, and why so little of it actually goes to waste.",
+    date: "2026-10-15",
+    category: "blog",
+    author: "cashforcar39gmail-com",
+    content: [
+      "Once the tow truck pulls away with your old car, most people never think about it again. The check has cleared, the driveway is clear, and that's usually where the story ends for the seller. But what happens to junk cars after that sale is actually just getting started, a process with several distinct stages before the car stops existing as a car at all.",
+      "The first stop is paperwork, not the crusher. Before anything happens to the vehicle, the buyer needs the title transferred into their name, since that's what legally shifts ownership and liability away from you. If you left anything personal in the car, the glove box, the trunk, under the seats, it's worth grabbing before pickup, since a salvage yard isn't responsible for sorting through someone's belongings once a vehicle is on their lot.",
+      "After that, the car gets drained. Working on cars full of old fluids is both a safety issue and an environmental one, so this step happens early. A yard will typically pull the battery, remove the refrigerant from the AC system, and drain the oil, gasoline, coolant, and brake fluid, sometimes through holes drilled specifically for this purpose. Usable fluids get filtered and reused; the rest are disposed of through hazardous waste channels rather than left to leak into the ground.",
+      "Next comes the part most sellers underestimate: how much of the car still has value once it's off the road. Engines, transmissions, alternators, starters, wheels, and tires often come out intact and get resold as used parts for other vehicles still on the road. Catalytic converters get special attention since they contain small amounts of platinum, palladium, and rhodium, which makes them worth recovering and recycling separately from the rest of the metal. This is also the stage where a car's specific condition matters most. A vehicle with more usable components is worth more to a buyer than one that's already been stripped, which is part of why two seemingly similar cars can get different offers.",
+      "None of this happens the moment the tow truck leaves your driveway. Yards typically work through a backlog of vehicles, pulling parts as cars come up in the queue or as a specific part gets ordered by a mechanic or another shop. A car can sit mostly intact in a yard for weeks or months before it's stripped down, which is part of why some yards let you buy used parts off a vehicle that's been sitting there a while.",
+      "Only after the useful parts and hazardous materials are gone does the car actually get crushed. A hydraulic crusher flattens what's left of the body into a compact slab, mostly to make it cheaper and easier to move. From there, it's usually trucked to a shredding facility that breaks the flattened metal down into much smaller pieces.",
+      "Shredded metal doesn't stay mixed together for long. Large magnets and other separation equipment sort steel from aluminum, copper, and other metals mixed into the shredded material, since each one gets recycled through a different stream. Once sorted, the steel gets baled or piled with steel from other vehicles and shipped off to mills that melt it down and turn it into new raw material.",
+      "That new material doesn't necessarily become another car. Recycled automotive steel gets used across construction, appliances, and plenty of other manufacturing, including new vehicles. It's genuinely closer to a loop than a one-way trip to a landfill, since metal from an old car commonly ends up as part of something else entirely down the line.",
+      "Knowing this process matters for more than curiosity. It's also why the buyer you choose matters: draining fluids and pulling usable parts properly before anything gets crushed, then sending the rest through real recycling channels, takes more effort than just hauling a car to a scrap pile. Asking a buyer how they handle fluid disposal is a reasonable question before you agree to a pickup, and a legitimate one should be able to answer it without hesitation.",
+      "If you've been holding onto a car because it feels wasteful to send it off, it's worth knowing that very little of it actually goes to waste. Between resold parts and recycled metal, most of what made up your car continues on in some form. Getting a quote costs nothing and takes a few minutes if you're ready to see what the next stage of your car's life is worth to you right now.",
+    ],
+  },
 ];
 
 export function getPost(slug: string): PostEntry | undefined {
