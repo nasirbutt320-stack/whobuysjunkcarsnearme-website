@@ -230,6 +230,24 @@ export const posts: PostEntry[] = [
       "A scrap car sitting idle only loses value over time. Get an offer today and see what yours is actually worth. Start with a [free quote](/get-quote/).",
     ],
   },
+  {
+    slug: "salvage-title-vs-junk-title-whats-the-difference",
+    title: "Salvage Title vs. Junk Title: What's the Difference?",
+    excerpt:
+      "What separates a salvage title from a junk title, and why that one distinction changes who can buy your car and what it's worth.",
+    date: "2026-10-18",
+    category: "blog",
+    author: "cashforcar39gmail-com",
+    content: [
+      "If you've been told your car has a \"salvage title\" or a \"junk title,\" those two words might sound interchangeable, but they describe very different situations. Both mean the vehicle has been through something serious, usually a wreck, a flood, or fire damage significant enough that an insurance company or state agency decided it wasn't worth fixing at full value. Where they differ is what can legally happen to the car next, and that difference changes who will buy it and what they'll pay.",
+      "A salvage title shows up after an insurance company pays out a total loss claim on a vehicle. That happens when the cost to repair the car is close to or more than what the car is worth, not necessarily when the car is beyond saving. A salvage-titled car isn't dead yet. In most states, someone, often a rebuilder or a buyer at a salvage auction, can repair it, pass a state inspection, and get it back on the road under a new title, usually branded \"rebuilt\" or \"reconstructed.\" The salvage history stays attached to the vehicle permanently once that happens; it never goes back to a clean title. But the car itself still has a future as a driveable vehicle, which matters a lot for its value.",
+      "A junk title is a step further down the line, and it's meant to be final. States issue a junk title, sometimes called a junk certificate or parts-only title, when a vehicle has been deemed unfit to ever return to the road. Once that designation is on record, the car generally cannot be repaired, re-inspected, or re-registered for driving in any state. In most places the VIN itself gets flagged in a national title database, which is what keeps someone from trying to clean up the paperwork and sell it as a roadworthy car later. A junk-titled vehicle still has value, just not as transportation. Its worth comes from scrap metal and any parts that are still good.",
+      "That distinction between repairable and permanently retired is why the two titles attract different buyers. A salvage-titled car can interest rebuilders or parts dealers who want a mostly intact vehicle to pull from, so it tends to hold more value even in rough shape, since someone might still put it back on the road. A junk-titled car is realistically limited to dismantlers, scrap buyers, and junk car services, since nobody can legally register it to drive again. The offer on a junk-titled car is based on weight and usable parts rather than any chance of a second life on the road.",
+      "Not every state uses this exact language, either. Some states don't issue a distinct \"junk\" title at all and instead handle it through a certificate of destruction or a non-repairable designation that functions the same way. Others use \"junk\" and \"salvage\" more loosely than the strict definitions above. If you're not sure which one applies to your car, your title itself, or a call to your state's DMV or motor vehicle division, is the only reliable way to check, rather than going by what a neighbor's title said or what a buyer tells you over the phone.",
+      "For a seller, a salvage title doesn't mean your car is worthless. It means someone still has to decide whether repairing it makes financial sense, and that's a conversation some buyers are willing to have. A junk title means that conversation is already settled, and the sale is just about the vehicle's remaining material value. You don't need to fix anything or guess at the number yourself in either case. Describing your car's title status honestly, along with its condition, lets a buyer give you an accurate offer instead of a lowball figure based on uncertainty.",
+      "Whether your paperwork says salvage, junk, or something your state calls by a different name entirely, it's rarely a reason to put off selling. A quote takes a few minutes, doesn't require the car to be running, and will tell you what your specific title situation is actually worth instead of leaving you to guess.",
+    ],
+  },
 ];
 
 export function getPost(slug: string): PostEntry | undefined {
