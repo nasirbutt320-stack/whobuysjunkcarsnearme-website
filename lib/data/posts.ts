@@ -409,6 +409,47 @@ export const posts: PostEntry[] = [
       },
     ],
   },
+  {
+    slug: "flood-damaged-car-heres-how-to-sell-it-for-cash",
+    title: "Flood-Damaged Car? Here's How to Sell It for Cash",
+    excerpt:
+      "Private buyers tend to walk away from flood damage, but that doesn't mean the car is worthless. Here's why it's hard to sell privately and what a fair cash sale actually looks like.",
+    date: "2026-10-22",
+    category: "blog",
+    author: "cashforcar39gmail-com",
+    content: [
+      "A flooded car is one of the hardest vehicles to sell the normal way. Water damage isn't always obvious from the outside, and most private buyers know that, which is exactly why they tend to walk away the moment \"flood\" comes up in a conversation. That doesn't mean the car is worthless. It means you're usually better off selling it as a cash sale rather than trying to list it like any other used vehicle.",
+      "The reason private buyers are so wary isn't just caution, it's that flood damage keeps causing problems long after the water is gone. Corrosion can start inside wiring harnesses, connectors, and control modules where nobody can see it, and it doesn't always show symptoms right away. Mold can take hold in carpet padding and seat foam. Electrical gremlins, a sensor that fails intermittently, a warning light that comes and goes, can show up months later and be expensive to chase down. A buyer who doesn't know the car's history has no way to price in that risk, so a lot of them simply won't take it on.",
+      "If your car was flooded and you filed an insurance claim, what happens next depends on the insurer's assessment. If the cost to repair the water damage comes close to or exceeds the car's value, the insurance company will usually declare it a total loss. In that case, you'd typically be paid out based on the car's value before the flood, and the insurer takes possession of the vehicle, at which point it's out of your hands entirely. If you didn't have comprehensive coverage, which is what actually covers flood damage, or you decided not to file a claim, the car stays yours to deal with directly.",
+      "Here's where it gets state-specific. Once a flooded vehicle is declared a total loss, most states require it to be issued some version of a branded title, often labeled \"flood,\" \"salvage,\" or \"water damage.\" That brand stays with the vehicle's history and shows up on a vehicle history report even if the car is later repaired and resold. It's one of the main reasons flood-damaged cars sell for less than a comparable vehicle with a clean history, buyers and resellers alike can see exactly what happened to it.",
+      "None of this means the car has no value. A junk car buyer evaluates a flood-damaged vehicle differently than a private buyer would. Instead of worrying about what might fail six months down the road, the offer is built around the vehicle's actual current condition: what still runs, which parts are salvageable, and what the vehicle is worth for scrap and recycling if it isn't. That's a much more straightforward calculation, and it's why flood-damaged cars that are nearly impossible to sell privately still have a real cash value to the right buyer.",
+      "Being upfront about the flood history matters more here than with almost any other kind of damage. Mention it when you first describe the car, how high the water got if you know, how long it sat, and whether the engine was running when it flooded or just sitting in standing water. These details affect the offer, and a legitimate buyer would rather have accurate information upfront than find out after the fact. Trying to hide flood history generally backfires anyway, since water damage tends to leave signs, a musty smell, water lines inside the doors or trunk, rust in spots that shouldn't rust, that an experienced buyer knows to look for.",
+      "Paperwork follows a similar path to other total-loss or title-brand situations. If your insurer already processed the claim and issued a settlement, they typically handle the title transfer as part of that process. If you're selling the car directly without going through insurance, you'll want your original title if you have one, and if it's already branded for flood or water damage, that's fine to disclose, it doesn't stop a sale to a buyer set up to handle it. Buyers who deal regularly with flood and total-loss vehicles are generally used to working with branded titles and can walk you through what's needed in your state.",
+      "If you're sitting on a flooded car wondering whether it's worth anything, the most reliable way to find out is to describe it honestly and get a quote. Mention the flood history, the current condition, and any paperwork you have, and a buyer who specializes in these situations can tell you quickly whether it's a fit and what it's actually worth, rather than you guessing based on what a private buyer might have said.",
+    ],
+    faqs: [
+      {
+        question: "Will insurance automatically total a flooded car?",
+        answer:
+          "Not automatically. The insurer typically declares a total loss when the cost of repairing water damage comes close to or exceeds the car's value; a car with only minor flood exposure might still be repaired and kept.",
+      },
+      {
+        question: "Does a flood-damaged car always get a branded title?",
+        answer:
+          "In most states, yes, once it's officially declared a total loss, though the exact branding label and process depend on your state's DMV.",
+      },
+      {
+        question: "Can I sell a flood-damaged car without going through insurance?",
+        answer:
+          "Yes. If you didn't file a claim or didn't have comprehensive coverage, the car is yours to sell directly, and you can describe its condition straight to a buyer.",
+      },
+      {
+        question: "Should I disclose flood damage even if it isn't obvious?",
+        answer:
+          "Yes. Being upfront matters more with flood damage than with most other issues, and hiding it rarely works since water exposure tends to leave signs that an experienced buyer knows to check for.",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): PostEntry | undefined {
