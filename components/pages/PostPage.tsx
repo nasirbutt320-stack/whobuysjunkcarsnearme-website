@@ -3,8 +3,9 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
+import FaqAccordion from "@/components/FaqAccordion";
 import { PostEntry } from "@/lib/data/posts";
-import { blogPostingSchema } from "@/lib/schema";
+import { blogPostingSchema, faqPageSchema } from "@/lib/schema";
 
 const INLINE_TOKEN = /(\*\*[^*]+\*\*|\[[^\]]+\]\(\/[^)\s]*\))/g;
 
@@ -31,6 +32,9 @@ export default function PostPage({ post }: { post: PostEntry }) {
   return (
     <>
       <JsonLd data={blogPostingSchema(post)} />
+      {post.faqs && post.faqs.length > 0 && (
+        <JsonLd data={faqPageSchema(post.faqs)} />
+      )}
 
       <section className="bg-navy-900 py-14 md:py-20">
         <Container className="max-w-3xl">
@@ -91,6 +95,13 @@ export default function PostPage({ post }: { post: PostEntry }) {
           </div>
         </Container>
       </section>
+
+      {post.faqs && post.faqs.length > 0 && (
+        <FaqAccordion
+          title="Frequently Asked Questions"
+          items={post.faqs}
+        />
+      )}
 
       <CTASection />
     </>
