@@ -20,7 +20,7 @@ const checklist = [
 export default function ContactUsPage() {
   return (
     <section className="bg-navy-900">
-      <Container className="grid grid-cols-1 gap-12 py-14 md:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+      <Container className="grid grid-cols-1 gap-10 py-10 md:py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:py-10">
         <div>
           <h1 className="text-3xl font-extrabold text-white sm:text-4xl">
             Ready to Sell Your Car?

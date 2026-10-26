@@ -79,68 +79,74 @@ export default function GetQuoteForm() {
       id="get-a-quote-form"
       name="get-a-quote-form"
       onSubmit={handleSubmit}
-      className="space-y-5 rounded-2xl bg-white p-6 shadow-card sm:p-8"
+      className="grid grid-cols-6 gap-x-3 gap-y-3 rounded-2xl bg-white p-5 shadow-card sm:p-6"
     >
-      <div className="form-field">
+      <div className="form-field order-1 col-span-6 sm:col-span-3">
         <label htmlFor="gq-name">
           Name <span className="text-gold-600">*</span>
         </label>
-        <input id="gq-name" name={LEAD_FIELDS.name} type="text" placeholder="Name" required />
+        <input id="gq-name" name={LEAD_FIELDS.name} type="text" placeholder="Your name" autoComplete="name" required />
       </div>
 
-      <div className="form-field">
+      <div className="form-field order-3 col-span-4 sm:order-2 sm:col-span-3">
+        <label htmlFor="gq-phone">
+          Phone <span className="text-gold-600">*</span>
+        </label>
+        <input id="gq-phone" name={LEAD_FIELDS.phone} type="tel" placeholder="Phone number" autoComplete="tel" required />
+      </div>
+
+      <div className="form-field order-2 col-span-6 sm:order-3 sm:col-span-4">
         <label htmlFor="gq-email">
           Email <span className="text-gold-600">*</span>
         </label>
-        <input id="gq-email" name={LEAD_FIELDS.email} type="email" placeholder="Email" required />
+        <input id="gq-email" name={LEAD_FIELDS.email} type="email" placeholder="you@example.com" autoComplete="email" required />
       </div>
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <div className="form-field">
-          <label htmlFor="gq-phone">
-            Phone <span className="text-gold-600">*</span>
-          </label>
-          <input id="gq-phone" name={LEAD_FIELDS.phone} type="tel" placeholder="Phone" required />
-        </div>
-        <div className="form-field">
-          <label htmlFor="gq-zip">
-            Zip Code <span className="text-gold-600">*</span>
-          </label>
-          <input id="gq-zip" name={LEAD_FIELDS.zip} type="text" placeholder="Zip Code" required />
-        </div>
+      <div className="form-field order-4 col-span-2">
+        <label htmlFor="gq-zip">
+          Zip Code <span className="text-gold-600">*</span>
+        </label>
+        <input id="gq-zip" name={LEAD_FIELDS.zip} type="text" inputMode="numeric" placeholder="Zip" autoComplete="postal-code" required />
       </div>
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <div className="form-field">
-          <label htmlFor="gq-title">
-            Do you have a title? <span className="text-gold-600">*</span>
-          </label>
-          <input id="gq-title" name={LEAD_FIELDS.hasTitle} type="text" placeholder="Yes / No" required />
-        </div>
-        <div className="form-field">
-          <label htmlFor="gq-runs">
-            Does it run and drive? <span className="text-gold-600">*</span>
-          </label>
-          <input id="gq-runs" name={LEAD_FIELDS.runsAndDrives} type="text" placeholder="Yes / No" required />
-        </div>
+      <div className="form-field order-5 col-span-3">
+        <label htmlFor="gq-title">
+          Do you have a title? <span className="text-gold-600">*</span>
+        </label>
+        <select id="gq-title" name={LEAD_FIELDS.hasTitle} defaultValue="" required>
+          <option value="" disabled>Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
       </div>
 
-      <div className="form-field">
+      <div className="form-field order-6 col-span-3">
+        <label htmlFor="gq-runs">
+          Does it run and drive? <span className="text-gold-600">*</span>
+        </label>
+        <select id="gq-runs" name={LEAD_FIELDS.runsAndDrives} defaultValue="" required>
+          <option value="" disabled>Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div className="form-field order-7 col-span-6">
         <label htmlFor="gq-vehicle">
           What is Make, Model and trim, and Year? <span className="text-gold-600">*</span>
         </label>
         <textarea
           id="gq-vehicle"
           name={LEAD_FIELDS.vehicle}
-          rows={3}
-          placeholder="What is Make, Model and trim, and Year?"
+          rows={1}
+          placeholder="e.g. 2012 Honda Civic EX"
           required
         />
       </div>
 
-      {error && <p className="text-sm font-medium text-red-600">{error}</p>}
+      {error && <p className="order-8 col-span-6 text-sm font-medium text-red-600">{error}</p>}
 
-      <button type="submit" className="btn btn-primary w-full">
+      <button type="submit" className="btn btn-primary order-9 col-span-6 w-full">
         Get My Cash Offer
       </button>
     </form>

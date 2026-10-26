@@ -79,54 +79,62 @@ export default function QuoteForm({
   }
 
   return (
-    <div className="rounded-2xl bg-white p-6 shadow-card sm:p-8">
+    <div className="rounded-2xl bg-white p-5 shadow-card sm:p-5">
       <h3 className="text-xl font-bold text-navy-900">{title}</h3>
-      {subtitle && <p className="mt-1.5 text-sm text-navy-500">{subtitle}</p>}
+      {subtitle && <p className="mt-1 text-sm text-navy-500">{subtitle}</p>}
       <form
         id="quote-form-widget"
         name="quote-form-widget"
         onSubmit={handleSubmit}
-        className="mt-5 space-y-4"
+        className="mt-3 grid grid-cols-6 gap-x-3 gap-y-2.5"
       >
-        <div className="form-field">
+        <div className="form-field order-1 col-span-6 sm:col-span-3">
           <label htmlFor="qf-name">Name</label>
-          <input id="qf-name" name={LEAD_FIELDS.name} type="text" placeholder="Name" required />
+          <input id="qf-name" name={LEAD_FIELDS.name} type="text" placeholder="Your name" autoComplete="name" required />
         </div>
-        <div className="form-field">
-          <label htmlFor="qf-email">Email</label>
-          <input id="qf-email" name={LEAD_FIELDS.email} type="email" placeholder="Email" required />
-        </div>
-        <div className="form-field">
+        <div className="form-field order-3 col-span-4 sm:order-2 sm:col-span-3">
           <label htmlFor="qf-phone">Phone</label>
-          <input id="qf-phone" name={LEAD_FIELDS.phone} type="tel" placeholder="Phone" required />
+          <input id="qf-phone" name={LEAD_FIELDS.phone} type="tel" placeholder="Phone number" autoComplete="tel" required />
         </div>
-        <div className="form-field">
+        <div className="form-field order-2 col-span-6 sm:order-3 sm:col-span-4">
+          <label htmlFor="qf-email">Email</label>
+          <input id="qf-email" name={LEAD_FIELDS.email} type="email" placeholder="you@example.com" autoComplete="email" required />
+        </div>
+        <div className="form-field order-4 col-span-2">
           <label htmlFor="qf-zip">Zip Code</label>
-          <input id="qf-zip" name={LEAD_FIELDS.zip} type="text" placeholder="Zip Code" required />
+          <input id="qf-zip" name={LEAD_FIELDS.zip} type="text" inputMode="numeric" placeholder="Zip" autoComplete="postal-code" required />
         </div>
-        <div className="form-field">
+        <div className="form-field order-5 col-span-3">
           <label htmlFor="qf-title">Do you have a title?</label>
-          <input id="qf-title" name={LEAD_FIELDS.hasTitle} type="text" placeholder="Yes / No" required />
+          <select id="qf-title" name={LEAD_FIELDS.hasTitle} defaultValue="" required>
+            <option value="" disabled>Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
         </div>
-        <div className="form-field">
+        <div className="form-field order-6 col-span-3">
           <label htmlFor="qf-runs">Does it run and drive?</label>
-          <input id="qf-runs" name={LEAD_FIELDS.runsAndDrives} type="text" placeholder="Yes / No" required />
+          <select id="qf-runs" name={LEAD_FIELDS.runsAndDrives} defaultValue="" required>
+            <option value="" disabled>Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
         </div>
-        <div className="form-field">
+        <div className="form-field order-7 col-span-6">
           <label htmlFor="qf-vehicle">What is Make, Model and trim, and Year?</label>
           <textarea
             id="qf-vehicle"
             name={LEAD_FIELDS.vehicle}
-            rows={3}
-            placeholder="What is Make, Model and trim, and Year?"
+            rows={1}
+            placeholder="e.g. 2012 Honda Civic EX"
             required
           />
         </div>
-        {error && <p className="text-sm font-medium text-red-600">{error}</p>}
-        <button type="submit" className="btn btn-primary w-full">
+        {error && <p className="order-8 col-span-6 text-sm font-medium text-red-600">{error}</p>}
+        <button type="submit" className="btn btn-primary order-9 col-span-6 w-full">
           Get my cash offer
         </button>
-        <p className="text-center text-xs text-navy-400">
+        <p className="order-10 col-span-6 text-center text-xs text-navy-400">
           No spam. No obligation. Just a fair cash offer.
         </p>
       </form>
