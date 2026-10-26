@@ -1,3 +1,8 @@
+export type PostFaq = {
+  question: string;
+  answer: string;
+};
+
 export type PostEntry = {
   slug: string;
   title: string;
@@ -9,6 +14,7 @@ export type PostEntry = {
   heroImage?: string;
   heroImageAlt?: string;
   seoTitle?: string;
+  faqs?: PostFaq[];
 };
 
 // Slugs match the live site's post-sitemap.xml exactly.
@@ -27,6 +33,28 @@ export const posts: PostEntry[] = [
       "When you're ready to request offers, compare more than one. A legitimate buyer will give you a number over the phone and honor that number in person, provided the car matches what you described. Watch out for anyone who insists on seeing the car before naming any price at all, that's usually a sign the number will drop once they arrive.",
       "Finally, ask about towing and payment. Reputable junk car buyers cover towing at no cost and pay on the spot, whether that's cash, a check, or a digital transfer. If a buyer wants to charge you fees to take the car away, keep looking. A properly priced offer already accounts for the cost of pickup.",
     ],
+    faqs: [
+      {
+        question: "How do I know if my car qualifies as a junk car?",
+        answer:
+          "A car typically qualifies if it's old, high-mileage, or has mechanical or body damage that makes it worth more to sell than to keep fixing. It doesn't need to be completely undrivable to sell it this way.",
+      },
+      {
+        question: "Do I need the title to sell my junk car?",
+        answer:
+          "Not always. Many buyers, including us, can work with a state ID and proof of ownership if the title has been lost, though the exact requirements depend on your state.",
+      },
+      {
+        question: "How is my junk car's value determined?",
+        answer:
+          "Buyers typically look at the vehicle's year, make, model, mileage, running condition, and which major parts are still usable, rather than applying one fixed price to every car.",
+      },
+      {
+        question: "Is towing really free when I sell my car?",
+        answer:
+          "With a reputable buyer, yes. Towing is built into the offer at no extra cost, and pickup can usually be scheduled within a day or two.",
+      },
+    ],
   },
   {
     slug: "the-benefits-of-selling-your-old-vehicle",
@@ -41,6 +69,28 @@ export const posts: PostEntry[] = [
       "There's also the financial side. An old vehicle sitting unused isn't earning you anything, and depending on your state, it may still be racking up registration or insurance costs. Selling it converts a depreciating, costly asset into cash you can put toward something useful right now.",
       "Selling responsibly is also better for the environment than letting a vehicle rust away. Reputable buyers recycle usable parts and dispose of fluids and hazardous materials properly, keeping them out of landfills and waterways.",
       "If you've been putting off dealing with an old car, getting a quote costs nothing and takes just a few minutes. Even if you decide not to sell right away, you'll at least know what it's worth.",
+    ],
+    faqs: [
+      {
+        question: "Is it worth selling a car that just sits unused?",
+        answer:
+          "Usually, yes. A car sitting idle isn't earning you anything and may still cost you in registration or insurance, so turning it into cash is typically better than letting it keep depreciating.",
+      },
+      {
+        question: "Does selling an old car help the environment?",
+        answer:
+          "It can, as long as the buyer handles it responsibly. Reputable buyers recycle usable parts and dispose of fluids and hazardous materials properly instead of letting a vehicle rust and leak.",
+      },
+      {
+        question: "Do I need to fix anything before I sell?",
+        answer:
+          "No. Most junk car buyers base their offer on the vehicle's actual condition, so repairs generally aren't necessary before you sell.",
+      },
+      {
+        question: "How much space will I actually get back by selling it?",
+        answer:
+          "That depends on the vehicle and where it's parked, but owners are often surprised how much driveway, garage, or yard space a single unused car was taking up.",
+      },
     ],
   },
   {
@@ -71,6 +121,28 @@ export const posts: PostEntry[] = [
       "There are also private buyers and part-out specialists who purchase specific vehicles for specific parts. These buyers can occasionally offer a great price for the right car, but the process tends to take longer and requires more back-and-forth than a direct sale.",
       "Whichever route you choose, the fastest way to know what your car is actually worth is to describe it accurately and get a real number, rather than assuming its only value is as scrap.",
     ],
+    faqs: [
+      {
+        question: "What's the difference between a salvage yard and a junk car buyer?",
+        answer:
+          "Salvage yards generally pay based on scrap weight alone, while specialized junk car buyers also factor in the resale value of usable parts like the engine or transmission, which often results in a higher offer.",
+      },
+      {
+        question: "Are private part-out buyers a good option?",
+        answer:
+          "They can be, especially for a specific part in demand, but the process usually takes longer and involves more back-and-forth than selling directly to a junk car buyer.",
+      },
+      {
+        question: "How do I know if an offer is actually fair?",
+        answer:
+          "Comparing offers from more than one type of buyer, a salvage yard, a specialized junk car buyer, and a private buyer if you have time, is the most reliable way to tell whether a quote reflects your car's real value.",
+      },
+      {
+        question: "Does the type of buyer matter if my car is only good for scrap?",
+        answer:
+          "It still can. Even a vehicle headed for scrap may have parts worth something to a specialized buyer, so it's worth getting more than one quote before assuming the car's only value is its weight in metal.",
+      },
+    ],
   },
   {
     slug: "how-much-is-my-junk-car-worth-a-state-by-state-pricing-guide",
@@ -91,6 +163,28 @@ export const posts: PostEntry[] = [
       "There are a few things within your control that can make the process smoother and sometimes support a better offer. Having your title or an alternative ownership document ready, listing out any major missing or damaged parts upfront, and giving an accurate mileage and condition report all help a buyer quote a firm number instead of a lowball figure they plan to renegotiate once they see the car in person. Getting a second opinion from another buyer before you commit also costs nothing and can tell you whether the first offer was reasonable for your area.",
       "None of this means you should try to estimate your car's value from a general price chart online, since those are built on vehicles and conditions that aren't yours. The only way to get a number that applies to your specific car is to describe it accurately, year, make, model, mileage, running condition, and any missing or damaged parts, and get a real quote based on that. A legitimate buyer should be able to give you a number over the phone without seeing the car first, and that number shouldn't change once they arrive, as long as the car matches what you described.",
       "If you want to know what your vehicle is actually worth, describing it and asking is faster than any chart. Getting a quote takes a few minutes, costs nothing, and gives you a real number instead of a guess, whether you decide to sell today or just want to know where you stand.",
+    ],
+    faqs: [
+      {
+        question: "Why do junk car offers vary so much from state to state?",
+        answer:
+          "Local scrap metal prices, parts demand, and how many buyers are competing in your area all vary by region, which is why the same vehicle can get different offers depending on where you live.",
+      },
+      {
+        question: "Does a non-running car still have value?",
+        answer:
+          "Yes. Even if a car won't start, components like the engine, transmission, catalytic converter, and wheels can still have resale value if they're intact.",
+      },
+      {
+        question: "Will my offer change once the buyer sees the car in person?",
+        answer:
+          "It shouldn't, as long as the vehicle matches what you described. A legitimate buyer gives you a number based on accurate details and honors it at pickup.",
+      },
+      {
+        question: "Should I rely on an online junk car value chart?",
+        answer:
+          "Not as a final number. Those charts are built on different vehicles and conditions than yours, so describing your specific car and getting a real quote is more accurate than any general price chart.",
+      },
     ],
   },
   {
@@ -249,6 +343,28 @@ export const posts: PostEntry[] = [
       "Because the actual rules shift from state to state, and sometimes change, treat anything you read online, including this, as a starting point rather than a final answer. Your state's DMV website or a quick call to a local office will tell you exactly what's required where you live, what a duplicate or bonded title costs right now, and how long it typically takes. That's worth doing even if you're fairly sure you know the answer, since titling rules are the kind of thing that get updated without much fanfare.",
       "If you're trying to sell a car that doesn't run and the missing title has you stuck, the simplest next step is usually to just describe the situation to a buyer and ask. Mention upfront that you don't have the title and why, whether it's lost, never transferred, or tied up in an old lien, and a legitimate junk car buyer should be able to tell you right away whether that's workable or what you'd need first. Getting a quote costs nothing, and you'll often learn more about your actual options in that one conversation than from an hour of searching state statutes on your own.",
     ],
+    faqs: [
+      {
+        question: "What if I never had a title for the car at all?",
+        answer:
+          "That's generally what a bonded title process exists for. It involves a surety bond tied to the vehicle's value that backs up your ownership claim in place of the missing document.",
+      },
+      {
+        question: "Can I sell a car with a lien that's already paid off?",
+        answer:
+          "It's worth confirming the lien was actually released in your state's system, not just paid off on your end, since an unreleased lien can stall a sale even with proof the loan is settled.",
+      },
+      {
+        question: "What documents help if I don't have a title?",
+        answer:
+          "A government-issued photo ID, your vehicle's VIN, old registration or insurance paperwork, and a bill of sale can all help establish ownership even without a title in hand.",
+      },
+      {
+        question: "Do all junk car buyers require a title?",
+        answer:
+          "No. Buyers who specialize in non-running or problem vehicles are often set up to work within whatever alternative process your state allows, though some states are stricter about it than others, even for scrap vehicles.",
+      },
+    ],
   },
   {
     slug: "what-actually-happens-to-your-car-after-you-junk-it",
@@ -269,6 +385,130 @@ export const posts: PostEntry[] = [
       "That new material doesn't necessarily become another car. Recycled automotive steel gets used across construction, appliances, and plenty of other manufacturing, including new vehicles. It's genuinely closer to a loop than a one-way trip to a landfill, since metal from an old car commonly ends up as part of something else entirely down the line.",
       "Knowing this process matters for more than curiosity. It's also why the buyer you choose matters: draining fluids and pulling usable parts properly before anything gets crushed, then sending the rest through real recycling channels, takes more effort than just hauling a car to a scrap pile. Asking a buyer how they handle fluid disposal is a reasonable question before you agree to a pickup, and a legitimate one should be able to answer it without hesitation.",
       "If you've been holding onto a car because it feels wasteful to send it off, it's worth knowing that very little of it actually goes to waste. Between resold parts and recycled metal, most of what made up your car continues on in some form. Getting a quote costs nothing and takes a few minutes if you're ready to see what the next stage of your car's life is worth to you right now.",
+    ],
+    faqs: [
+      {
+        question: "What happens to the fluids in my car after it's junked?",
+        answer:
+          "They're drained early in the process. Usable fluids get filtered and reused, while the rest are disposed of through hazardous waste channels instead of being left to leak into the ground.",
+      },
+      {
+        question: "Does my car get crushed right away?",
+        answer:
+          "No. Usable parts and hazardous materials are removed first, and a vehicle can sit mostly intact in a yard for weeks or months before it's actually crushed.",
+      },
+      {
+        question: "Does recycled car metal become a new car?",
+        answer:
+          "Not necessarily. Recycled automotive steel gets used across construction, appliances, and other manufacturing, so it's more of a loop than a one-way path back into another vehicle.",
+      },
+      {
+        question: "Should I ask a buyer how they handle fluid disposal?",
+        answer:
+          "Yes. It's a reasonable question to ask before agreeing to pickup, and a legitimate buyer should be able to answer it without hesitation.",
+      },
+    ],
+  },
+  {
+    slug: "flood-damaged-car-heres-how-to-sell-it-for-cash",
+    title: "Flood-Damaged Car? Here's How to Sell It for Cash",
+    excerpt:
+      "Private buyers tend to walk away from flood damage, but that doesn't mean the car is worthless. Here's why it's hard to sell privately and what a fair cash sale actually looks like.",
+    date: "2026-10-22",
+    category: "blog",
+    author: "cashforcar39gmail-com",
+    content: [
+      "A flooded car is one of the hardest vehicles to sell the normal way. Water damage isn't always obvious from the outside, and most private buyers know that, which is exactly why they tend to walk away the moment \"flood\" comes up in a conversation. That doesn't mean the car is worthless. It means you're usually better off selling it as a cash sale rather than trying to list it like any other used vehicle.",
+      "The reason private buyers are so wary isn't just caution, it's that flood damage keeps causing problems long after the water is gone. Corrosion can start inside wiring harnesses, connectors, and control modules where nobody can see it, and it doesn't always show symptoms right away. Mold can take hold in carpet padding and seat foam. Electrical gremlins, a sensor that fails intermittently, a warning light that comes and goes, can show up months later and be expensive to chase down. A buyer who doesn't know the car's history has no way to price in that risk, so a lot of them simply won't take it on.",
+      "If your car was flooded and you filed an insurance claim, what happens next depends on the insurer's assessment. If the cost to repair the water damage comes close to or exceeds the car's value, the insurance company will usually declare it a total loss. In that case, you'd typically be paid out based on the car's value before the flood, and the insurer takes possession of the vehicle, at which point it's out of your hands entirely. If you didn't have comprehensive coverage, which is what actually covers flood damage, or you decided not to file a claim, the car stays yours to deal with directly.",
+      "Here's where it gets state-specific. Once a flooded vehicle is declared a total loss, most states require it to be issued some version of a branded title, often labeled \"flood,\" \"salvage,\" or \"water damage.\" That brand stays with the vehicle's history and shows up on a vehicle history report even if the car is later repaired and resold. It's one of the main reasons flood-damaged cars sell for less than a comparable vehicle with a clean history, buyers and resellers alike can see exactly what happened to it.",
+      "None of this means the car has no value. A junk car buyer evaluates a flood-damaged vehicle differently than a private buyer would. Instead of worrying about what might fail six months down the road, the offer is built around the vehicle's actual current condition: what still runs, which parts are salvageable, and what the vehicle is worth for scrap and recycling if it isn't. That's a much more straightforward calculation, and it's why flood-damaged cars that are nearly impossible to sell privately still have a real cash value to the right buyer.",
+      "Being upfront about the flood history matters more here than with almost any other kind of damage. Mention it when you first describe the car, how high the water got if you know, how long it sat, and whether the engine was running when it flooded or just sitting in standing water. These details affect the offer, and a legitimate buyer would rather have accurate information upfront than find out after the fact. Trying to hide flood history generally backfires anyway, since water damage tends to leave signs, a musty smell, water lines inside the doors or trunk, rust in spots that shouldn't rust, that an experienced buyer knows to look for.",
+      "Paperwork follows a similar path to other total-loss or title-brand situations. If your insurer already processed the claim and issued a settlement, they typically handle the title transfer as part of that process. If you're selling the car directly without going through insurance, you'll want your original title if you have one, and if it's already branded for flood or water damage, that's fine to disclose, it doesn't stop a sale to a buyer set up to handle it. Buyers who deal regularly with flood and total-loss vehicles are generally used to working with branded titles and can walk you through what's needed in your state.",
+      "If you're sitting on a flooded car wondering whether it's worth anything, the most reliable way to find out is to describe it honestly and get a quote. Mention the flood history, the current condition, and any paperwork you have, and a buyer who specializes in these situations can tell you quickly whether it's a fit and what it's actually worth, rather than you guessing based on what a private buyer might have said.",
+    ],
+    faqs: [
+      {
+        question: "Will insurance automatically total a flooded car?",
+        answer:
+          "Not automatically. The insurer typically declares a total loss when the cost of repairing water damage comes close to or exceeds the car's value; a car with only minor flood exposure might still be repaired and kept.",
+      },
+      {
+        question: "Does a flood-damaged car always get a branded title?",
+        answer:
+          "In most states, yes, once it's officially declared a total loss, though the exact branding label and process depend on your state's DMV.",
+      },
+      {
+        question: "Can I sell a flood-damaged car without going through insurance?",
+        answer:
+          "Yes. If you didn't file a claim or didn't have comprehensive coverage, the car is yours to sell directly, and you can describe its condition straight to a buyer.",
+      },
+      {
+        question: "Should I disclose flood damage even if it isn't obvious?",
+        answer:
+          "Yes. Being upfront matters more with flood damage than with most other issues, and hiding it rarely works since water exposure tends to leave signs that an experienced buyer knows to check for.",
+      },
+    ],
+  },
+  {
+    slug: "junk-car-vs-trade-in-which-gets-you-more-cash",
+    title: "Junk Car vs. Trade-In: Which Gets You More Cash?",
+    excerpt:
+      "A trade-in and a direct cash sale pay out differently, and which one actually nets you more depends on your car's condition and whether you're buying a replacement.",
+    date: "2026-10-14",
+    category: "blog",
+    author: "cashforcar39gmail-com",
+    content: [
+      "If you've got an old car taking up space, there are really only two paths that lead to getting paid for it: trade it in toward something else, or sell it outright to a junk car buyer. Which one puts more money in your pocket has more to do with what you're trying to do next than with the car itself.",
+      "The quickest way to sort this out is to ask one question first: are you buying another vehicle? A trade-in only exists as part of a purchase. If you're not shopping for a replacement car, trading in isn't on the table at all, and a direct cash sale is your only real option anyway.",
+      "If you are buying something else, a trade-in can feel convenient because it folds two transactions into one. You hand over the old car, it knocks some amount off the new one, and you drive away having dealt with both at once. The catch is that the number doing that knocking off is set by the dealer, inside a deal built around their margin on the new car. It's common for a trade-in figure to look reasonable on its own while the overall deal moves in the dealer's favor somewhere else, maybe in the price of the new car or the financing terms. Because everything gets bundled together, it's hard to know how much of that trade-in number was real value and how much just got shuffled around elsewhere in the paperwork.",
+      "A junk car sale works differently because there's nothing to bundle. The offer is just for the car in front of you, based on its weight in scrap metal, which parts are still usable, and what buyers in your area are currently paying. There's no new vehicle purchase riding on the number, so there's less reason for it to move around once it's quoted. What you're told on the phone is generally what you get at pickup, as long as the car matches what you described.",
+      "A dealer evaluating a trade-in is thinking about resale, whether that's putting your old car back on their lot or sending it to auction, so they want something that runs, drives, and looks reasonably presentable. A car with a dead engine, major body damage, or enough miles that it's not worth reconditioning often gets a token trade-in offer, or the dealer just declines to take it and tells you to sell it separately. A junk car buyer has no such requirement. Whether it runs, rolls, or has been sitting in the driveway for two years, the value comes from parts and metal, not from reselling it as a working vehicle.",
+      "The paperwork splits the same way. Trading in is wrapped inside a vehicle purchase, so you're dealing with financing documents, trade-in disclosures, and whatever your state requires for transferring a title as part of that larger transaction. A junk car sale skips almost all of that. It's typically a title transfer and a bill of sale, nothing tied to a loan application or a new set of keys. If your title is missing, a junk buyer is usually easier to work with than a dealer, since dealers generally won't take a trade-in without clean paperwork already in hand.",
+      "Speed usually favors a direct sale too. A trade-in's timeline is really the new car's timeline: financing approval, paperwork, maybe a wait for the specific model you want. A junk car sale can often be quoted and picked up within a day or two, since there's no second transaction holding it up.",
+      "None of this makes a trade-in a bad choice. If you're already buying a new car, the vehicle you're trading in still runs and looks decent, and you'd rather handle everything in one stop than squeeze out every last dollar, a trade-in is a perfectly reasonable way to go, and there's less for you to manage.",
+      "It tends to fall short when the car itself is the obstacle rather than the convenience. A non-running vehicle, something with serious damage, or a car you're not replacing with anything is usually better off going to a junk car buyer directly, since you're getting paid for the car on its own terms instead of through a deal built around something else.",
+      "If you want to actually compare the two, there's no need to guess. Get a trade-in quote from the dealer as part of your new car conversation, and separately get a quote from a junk car buyer for the same vehicle. Comparing two real numbers is the only way to know which route actually pays more for your specific car.",
+      "If you still owe money on the vehicle, check your payoff amount with your lender before deciding either way. Whichever offer you take needs to cover what's left on the loan, or you'll need to bring the difference to the table regardless of whether the car goes to a dealer's lot or to a junk car buyer.",
+      "If selling outright turns out to be the better move, getting there is simple: describe your car's year, make, model, and condition and ask to sell your car for cash instead of taking whatever the dealer offers on paper. Getting a quote costs nothing and takes a few minutes, and it gives you something solid to compare against whatever a dealer offers for the trade-in.",
+    ],
+  },
+  {
+    slug: "salvage-title-vs-junk-title-whats-the-difference",
+    title: "Salvage Title vs. Junk Title: What's the Difference?",
+    excerpt:
+      "What separates a salvage title from a junk title, and why that one distinction changes who can buy your car and what it's worth.",
+    date: "2026-10-18",
+    category: "blog",
+    author: "cashforcar39gmail-com",
+    content: [
+      "If you've been told your car has a \"salvage title\" or a \"junk title,\" those two words might sound interchangeable, but they describe very different situations. Both mean the vehicle has been through something serious, usually a wreck, a flood, or fire damage significant enough that an insurance company or state agency decided it wasn't worth fixing at full value. Where they differ is what can legally happen to the car next, and that difference changes who will buy it and what they'll pay.",
+      "A salvage title shows up after an insurance company pays out a total loss claim on a vehicle. That happens when the cost to repair the car is close to or more than what the car is worth, not necessarily when the car is beyond saving. A salvage-titled car isn't dead yet. In most states, someone, often a rebuilder or a buyer at a salvage auction, can repair it, pass a state inspection, and get it back on the road under a new title, usually branded \"rebuilt\" or \"reconstructed.\" The salvage history stays attached to the vehicle permanently once that happens; it never goes back to a clean title. But the car itself still has a future as a driveable vehicle, which matters a lot for its value.",
+      "A junk title is a step further down the line, and it's meant to be final. States issue a junk title, sometimes called a junk certificate or parts-only title, when a vehicle has been deemed unfit to ever return to the road. Once that designation is on record, the car generally cannot be repaired, re-inspected, or re-registered for driving in any state. In most places the VIN itself gets flagged in a national title database, which is what keeps someone from trying to clean up the paperwork and sell it as a roadworthy car later. A junk-titled vehicle still has value, just not as transportation. Its worth comes from scrap metal and any parts that are still good.",
+      "That distinction between repairable and permanently retired is why the two titles attract different buyers. A salvage-titled car can interest rebuilders or parts dealers who want a mostly intact vehicle to pull from, so it tends to hold more value even in rough shape, since someone might still put it back on the road. A junk-titled car is realistically limited to dismantlers, scrap buyers, and junk car services, since nobody can legally register it to drive again. The offer on a junk-titled car is based on weight and usable parts rather than any chance of a second life on the road.",
+      "Not every state uses this exact language, either. Some states don't issue a distinct \"junk\" title at all and instead handle it through a certificate of destruction or a non-repairable designation that functions the same way. Others use \"junk\" and \"salvage\" more loosely than the strict definitions above. If you're not sure which one applies to your car, your title itself, or a call to your state's DMV or motor vehicle division, is the only reliable way to check, rather than going by what a neighbor's title said or what a buyer tells you over the phone.",
+      "For a seller, a salvage title doesn't mean your car is worthless. It means someone still has to decide whether repairing it makes financial sense, and that's a conversation some buyers are willing to have. A junk title means that conversation is already settled, and the sale is just about the vehicle's remaining material value. You don't need to fix anything or guess at the number yourself in either case. Describing your car's title status honestly, along with its condition, lets a buyer give you an accurate offer instead of a lowball figure based on uncertainty.",
+      "Whether your paperwork says salvage, junk, or something your state calls by a different name entirely, it's rarely a reason to put off selling. A quote takes a few minutes, doesn't require the car to be running, and will tell you what your specific title situation is actually worth instead of leaving you to guess.",
+    ],
+  },
+  {
+    slug: "how-to-sell-a-car-that-doesnt-run-step-by-step",
+    title: "How to Sell a Car That Doesn't Run: Step-by-Step",
+    excerpt:
+      "What to gather before you call, how a quote works without a test drive, and what actually happens on pickup day.",
+    date: "2026-10-21",
+    category: "blog",
+    author: "cashforcar39gmail-com",
+    content: [
+      "A car that won't start or won't stay running can feel like a dead end, but it isn't one. You don't need to fix it, tow it to a shop for a diagnosis, or even know exactly what's wrong before you sell it. Buyers who specialize in non-running vehicles work with incomplete information every day, and the process is more straightforward than most people expect once you know what to prepare.",
+      "It helps to understand why \"non-running\" doesn't scare off a serious buyer the way it might scare off a private one. A dead battery, a blown engine, a failed transmission, and bad electrical work are all different problems with very different repair costs, but none of them erase the car's value. The frame, the body panels, the wiring, and whatever's left of the drivetrain still have weight in scrap metal and, often, parts that are still good. A buyer who deals in this kind of vehicle is pricing the car as it sits, not betting on whether you'll get it running again.",
+      "Before you call anyone, gather the basics: year, make, model, and approximate mileage if you know it. Add in when it stopped running and what happened right before it quit, even if you're not sure of the actual mechanical cause. \"Wouldn't start one morning,\" \"overheated and died on the highway,\" or \"has been sitting for two years\" all tell a buyer something useful. Mention any parts that are already missing or removed, since that affects the offer more than the fact that it doesn't run. If you have the title, note that too, and if you don't, say so; a lost title usually doesn't stop a sale, but the buyer needs to know upfront to tell you what they'll need instead.",
+      "Quotes for a non-running car also work a little differently than you might expect. A buyer isn't going to ask for a test drive, so the number they give you is based entirely on what you describe. That puts some responsibility on you to be accurate rather than optimistic, but it also means you can get a real figure over the phone or online without anyone needing to see the car first. A legitimate buyer should be willing to commit to that number before dispatching a tow truck, and should honor it once the driver arrives, provided the car matches what you said. If a buyer refuses to give any number until they've physically seen the car, that's usually a sign they're planning to lowball you once they're standing in your driveway and you've already arranged your schedule around the pickup.",
+      "Getting more than one quote costs nothing and is worth doing, especially since a car that doesn't run is one you can't easily drive somewhere else for a second opinion. Comparing two or three offers gives you a sense of whether the first number you got was reasonable, and it only takes a few extra minutes since most buyers can give you a figure the same day.",
+      "Towing is the part people worry about most. A non-running car can't be driven onto a truck under its own power, so it needs a flatbed or a winch, and buyers who handle junk car removal for a living show up with the right equipment already. Confirm towing is included in the offer you're given, not added as a separate fee once the driver shows up. You'll also want to make sure the car is actually reachable, out of a locked garage, not blocked by another vehicle, and that you have the keys on hand even if the engine won't turn over, since the driver will need them to steer it onto the truck.",
+      "On the paperwork side, keep it simple: have your title ready if you have it, or ask the buyer in advance what they'll accept instead, since requirements for a lost title vary by state and it's worth confirming rather than assuming. A valid photo ID is standard across the board. If there's a loan or lien still attached to the car, mention it early, since that can add a step to the sale even though it rarely kills it.",
+      "Pickup day itself is short. The driver arrives at the agreed time, takes a quick look to confirm the car matches your description, and handles loading it onto the truck. You sign the title over, hand off the keys, and get paid on the spot, whether that's cash, a check, or a digital transfer depending on the buyer and the amount. Some states ask you to remove your plates before the car leaves and to notify the DMV once it's sold, so it's worth asking about that step if you're not sure what your state requires.",
+      "A car that doesn't run isn't a project you're obligated to finish before you can sell it for cash. Describing it honestly, lining up your paperwork, and comparing a couple of offers is really the whole process. If you're ready to see what yours is worth, getting a quote takes a few minutes and doesn't require the engine to turn over even once.",
     ],
   },
 ];
