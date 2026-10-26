@@ -32,7 +32,7 @@ export default function PageHero({
         className="pointer-events-none absolute -left-20 bottom-0 h-64 w-64 rounded-full bg-gold-500/10 blur-3xl"
         aria-hidden="true"
       />
-      <Container className="relative grid grid-cols-1 gap-10 py-14 pb-24 md:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14 lg:pb-20">
+      <Container className="relative grid grid-cols-1 gap-10 py-10 pb-24 md:py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-12 lg:py-9 lg:pb-9">
         <div className="animate-rise-in">
           <h1 className="text-4xl font-bold leading-[1.05] text-white sm:text-5xl md:text-[3.4rem]">
             {title} {accent && <span className="text-gold-400">{accent}</span>}

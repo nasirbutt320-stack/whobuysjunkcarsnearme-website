@@ -16,7 +16,7 @@ export default function GetQuotePage() {
         className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold-500/20 blur-3xl"
         aria-hidden="true"
       />
-      <Container className="relative grid grid-cols-1 gap-12 py-14 md:py-20 lg:grid-cols-[1fr_1fr] lg:items-center">
+      <Container className="relative grid grid-cols-1 gap-10 py-10 md:py-14 lg:grid-cols-[1fr_1fr] lg:items-start lg:py-10">
         <div className="animate-rise-in">
           <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl md:text-[2.75rem]">
             Get a Quote for Your Junk Car
