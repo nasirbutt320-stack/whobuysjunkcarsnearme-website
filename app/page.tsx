@@ -6,6 +6,7 @@ import ContentSection from "@/components/ContentSection";
 import FaqAccordion from "@/components/FaqAccordion";
 import AreasServed from "@/components/AreasServed";
 import CTASection from "@/components/CTASection";
+import LatestPosts from "@/components/LatestPosts";
 import JsonLd from "@/components/JsonLd";
 import { faqPageSchema } from "@/lib/schema";
 
@@ -113,6 +114,8 @@ export default function HomePage() {
           "The phone quote and the driveway price should always match. If a buyer drops their number once they see the car in person, that's a red flag worth walking away from.",
         ]}
       />
+
+      <LatestPosts />
 
       <FaqAccordion items={homeFaqs} />
       <AreasServed />

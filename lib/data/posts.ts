@@ -517,8 +517,21 @@ export function getPost(slug: string): PostEntry | undefined {
   return posts.find((p) => p.slug === slug);
 }
 
+// Newest first; posts that share a date keep the order they were added in,
+// with the most recently added listed first.
+function newestFirst(list: PostEntry[]): PostEntry[] {
+  return list
+    .map((post, index) => ({ post, index }))
+    .sort((a, b) => b.post.date.localeCompare(a.post.date) || b.index - a.index)
+    .map(({ post }) => post);
+}
+
 export function postsForCategory(category: PostEntry["category"]): PostEntry[] {
-  return posts.filter((p) => p.category === category);
+  return newestFirst(posts.filter((p) => p.category === category));
+}
+
+export function latestPosts(count: number): PostEntry[] {
+  return postsForCategory("blog").slice(0, count);
 }
 
 // Posts written for one state follow the "<topic>-<state-slug>" slug pattern
