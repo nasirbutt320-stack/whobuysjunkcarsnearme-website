@@ -11,9 +11,9 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/reviews/", label: "Reviews" },
   { href: "/we-buy/", label: "We Buy" },
-  { href: "/area-we-serve/", label: "Area We Serve" },
+  { href: "/area-we-serve/", label: "Locations" },
   { href: "/faqs/", label: "FAQs" },
-  { href: "/gallery/", label: "Gallery" },
+  { href: "/category/blog/", label: "Blog" },
 ];
 
 export const footerCompanyLinks = [
