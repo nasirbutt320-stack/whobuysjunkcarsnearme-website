@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "predev": "node scripts/check-integrity.js",
     "build": "next build",
+    "prebuild": "node scripts/check-integrity.js",
     "start": "next start",
     "lint": "next lint"
   },
