@@ -13,11 +13,20 @@ import { authors } from "@/lib/data/authors";
 // stamping every deploy with the build time made every page look like it had
 // fresh content on every push, which an SEO audit flagged as misleading to
 // crawlers. Blog posts and authors already carry their own real dates below.
-const CONTENT_LAST_UPDATED = new Date("2026-09-25");
+const CONTENT_LAST_UPDATED = new Date("2026-10-26");
+
+// Pages whose content changes every time a post is published (the homepage
+// shows the latest posts, the blog index lists them) use the newest post date.
+const newestPostDate = posts.reduce(
+  (latest, p) => (p.date > latest ? p.date : latest),
+  "1970-01-01"
+);
+const LIST_PAGES_LAST_UPDATED =
+  new Date(newestPostDate) > CONTENT_LAST_UPDATED ? new Date(newestPostDate) : CONTENT_LAST_UPDATED;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [
-    { url: `${site.url}/`, lastModified: CONTENT_LAST_UPDATED, priority: 1 },
+    { url: `${site.url}/`, lastModified: LIST_PAGES_LAST_UPDATED, priority: 1 },
   ];
 
   for (const page of staticPages) {
@@ -43,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
   entries.push(
-    { url: `${site.url}/category/blog/`, lastModified: CONTENT_LAST_UPDATED, priority: 0.4 },
+    { url: `${site.url}/category/blog/`, lastModified: LIST_PAGES_LAST_UPDATED, priority: 0.4 },
     { url: `${site.url}/category/uncategorized/`, lastModified: CONTENT_LAST_UPDATED, priority: 0.3 }
   );
   for (const author of authors) {

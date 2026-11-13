@@ -4,7 +4,8 @@ import Container from "@/components/Container";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 import FaqAccordion from "@/components/FaqAccordion";
-import { PostEntry } from "@/lib/data/posts";
+import { PostEntry, latestPosts, postsForState } from "@/lib/data/posts";
+import { states } from "@/lib/data/states";
 import { blogPostingSchema, faqPageSchema } from "@/lib/schema";
 
 const INLINE_TOKEN = /(\*\*[^*]+\*\*|\[[^\]]+\]\(\/[^)\s]*\))/g;
@@ -28,6 +29,16 @@ function renderInline(text: string) {
 
 export default function PostPage({ post }: { post: PostEntry }) {
   const date = new Date(post.date);
+
+  // Posts written for one state end in that state's slug (e.g. ...-utah).
+  const state = states
+    .filter((s) => post.slug.endsWith(`-${s.slug}`))
+    .sort((a, b) => b.slug.length - a.slug.length)[0];
+  const sameState = state ? postsForState(state.slug).filter((p) => p.slug !== post.slug) : [];
+  const related = [
+    ...sameState,
+    ...latestPosts(20).filter((p) => p.slug !== post.slug && !sameState.includes(p)),
+  ].slice(0, 3);
 
   return (
     <>
@@ -93,6 +104,29 @@ export default function PostPage({ post }: { post: PostEntry }) {
               in minutes.
             </p>
           </div>
+
+          {(related.length > 0 || state) && (
+            <div className="mt-12">
+              <h2 className="text-xl font-bold text-navy-900">More guides</h2>
+              <ul className="mt-4 space-y-3">
+                {state && (
+                  <li>
+                    <Link href={`/${state.slug}/`} className="font-semibold text-gold-600 hover:text-gold-500">
+                      Selling a junk car in {state.name}: pickup details and local info
+                    </Link>
+                  </li>
+                )}
+                {related.map((p) => (
+                  <li key={p.slug}>
+                    <Link href={`/${p.slug}/`} className="font-semibold text-navy-900 hover:text-gold-600">
+                      {p.title}
+                    </Link>
+                    <p className="mt-0.5 text-sm text-navy-500">{p.excerpt}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </Container>
       </section>
 
