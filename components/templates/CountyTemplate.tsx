@@ -12,6 +12,7 @@ import { site } from "@/lib/site";
 import { CountyEntry } from "@/lib/data/counties";
 import { getState } from "@/lib/data/states";
 import { MapPinIcon } from "@/components/icons";
+import { citiesInCounty } from "@/lib/data/areaLinks";
 import {
   pick,
   countyHeroIntro,
@@ -155,6 +156,16 @@ export default function CountyTemplate({ county }: { county: CountyEntry }) {
                 <MapPinIcon className="h-4 w-4 text-gold-500" />
                 All of {state.name}
               </Link>
+              {citiesInCounty(county).map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/${c.slug}/`}
+                  className="flex items-center gap-2 rounded-xl border border-navy-100 bg-white px-4 py-3 text-sm font-semibold text-navy-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold-400 hover:text-gold-600 hover:shadow-card"
+                >
+                  <MapPinIcon className="h-4 w-4 text-gold-500" />
+                  Junk car buyer in {c.name}
+                </Link>
+              ))}
             </div>
           </Container>
         </section>

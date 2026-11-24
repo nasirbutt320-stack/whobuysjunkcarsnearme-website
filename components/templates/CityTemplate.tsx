@@ -1,3 +1,7 @@
+import Link from "next/link";
+import Container from "@/components/Container";
+import { MapPinIcon } from "@/components/icons";
+import { countiesForCity } from "@/lib/data/areaLinks";
 import PageHero from "@/components/PageHero";
 import ProcessSteps from "@/components/ProcessSteps";
 import ContentSection from "@/components/ContentSection";
@@ -114,6 +118,38 @@ export default function CityTemplate({ city }: { city: CityEntry }) {
         title={`Frequently Asked Questions: ${city.name}`}
         items={faqItems}
       />
+
+      {state && (
+        <section className="section bg-white">
+          <Container>
+            <h2 className="text-2xl font-bold text-navy-900 sm:text-3xl">
+              More of {state.name}
+            </h2>
+            <p className="mt-3 max-w-2xl text-navy-500">
+              Our pickup area covers more than {city.name}. See the wider region or the state page.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href={`/${state.slug}/`}
+                className="flex items-center gap-2 rounded-xl border border-navy-100 bg-white px-4 py-3 text-sm font-semibold text-navy-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold-400 hover:text-gold-600 hover:shadow-card"
+              >
+                <MapPinIcon className="h-4 w-4 text-gold-500" />
+                All of {state.name}
+              </Link>
+              {countiesForCity(city).map((co) => (
+                <Link
+                  key={co.slug}
+                  href={`/${co.slug}/`}
+                  className="flex items-center gap-2 rounded-xl border border-navy-100 bg-white px-4 py-3 text-sm font-semibold text-navy-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold-400 hover:text-gold-600 hover:shadow-card"
+                >
+                  <MapPinIcon className="h-4 w-4 text-gold-500" />
+                  {co.name}
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       <AreasServed />
       <CTASection />

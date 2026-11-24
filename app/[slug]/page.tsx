@@ -80,7 +80,9 @@ export async function generateMetadata({
     const countyState = getState(county.stateSlug);
     return {
       title: { absolute: `Junk Car Buyer in ${county.name}${countyState ? `, ${countyState.abbr}` : ""} - Fast Cash Offers` },
-      description: `Sell your junk, wrecked, or unwanted car for cash anywhere in ${county.name}${countyState ? `, ${countyState.name}` : ""}. Free towing and same-day pickup available.`,
+      description: county.places && county.places.length >= 3
+        ? `Sell your junk, wrecked, or unwanted car for cash in ${county.name}${countyState ? `, ${countyState.name}` : ""}, including ${county.places.slice(0, 3).join(", ")}. Free towing and same-day pickup.`
+        : `Sell your junk, wrecked, or unwanted car for cash anywhere in ${county.name}${countyState ? `, ${countyState.name}` : ""}. Free towing and same-day pickup available.`,
       alternates: { canonical: `/${slug}/` },
     };
   }
